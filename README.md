@@ -45,4 +45,4 @@ interface IStorage {
 ```
 
 #### `Persistent`
-It's very simple: if `path` property declared in opts, data is persisted.
+It's very simple: if `path` property declared in opts, data is being persisted.

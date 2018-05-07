@@ -20,4 +20,6 @@ export default class AbstractStorage implements IStorage {
 
     return ttl + Date.now()
   }
+
+  static notImplemented = notImplemented
 }

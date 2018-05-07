@@ -1,10 +1,36 @@
 import AbstractPersistentStorage from '../../src/storage/abstractPersistentStorage'
+import InMemoryStorage from '../../src/storage/inMemoryStorage'
 
 const processCycledRefs = AbstractPersistentStorage.processCycledRefs.bind(AbstractPersistentStorage)
 const stringify = AbstractPersistentStorage.stringify.bind(AbstractPersistentStorage)
 const {parse} = AbstractPersistentStorage
 
 describe('storage/abstractPersistent', () => {
+  describe('constructor', () => {
+    it('returns proper instance', () => {
+      class Storage extends AbstractPersistentStorage {
+        syncFrom () {}
+        syncTo () {}
+      }
+      const storage = new Storage({})
+
+      expect(storage.cache).toBeInstanceOf(InMemoryStorage)
+    })
+  })
+
+  describe('proto', () => {
+    const {syncFrom, syncTo} = AbstractPersistentStorage.prototype
+    const instance = {constructor: AbstractPersistentStorage}
+
+    it('`syncFrom` is not implemented', () => {
+      expect(syncFrom.bind(instance)).toThrow('Not implemented')
+    })
+
+    it('`syncTo` is not implemented', () => {
+      expect(syncTo.bind(instance)).toThrow('Not implemented')
+    })
+  })
+
   describe('static', () => {
     describe('processCycledRefs', () => {
       it('replaces found cycled refs with "<cycled>"', () => {

@@ -53,6 +53,7 @@
     "flow-coverage-report": "^0.5.0",
     "flow-remove-types": "^1.2.3",
     "jest": "^22.4.3",
+    "jest-localstorage-mock": "^2.2.0",
     "semantic-release": "^15.1.7",
     "standard": "^11.0.1"
   },
@@ -79,6 +80,7 @@
     ]
   },
   "jest": {
+    "setupFiles": ["jest-localstorage-mock"],
     "collectCoverage": true,
     "coveragePathIgnorePatterns": [
       "<rootDir>/src/interface.js"
@@ -96,6 +98,7 @@
       "flowtype"
     ],
     "globals": [
+      "localStorage",
       "it",
       "expect",
       "describe",

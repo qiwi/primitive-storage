@@ -3,7 +3,6 @@
 import fs from 'fs'
 import type {IAny, IStorage, IStorageOpts} from '../interface'
 import InMemoryStorage from './inMemoryStorage'
-import type {IData} from './inMemoryStorage'
 import AbstractPersistentStorage from './abstractPersistentStorage'
 
 export const ENCODING = 'utf-8'
@@ -16,14 +15,6 @@ export type IFileStorageOpts = IStorageOpts & {
 export default class PersistentJsonStorage extends AbstractPersistentStorage implements IStorage {
   cache: InMemoryStorage
   opts: IFileStorageOpts
-  constructor (opts: IFileStorageOpts) {
-    super()
-    const data: IData = this.constructor.readFile(opts.path)
-
-    this.opts = opts
-    this.cache = new InMemoryStorage(opts)
-    this.cache.data = data
-  }
 
   get (key: string): IAny {
     return this.cache.get(key)
@@ -31,19 +22,23 @@ export default class PersistentJsonStorage extends AbstractPersistentStorage imp
 
   set (key: string, value: IAny, ttl?: number): void {
     this.cache.set(key, value, ttl)
-    this.sync()
+    this.syncTo()
   }
 
   remove (key: string): void {
     this.cache.remove(key)
-    this.sync()
+    this.syncTo()
   }
 
   reset (): void {
     this.cache.reset()
   }
 
-  sync () {
+  syncFrom () {
+    this.cache.data = this.constructor.readFile(this.opts.path)
+  }
+
+  syncTo () {
     this.constructor.writeFile(this.opts.path, this.cache.data)
   }
 
