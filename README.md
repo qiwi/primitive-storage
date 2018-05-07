@@ -1,6 +1,6 @@
 # Primitive storage
 
-Storage impl for basic purposes.
+Storage for basic purposes.
 
 #### Motivation
 In 2018 it's easier to write own storage implementation than to find a suitable one.
@@ -44,5 +44,5 @@ interface IStorage {
     storage.get('foo')  // undefined
 ```
 
-#### `Persistent`
+#### Persistent data
 It's very simple: if `path` property declared in opts, data is being persisted.

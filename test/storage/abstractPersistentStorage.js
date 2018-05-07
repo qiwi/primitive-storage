@@ -25,8 +25,8 @@ describe('storage/abstractPersistent', () => {
       class Storage extends AbstractPersistentStorage {
         static read (path) { return 'read' + path + persisted }
         static write (path, data) { persisted = 'write' + path + data }
-        static stringify(data) { return 'stringified' + data}
-        static parse(data) { return 'parsed' + data }
+        static stringify (data) { return 'stringified' + data }
+        static parse (data) { return 'parsed' + data }
       }
       const path = 'foo'
       const storage = new Storage({path})

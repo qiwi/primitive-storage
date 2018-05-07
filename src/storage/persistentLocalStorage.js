@@ -12,7 +12,7 @@ export default class PersistentLocalStorage extends AbstractPersistentStorage im
   cache: InMemoryStorage
   opts: IStorageOpts
 
-  constructor(opts: IStorageOpts = {}) {
+  constructor (opts: IStorageOpts = {}) {
     const path = PREFIX + (opts.path || DEFAULT_PATH)
     const _opts = Object.assign(opts, {path})
 

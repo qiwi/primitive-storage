@@ -81,6 +81,7 @@
   },
   "jest": {
     "setupFiles": ["jest-localstorage-mock"],
+    "testEnvironment" : "node",
     "collectCoverage": true,
     "coveragePathIgnorePatterns": [
       "<rootDir>/src/interface.js"
@@ -98,6 +99,7 @@
       "flowtype"
     ],
     "globals": [
+      "jest",
       "localStorage",
       "it",
       "expect",
