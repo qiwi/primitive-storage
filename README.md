@@ -13,7 +13,7 @@ In 2018 it's easier to write own storage implementation than to find a suitable 
 * Optional TTL
 * Lazy compaction
 * Cycled refs handling (JSON.stringify, you know)
-* Browser and nodejs runtime support
+* Both browser and server runtime support
 
 #### Install
 ```bash
