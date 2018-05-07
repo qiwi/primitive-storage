@@ -50,6 +50,7 @@ describe('storage/json-file', () => {
       it('drops entry', () => {
         storage.remove('foo')
         expect(storage.get('foo')).toBeUndefined()
+        expect(JSON.parse(fs.readFileSync(PATH)).foo).toBeUndefined()
       })
     })
 
@@ -58,26 +59,26 @@ describe('storage/json-file', () => {
         storage.reset()
         expect(storage.get('baz')).toBeUndefined()
         expect(storage.cache.data).toEqual({})
+        expect(JSON.parse(fs.readFileSync(PATH))).toEqual({})
       })
     })
   })
 
   describe('static', () => {
-    describe('writeFile', () => {
+    describe('write', () => {
       it('persists data to file', () => {
         const data = {baz: 'qux'}
-        data.self = data
 
-        PersistentJsonFileStorage.writeFile(PATH, data)
-        expect(fs.readFileSync(PATH, ENCODING)).toBe('{"baz":"qux","self":"<cycled>"}')
+        PersistentJsonFileStorage.write(PATH, JSON.stringify(data))
+        expect(fs.readFileSync(PATH, ENCODING)).toBe('{"baz":"qux"}')
       })
     })
 
-    describe('readFile', () => {
+    describe('read', () => {
       it('reads and parses file data', () => {
         reset()
 
-        expect(PersistentJsonFileStorage.readFile(PATH)).toEqual({foo: {exp: null, value: 'bar'}})
+        expect(PersistentJsonFileStorage.read(PATH)).toEqual(JSON.stringify({foo: {value: 'bar', exp: null}}))
       })
     })
   })

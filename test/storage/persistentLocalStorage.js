@@ -1,8 +1,9 @@
-import PersistentLocalStorage from '../../src/storage/persistentLocalStorage'
+import PersistentLocalStorage, {PREFIX, DEFAULT_PATH} from '../../src/storage/persistentLocalStorage'
 import InMemoryStorage from '../../src/storage/inMemoryStorage'
 import type {IData} from '../../src/storage/inMemoryStorage'
 
-const path = '__@@scope_prefix__'
+const path = PREFIX + DEFAULT_PATH
+const ls = localStorage
 
 describe('storage/local', () => {
   describe('constructor', () => {
@@ -15,5 +16,14 @@ describe('storage/local', () => {
     })
   })
 
-  describe('proto', () => {})
+  describe('proto', () => {
+    const data = {foo: 'bar'}
+    ls.setItem('')
+
+    describe('syncFrom', () => {
+      it('gets value from localStorage', () => {
+
+      })
+    })
+  })
 })

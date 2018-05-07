@@ -16,12 +16,39 @@ export default class AbstractPersistentStorage extends AbstractStorage implement
     this.syncFrom()
   }
 
-  syncFrom () {
-    this.constructor.notImplemented()
+  get (key: string): IAny {
+    return this.cache.get(key)
   }
 
-  syncTo () {
-    this.constructor.notImplemented()
+  set (key: string, value: IAny, ttl?: number): void {
+    this.cache.set(key, value, ttl)
+    this.syncTo()
+  }
+
+  remove (key: string): void {
+    this.cache.remove(key)
+    this.syncTo()
+  }
+
+  reset (): void {
+    this.cache.reset()
+    this.syncTo()
+  }
+
+  syncFrom (): void {
+    this.cache.data = this.constructor.parse(this.constructor.read(this.opts.path)) || {}
+  }
+
+  syncTo (): void {
+    this.constructor.write(this.opts.path, this.constructor.stringify(this.cache.data))
+  }
+
+  static write (path: string, data: string) {
+    this.notImplemented()
+  }
+
+  static read (path: string): IAny {
+    this.notImplemented()
   }
 
   static stringify (value: IAny): string {

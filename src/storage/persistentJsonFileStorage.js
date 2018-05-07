@@ -16,37 +16,11 @@ export default class PersistentJsonStorage extends AbstractPersistentStorage imp
   cache: InMemoryStorage
   opts: IFileStorageOpts
 
-  get (key: string): IAny {
-    return this.cache.get(key)
+  static write (path: string, data: string) {
+    fs.writeFileSync(path, data, ENCODING)
   }
 
-  set (key: string, value: IAny, ttl?: number): void {
-    this.cache.set(key, value, ttl)
-    this.syncTo()
-  }
-
-  remove (key: string): void {
-    this.cache.remove(key)
-    this.syncTo()
-  }
-
-  reset (): void {
-    this.cache.reset()
-  }
-
-  syncFrom () {
-    this.cache.data = this.constructor.readFile(this.opts.path)
-  }
-
-  syncTo () {
-    this.constructor.writeFile(this.opts.path, this.cache.data)
-  }
-
-  static writeFile (path: string, data: IAny) {
-    fs.writeFileSync(path, this.stringify(data), ENCODING)
-  }
-
-  static readFile (path: string): IAny {
-    return this.parse(fs.readFileSync(path, ENCODING))
+  static read (path: string): IAny {
+    return fs.readFileSync(path, ENCODING)
   }
 }
