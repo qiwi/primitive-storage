@@ -1,7 +1,6 @@
 import AbstractPersistentStorage from '../../src/storage/abstractPersistentStorage'
 import InMemoryStorage from '../../src/storage/inMemoryStorage'
 
-const processCycledRefs = AbstractPersistentStorage.processCycledRefs.bind(AbstractPersistentStorage)
 const stringify = AbstractPersistentStorage.stringify.bind(AbstractPersistentStorage)
 const write = AbstractPersistentStorage.write.bind(AbstractPersistentStorage)
 const read = AbstractPersistentStorage.read.bind(AbstractPersistentStorage)
@@ -81,34 +80,6 @@ describe('storage/abstractPersistent', () => {
   })
 
   describe('static', () => {
-    describe('processCycledRefs', () => {
-      it('replaces found cycled refs with "<cycled>"', () => {
-        class Foo {}
-        Foo.prototype.quux = 'quux'
-        const foo = new Foo()
-
-        Object.assign(foo, {
-          bar: {
-            baz: {}
-          },
-          qux: 1
-        })
-
-        foo.bar.baz.qux = foo
-        foo.baz = foo.bar.baz
-
-        expect(processCycledRefs(foo)).toEqual({
-          bar: {
-            baz: {
-              qux: '<cycled>'
-            }
-          },
-          baz: '<cycled>',
-          qux: 1
-        })
-      })
-    })
-
     describe('stringify', () => {
       it('transforms object to JSON string', () => {
         expect(stringify({foo: 'bar'})).toEqual('{"foo":"bar"}')
