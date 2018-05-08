@@ -45,4 +45,7 @@ interface IStorage {
 ```
 
 #### Persistent data
-It's very simple: if `path` property declared in opts, data is being persisted.
+It's very simple: if `path` property declared in opts, data is being persisted. In case of Nodejs runtime, data would be saved as json file. Browser persists the state to localStorage.
+```javascript
+    const storage = factory({path: './data.json'})
+```
