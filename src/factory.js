@@ -1,27 +1,27 @@
 // @flow
 
 import type {IStorage, IStorageOpts, IAny} from './interface'
+import InMemoryStorage from './storage/inMemoryStorage'
+import PersistentLocalStorage from './storage/persistentLocalStorage'
+import PersistentJsonFileStorage from './storage/persistentJsonFileStorage'
+
 type IOpts = IStorageOpts & {
   path?: ?string
 }
 type IWindow = {document: IAny} | void
 
-module.exports = (opts: IOpts = {}): IStorage => {
-  const Constructor = loadConstructor(opts)
+export default (opts: IOpts = {}): IStorage => {
+  const Constructor = getStorageConstructor(opts)
 
   return new Constructor(opts)
 }
 
-function loadConstructor(opts: IOpts): Function {
-  let path = './storage/inMemoryStorage'
-
-  if (opts.path) {
-    path = isBrowser()
-      ? './storage/persistentLocalStorage'
-      : './storage/persistentJsonFileStorage'
-  }
-
-  return require(path).default
+function getStorageConstructor(opts: IOpts): Function {
+  return !opts.path
+    ? InMemoryStorage
+    : isBrowser()
+      ? PersistentLocalStorage
+      : PersistentJsonFileStorage
 }
 
 function isBrowser() {

@@ -2,18 +2,21 @@
   "name": "@antongolub/primitive-storage",
   "version": "0.0.0",
   "description": "Primitive storage for basic purposes",
-  "main": "dist/index.js",
+  "main": "dist/bundle.es5.js",
   "scripts": {
     "flow": "flow",
     "flow_coverage": "flow-coverage-report -i 'src/**/*.js' -t html -t json -t text --threshold 90",
-    "build": "BABEL_ENV=production babel src --out-dir dist",
     "lint": "standard src/**/*.js test/**/*.js",
-    "jest": "jest -w 1",
-    "test": "npm run flow && npm run flow_coverage && npm run lint && npm run jest",
+    "jest": "BABEL_ENV=test jest -w 1",
+    "test": "npm run flow && npm run flow_coverage && npm run lint && npm run build_with_rollup && npm run jest",
     "doc": "esdoc",
     "test_with_report": "npm test && npm run codeclimate_push && npm run coveralls_push",
     "codeclimate_push": "codeclimate-test-reporter < ./coverage/lcov.info",
-    "coveralls_push": "cat ./coverage/lcov.info | coveralls"
+    "coveralls_push": "cat ./coverage/lcov.info | coveralls",
+    "build_with_babel": "BABEL_ENV=production babel src --out-dir dist",
+    "build_with_rollup": "npm run rollup && npm run bundle_to_es5",
+    "rollup": "rollup -c",
+    "bundle_to_es5": "BABEL_ENV=production babel dist/bundle.js --out-file dist/bundle.es5.js"
   },
   "repository": {
     "type": "git",
@@ -32,29 +35,36 @@
   },
   "homepage": "https://github.com/antongolub/primitive-storage#readme",
   "devDependencies": {
-    "@babel/cli": "^7.0.0-beta.44",
-    "@babel/core": "^7.0.0-beta.44",
-    "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.44",
-    "@babel/plugin-transform-flow-strip-types": "^7.0.0-beta.44",
-    "@babel/plugin-transform-runtime": "^7.0.0-beta.44",
-    "@babel/polyfill": "^7.0.0-beta.44",
-    "@babel/preset-env": "^7.0.0-beta.44",
-    "@babel/preset-flow": "^7.0.0-beta.44",
-    "@semantic-release/changelog": "^2.0.1",
-    "@semantic-release/git": "^4.0.1",
+    "@babel/cli": "^7.0.0-beta.46",
+    "@babel/core": "^7.0.0-beta.46",
+    "@babel/plugin-external-helpers": "^7.0.0-beta.46",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.46",
+    "@babel/plugin-transform-flow-strip-types": "^7.0.0-beta.46",
+    "@babel/plugin-transform-runtime": "^7.0.0-beta.46",
+    "@babel/polyfill": "^7.0.0-beta.46",
+    "@babel/preset-env": "^7.0.0-beta.46",
+    "@babel/preset-flow": "^7.0.0-beta.46",
+    "@semantic-release/changelog": "^2.0.2",
+    "@semantic-release/git": "^4.0.3",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^8.2.3",
+    "babel-plugin-external-helpers": "^6.22.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-preset-minify": "^0.4.0",
+    "babel-preset-es2015-rollup": "^3.0.0",
+    "babel-preset-minify": "^0.4.1",
     "codeclimate-test-reporter": "^0.5.0",
-    "coveralls": "^3.0.0",
-    "eslint-plugin-flowtype": "^2.46.1",
+    "coveralls": "^3.0.1",
+    "eslint-plugin-flowtype": "^2.46.3",
     "flow-bin": "^0.71.0",
     "flow-coverage-report": "^0.5.0",
     "flow-remove-types": "^1.2.3",
     "jest": "^22.4.3",
     "jest-localstorage-mock": "^2.2.0",
-    "semantic-release": "^15.1.7",
+    "rollup": "^0.58.2",
+    "rollup-plugin-babel": "^4.0.0-beta.4",
+    "rollup-plugin-flow": "^1.1.1",
+    "rollup-plugin-node-resolve": "^3.3.0",
+    "semantic-release": "^15.3.1",
     "standard": "^11.0.1"
   },
   "files": [
@@ -80,8 +90,10 @@
     ]
   },
   "jest": {
-    "setupFiles": ["jest-localstorage-mock"],
-    "testEnvironment" : "node",
+    "setupFiles": [
+      "jest-localstorage-mock"
+    ],
+    "testEnvironment": "node",
     "collectCoverage": true,
     "coveragePathIgnorePatterns": [
       "<rootDir>/src/interface.js"
@@ -121,5 +133,8 @@
         "onlyFilesWithFlowAnnotation": true
       }
     }
+  },
+  "dependencies": {
+    "rollup-plugin-uglify": "^3.0.0"
   }
 }

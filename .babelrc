@@ -1,8 +1,4 @@
 {
-  "presets": [
-    "@babel/preset-flow",
-    "@babel/preset-env"
-  ],
   "plugins": [
     "@babel/plugin-proposal-object-rest-spread",
     "transform-class-properties"
@@ -11,7 +7,18 @@
   "ignore": [
     "interface.js"
   ],
+
   "env": {
+    "test": {
+      "presets": [
+        "@babel/preset-flow",
+        "@babel/preset-env"
+      ],
+      "plugins": [
+        "@babel/plugin-proposal-object-rest-spread",
+        "transform-class-properties"
+      ]
+    },
     "production": {
       "presets": [
         ["@babel/preset-env", {
@@ -29,3 +36,4 @@
     }
   }
 }
+
