@@ -76,5 +76,35 @@ describe('storage/in-memory', () => {
         expect(storage.data).toEqual({})
       })
     })
+
+    describe('resolve', () => {
+      it('returns actual entry value', () => {
+        storage.set('foo', 'bar')
+
+        expect(storage.resolve({value: 'bar', exp: Infinity}, 'foo')).toBe('bar')
+        expect(storage.get('foo')).toBe('bar')
+      })
+
+      it('drops entry if ttl expired', () => {
+        storage.set('foo', 'bar')
+
+        expect(storage.resolve({value: 'bar', exp: 0}, 'foo')).toBeUndefined()
+        expect(storage.get('foo')).toBeUndefined()
+      })
+    })
+
+    describe('compact', () => {
+      it('drops all expired entries', () => {
+        storage.data = {
+          foo: {value: 'bar', exp: Infinity},
+          baz: {value: 'qux', exp: 0}
+        }
+        storage.compact()
+
+        expect(storage.data).toEqual({
+          foo: {value: 'bar', exp: Infinity}
+        })
+      })
+    })
   })
 })

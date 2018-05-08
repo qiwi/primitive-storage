@@ -3,7 +3,7 @@
 import AbstractStorage from './abstractStorage'
 import InMemoryStorage from './inMemoryStorage'
 import {processCycledRefs} from '../util'
-import type {IAny, IObject, IStorage, IStorageOpts} from '../interface'
+import type {IAny, IStorage, IStorageOpts} from '../interface'
 
 export default class AbstractPersistentStorage extends AbstractStorage implements IStorage {
   opts: IStorageOpts

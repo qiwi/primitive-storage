@@ -27,11 +27,7 @@ export default class InMemoryStorage extends AbstractStorage implements IStorage
       return undefined
     }
 
-    if (typeof found.exp === 'number' && found.exp <= Date.now()) {
-      return this.remove(key)
-    }
-
-    return found.value
+    return this.resolve(found, key)
   }
 
   set (key: string, value: IAny, ttl?: number): void {
@@ -47,5 +43,21 @@ export default class InMemoryStorage extends AbstractStorage implements IStorage
 
   reset (): void {
     this.data = {}
+  }
+
+  resolve (entry: IEntry, key: string): ?IAny {
+    if (typeof entry.exp === 'number' && entry.exp <= Date.now()) {
+      return this.remove(key)
+    }
+
+    return entry.value
+  }
+
+  compact (): void {
+    for (let key in this.data) {
+      if (this.data.hasOwnProperty(key)) {
+        this.resolve(this.data[key], key)
+      }
+    }
   }
 }
