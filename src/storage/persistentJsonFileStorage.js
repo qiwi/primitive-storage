@@ -1,6 +1,5 @@
 // @flow
 
-import fs from 'fs'
 import type {IAny, IStorage, IStorageOpts} from '../interface'
 import InMemoryStorage from './inMemoryStorage'
 import AbstractPersistentStorage from './abstractPersistentStorage'
@@ -17,10 +16,10 @@ export default class PersistentJsonStorage extends AbstractPersistentStorage imp
   opts: IFileStorageOpts
 
   static write (path: string, data: string) {
-    fs.writeFileSync(path, data, ENCODING)
+    require('fs').writeFileSync(path, data, ENCODING)
   }
 
   static read (path: string): IAny {
-    return fs.readFileSync(path, ENCODING)
+    return require('fs').readFileSync(path, ENCODING)
   }
 }

@@ -1,6 +1,6 @@
 # Primitive storage
 
-Storage for basic purposes.
+Storage for basic purposes.  
 
 #### Motivation
 In 2018 it's easier to write own storage implementation than to find a suitable one.
@@ -33,9 +33,9 @@ interface IStorage {
 
 #### Usage examples
 ```javascript
-    import {InMemoryStorage} from '@antongolub/primitive-storage'
+    import factory from '@antongolub/primitive-storage'
 
-    const storage = new InMemoryStorage({defaultTtl: 60000})
+    const storage = factory({defaultTtl: 60000})
 
     storage.set('foo', 'bar')
     storage.get('foo')  // 'bar'
