@@ -30,6 +30,10 @@ interface IStorage {
   reset(): void
 }
 ```
+Also common aliases added for convenience:
+* `put` = `set`
+* `del` = `remove`
+* `clear` = `reset`
 
 #### Usage examples
 ```javascript

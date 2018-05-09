@@ -22,6 +22,27 @@ describe('storage/abstract', () => {
     it('`reset` is not implemented', () => {
       expect(() => storage.reset()).toThrow('Not implemented')
     })
+
+    it('`put` does same as `set`', () => {
+      const set = jest.spyOn(storage, 'set')
+
+      expect(() => storage.put('foo', 'bar')).toThrow()
+      expect(set).toHaveBeenCalledWith('foo', 'bar')
+    })
+
+    it('`del` works as like `remove`', () => {
+      const remove = jest.spyOn(storage, 'remove')
+
+      expect(() => storage.del('foo')).toThrow()
+      expect(remove).toHaveBeenCalledWith('foo')
+    })
+
+    it('`clear` as `reset` alias', () => {
+      const reset = jest.spyOn(storage, 'reset')
+
+      expect(() => storage.clear()).toThrow()
+      expect(reset).toHaveBeenCalled()
+    })
   })
 
   describe('static', () => {

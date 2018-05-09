@@ -13,6 +13,11 @@ export default class AbstractStorage implements IStorage {
   remove (key: string): void { notImplemented() }
   reset (): void { notImplemented() }
 
+  // aliases
+  put (...args: IAny[]): void { this.set(...args) }
+  del (...args: IAny[]): void { this.remove(...args) }
+  clear (): void { this.reset() }
+
   static getExpirationDate (ttl?: number): number | null {
     if (!ttl) {
       return null
