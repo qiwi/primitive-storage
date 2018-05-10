@@ -13,14 +13,23 @@ describe('storage/in-memory', () => {
     })
   })
 
-  describe('static', () => {
-    describe('getExpirationDate', () => {
-      it('appends ttl to Date.now()', () => {
-        expect(getExpirationDate(100)).toBe(100 + Date.now())
-      })
+  describe('options', () => {
+    describe('compactTimer', () => {
+      it('wraps `compact` with repeater', done => {
+        const compactTimer = 20
+        const storage = new InMemoryStorage({compactTimer})
 
-      it('returns null otherwise', () => {
-        expect(getExpirationDate()).toBeNull()
+        storage.data = {
+          foo: {value: 'bar', exp: Infinity},
+          baz: {value: 'qux', exp: Date.now() + 10}
+        }
+
+        setTimeout(() => {
+          expect(storage.data).toEqual({
+            foo: {value: 'bar', exp: Infinity}
+          })
+          done()
+        }, 30)
       })
     })
   })

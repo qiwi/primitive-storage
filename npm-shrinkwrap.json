@@ -4,6 +4,11 @@
   "lockfileVersion": 1,
   "requires": true,
   "dependencies": {
+    "@antongolub/repeater": {
+      "version": "1.1.2",
+      "resolved": "https://registry.npmjs.org/@antongolub/repeater/-/repeater-1.1.2.tgz",
+      "integrity": "sha512-YmqzncTARN3W2zk2ojxI6m1G7lxFmGYW2yhMEvgd6UedEBop5q2v9tp3um12vjRvJxtChjdSCYBqiFvQKBAk1A=="
+    },
     "@babel/cli": {
       "version": "7.0.0-beta.46",
       "resolved": "https://registry.npmjs.org/@babel/cli/-/cli-7.0.0-beta.46.tgz",

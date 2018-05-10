@@ -1,6 +1,7 @@
 // @flow
 
 import type {IObject, IAny} from './interface'
+import repeater from '@antongolub/repeater'
 
 export function debounce(fn: Function, delay?: number, context?: IAny): Function {
   if (!delay) {
@@ -37,3 +38,5 @@ export function processCycledRefs (obj: IObject, verified?: IObject[] = []): IOb
 
   return obj
 }
+
+export {repeater}

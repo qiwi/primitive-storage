@@ -1,4 +1,5 @@
 // @flow
+import {repeater} from '../util'
 import AbstractStorage from './abstractStorage'
 import type {IAny, IStorage, IStorageOpts, IEntry} from '../interface'
 
@@ -9,9 +10,17 @@ export type IData = {
 export default class InMemoryStorage extends AbstractStorage implements IStorage {
   opts: IStorageOpts
   data: IData
+
   constructor (opts: IStorageOpts = {}) {
     super(opts)
+    const {compactTimer} = opts
+
     this.reset()
+
+    if (compactTimer) {
+      this.compact = repeater(this.compact.bind(this), compactTimer)
+      setTimeout(this.compact, compactTimer) // TODO move this hook to repeater
+    }
   }
 
   get (key: string): IAny {
@@ -56,7 +65,7 @@ export default class InMemoryStorage extends AbstractStorage implements IStorage
     return entry.value
   }
 
-  compact (): void {
+  compact = (): void => {
     for (let key in this.data) {
       if (this.data.hasOwnProperty(key)) {
         this.resolve(this.data[key], key)
