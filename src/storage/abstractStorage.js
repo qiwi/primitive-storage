@@ -8,6 +8,9 @@ function notImplemented (): void {
 
 export default class AbstractStorage implements IStorage {
   opts: IStorageOpts
+  constructor (opts: IStorageOpts = {}) {
+    this.opts = opts
+  }
   get (key: string): IAny { notImplemented() }
   set (key: string, value: IAny, ttl?: number): void { notImplemented() }
   remove (key: string): void { notImplemented() }

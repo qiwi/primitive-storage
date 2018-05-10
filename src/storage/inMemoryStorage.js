@@ -10,8 +10,7 @@ export default class InMemoryStorage extends AbstractStorage implements IStorage
   opts: IStorageOpts
   data: IData
   constructor (opts: IStorageOpts = {}) {
-    super()
-    this.opts = opts
+    super(opts)
     this.reset()
   }
 

@@ -10,9 +10,8 @@ export default class AbstractPersistentStorage extends AbstractStorage implement
   cache: InMemoryStorage
 
   constructor (opts: IAny) {
-    super()
+    super(opts)
 
-    this.opts = opts
     this.cache = new InMemoryStorage(opts)
     this.syncFrom()
   }
