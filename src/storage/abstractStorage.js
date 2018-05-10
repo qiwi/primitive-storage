@@ -1,6 +1,6 @@
 // @flow
 
-import type {IStorage, IStorageOpts, IAny} from '../interface'
+import type {IStorage, IStorageOpts, IAny, IEntry} from '../interface'
 
 function notImplemented (): void {
   throw new Error('Not implemented')
@@ -12,6 +12,7 @@ export default class AbstractStorage implements IStorage {
   set (key: string, value: IAny, ttl?: number): void { notImplemented() }
   remove (key: string): void { notImplemented() }
   reset (): void { notImplemented() }
+  size (): ?number { notImplemented() }
 
   // aliases
   put (...args: IAny[]): void { this.set(...args) }
@@ -24,6 +25,10 @@ export default class AbstractStorage implements IStorage {
     }
 
     return ttl + Date.now()
+  }
+
+  static isExpiredEntry (entry: IEntry): boolean {
+    return typeof entry.exp === 'number' && entry.exp <= Date.now()
   }
 
   static notImplemented = notImplemented

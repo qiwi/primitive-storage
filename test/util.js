@@ -15,6 +15,12 @@ describe('util', () => {
         done()
       }, 10)
     })
+
+    it('factory return same fn if no delay specified', () => {
+      const fn = () => {}
+
+      expect(debounce(fn)).toBe(fn)
+    })
   })
 
   describe('processCycledRefs', () => {

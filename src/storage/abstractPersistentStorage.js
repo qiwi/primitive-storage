@@ -36,6 +36,15 @@ export default class AbstractPersistentStorage extends AbstractStorage implement
     this.syncTo()
   }
 
+  size (): number {
+    return this.cache.size()
+  }
+
+  compact (): void {
+    this.cache.compact()
+    this.syncTo()
+  }
+
   syncFrom (): void {
     this.cache.data = this.constructor.parse(this.constructor.read(this.opts.path)) || {}
   }

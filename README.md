@@ -11,8 +11,10 @@ In 2018 it's easier to write own storage implementation than to find a suitable 
 #### What's needed
 * Key-Value scheme
 * Optional TTL
-* Lazy compaction
+* Optional value cloning
 * Cycled refs handling (JSON.stringify, you know)
+* Sync throttling
+* Periodic compaction
 * Both browser and server runtime support
 
 #### Install
@@ -21,7 +23,7 @@ In 2018 it's easier to write own storage implementation than to find a suitable 
     yarn add @antongolub/primitive-storage
 ```
 
-#### `API`
+#### Basic API
 ```javascript
 interface IStorage {
   get(key: string): any,
@@ -35,7 +37,7 @@ Also common aliases added for convenience:
 * `del` = `remove`
 * `clear` = `reset`
 
-#### Usage examples
+#### Usage example
 ```javascript
     import factory from '@antongolub/primitive-storage'
 
@@ -48,8 +50,25 @@ Also common aliases added for convenience:
     storage.get('foo')  // undefined
 ```
 
+#### Configuration
+
+| Option        | Type    | Def     | Description                                            |
+|---------------|---------|---------|--------------------------------------------------------|
+| defaultTtl    | number  | -       | If defined, the value would be applied as default ttl<br/>for every `set()` call |
+| path          | string  | -       | Filepath (NodeJS) or localStorage scope (Browser)      |
+| syncTimer     | number  | 100     | Delay for target `path` sync to prevent I/O overheat   |
+| compactTimer  | number  | -       | Period (ms) of automated `compact` method invocation<br/>If undefined, no periodic task is running |
+| clone         | bool/fn | false   | `true` means that values are copied to storage on set.<br/>Default copier (JSON.parse(JSON.str(...))) may be replaced <br/>with custom.
+
+
 #### Persistent data
-It's very simple: if `path` property declared in opts, data is being persisted. In case of Nodejs runtime, data would be saved as json file. Browser persists the state to localStorage.
+It's very simple: if `path` property declared in opts, the data is being persisted: 
+* In case of NodeJS runtime, the data would be saved as json file. 
+* Browser operates with localStorage.
 ```javascript
     const storage = factory({path: './data.json'})
 ```
+
+#### Compaction
+Current impl is dumb: every `n` milliseconds the job filters out expired entries from the storage.
+You're able to set `compactTimer` in storage opts, or just trigger `compact` method by hand.

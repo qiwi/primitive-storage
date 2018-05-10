@@ -1,11 +1,6 @@
 // @flow
 import AbstractStorage from './abstractStorage'
-import type {IAny, IStorage, IStorageOpts} from '../interface'
-
-export type IEntry = {
-  value: IAny,
-  exp: number | null
-}
+import type {IAny, IStorage, IStorageOpts, IEntry} from '../interface'
 
 export type IData = {
   [key: string]: IEntry
@@ -41,12 +36,21 @@ export default class InMemoryStorage extends AbstractStorage implements IStorage
     delete this.data[key]
   }
 
+  size (): number {
+    // $FlowFixMe Object.values() returns mixed[] https://github.com/facebook/flow/issues/2221
+    const entries: IEntry[] = Object.values(this.data)
+
+    return entries
+      .filter(this.constructor.isExpiredEntry)
+      .length
+  }
+
   reset (): void {
     this.data = {}
   }
 
   resolve (entry: IEntry, key: string): ?IAny {
-    if (typeof entry.exp === 'number' && entry.exp <= Date.now()) {
+    if (this.constructor.isExpiredEntry(entry)) {
       return this.remove(key)
     }
 

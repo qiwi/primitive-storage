@@ -76,6 +76,20 @@ describe('storage/abstractPersistent', () => {
         expect(storage.reset()).toBeUndefined()
         expect(syncTo).toHaveBeenCalled()
       })
+
+      it('`size` returns the count of non-expired cached entries', () => {
+        storage.cache.data = {
+          foo: {value: 'bar', exp: Infinity},
+          baz: {value: 'qux', exp: 0}
+        }
+
+        expect(storage.size()).toBe(1)
+      })
+
+      it('`compact` throws away expired entries ant triggers `syncTo`', () => {
+        expect(storage.compact()).toBeUndefined()
+        expect(syncTo).toHaveBeenCalled()
+      })
     })
   })
 

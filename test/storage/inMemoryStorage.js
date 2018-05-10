@@ -106,5 +106,16 @@ describe('storage/in-memory', () => {
         })
       })
     })
+
+    describe('size', () => {
+      it('counts non-expired entries in storage', () => {
+        storage.data = {
+          foo: {value: 'bar', exp: Infinity},
+          baz: {value: 'qux', exp: 0}
+        }
+
+        expect(storage.size()).toBe(1)
+      })
+    })
   })
 })

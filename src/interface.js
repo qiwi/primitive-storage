@@ -2,6 +2,11 @@
 
 export type IAny = any
 
+export type IEntry = {
+  value: IAny,
+  exp: number | null
+}
+
 export type IStorageOpts = {
   defaultTtl?: number,
   debounce?: number,
