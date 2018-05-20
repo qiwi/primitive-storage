@@ -20,7 +20,7 @@ export default {
     }),
     commonjs({
       namedExports: {
-        'node_modules/push-it-to-the-limit/dist/bundle.js': [ 'repeat', 'debounce' ]
+        'node_modules/push-it-to-the-limit/dist/bundle.es5.js': [ 'repeat', 'debounce' ]
       }
     })
   ],
