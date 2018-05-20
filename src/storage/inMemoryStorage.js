@@ -1,5 +1,5 @@
 // @flow
-import {repeater} from '../util'
+import {repeat} from '../util'
 import AbstractStorage from './abstractStorage'
 import type {IAny, IStorage, IStorageOpts, IEntry} from '../interface'
 
@@ -18,8 +18,8 @@ export default class InMemoryStorage extends AbstractStorage implements IStorage
     this.reset()
 
     if (compactTimer) {
-      this.compact = repeater(this.compact.bind(this), compactTimer)
-      setTimeout(this.compact, compactTimer) // TODO move this hook to repeater
+      this.compact = repeat(this.compact.bind(this), compactTimer)
+      setTimeout(this.compact, compactTimer)
     }
   }
 

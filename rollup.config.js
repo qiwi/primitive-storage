@@ -13,11 +13,17 @@ export default {
   },
   plugins: [
     flow(),
-    resolve(),
+    resolve({
+      jsnext: true
+    }),
     babel({
       exclude: 'node_modules/**', // only transpile our source code
     }),
-    commonjs(),
+    commonjs({
+      namedExports: {
+        'node_modules/push-it-to-the-limit/dist/bundle.js': [ 'repeat', 'debounce' ]
+      }
+    }),
     uglify()
   ],
   external: ['fs']

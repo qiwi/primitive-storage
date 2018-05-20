@@ -1,7 +1,5 @@
 import InMemoryStorage from '../../src/storage/inMemoryStorage'
 
-const {getExpirationDate} = InMemoryStorage
-
 describe('storage/in-memory', () => {
   describe('constructor', () => {
     it('returns proper instance', () => {
