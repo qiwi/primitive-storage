@@ -1,5 +1,7 @@
 # Primitive storage
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/qiwi/primitive-storage.svg)](https://greenkeeper.io/)
+
 Storage for basic purposes.  
 
 #### Motivation
