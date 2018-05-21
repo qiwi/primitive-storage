@@ -1,6 +1,6 @@
 {
   "name": "@qiwi/primitive-storage",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Primitive storage for basic purposes",
   "main": "dist/bundle.es5.js",
   "scripts": {
