@@ -1,6 +1,6 @@
 import path from 'path'
 import fs from 'fs'
-import PersistentJsonFileStorage, {ENCODING} from '../../src/storage/PersistentJsonFileStorage'
+import PersistentJsonFileStorage, {ENCODING} from '../../src/storage/persistentJsonFileStorage'
 import InMemoryStorage from '../../src/storage/inMemoryStorage'
 
 const PATH = path.resolve(__dirname, './data.json')

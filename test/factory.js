@@ -1,8 +1,8 @@
 import path from 'path'
 import factory from '../src'
-import InMemoryStorage from '../src/storage/InMemoryStorage'
-import PersistentJsonFileStorage from '../src/storage/PersistentJsonFileStorage'
-import PersistentLocalStorage from '../src/storage/PersistentLocalStorage'
+import InMemoryStorage from '../src/storage/inMemoryStorage'
+import PersistentJsonFileStorage from '../src/storage/persistentJsonFileStorage'
+import PersistentLocalStorage from '../src/storage/persistentLocalStorage'
 
 describe('factory', () => {
   it('returns `PersistentJsonFileStorage` instance if `path` opt defined for Nodejs runtime', () => {
