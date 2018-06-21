@@ -1,5 +1,5 @@
 // @flow
-import {repeat} from '../util'
+import {repeat, clone} from '../util'
 import AbstractStorage from './abstractStorage'
 import type {IAny, IStorage, IStorageOpts, IEntry} from '../interface'
 
@@ -36,8 +36,11 @@ export default class InMemoryStorage extends AbstractStorage implements IStorage
   set (key: string, value: IAny, ttl?: number): void {
     const _ttl = ttl || this.opts.defaultTtl
     const exp = this.constructor.getExpirationDate(_ttl)
+    const _value = this.opts.clone === true
+      ? value
+      : clone(value)
 
-    this.data[key] = {value, exp}
+    this.data[key] = {value: _value, exp}
   }
 
   remove (key: string): void {

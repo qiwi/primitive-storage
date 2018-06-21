@@ -1,4 +1,4 @@
-import {processCycledRefs} from '../src/util'
+import {processCycledRefs, clone} from '../src/util'
 
 describe('util', () => {
   describe('processCycledRefs', () => {
@@ -26,6 +26,16 @@ describe('util', () => {
         baz: '<cycled>',
         qux: 1
       })
+    })
+  })
+
+  describe('clone', () => {
+    it('clones data through JSON api', () => {
+      const data = {foo: 'bar'}
+      const cloned = clone(data)
+
+      expect(cloned).toEqual(data)
+      expect(cloned).not.toBe(data)
     })
   })
 })

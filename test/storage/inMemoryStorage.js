@@ -30,6 +30,21 @@ describe('storage/in-memory', () => {
         }, 30)
       })
     })
+
+    describe('clone', () => {
+      it('copies the value to data store', () => {
+        const storage1 = new InMemoryStorage({clone: true})
+        const storage2 = new InMemoryStorage({clone: false})
+        const data = {foo: 'bar'}
+
+        storage1.set('foo', data)
+        storage2.set('foo', data)
+
+        expect(storage1.data.foo.value).toBe(data)
+        expect(storage2.data.foo.value).not.toBe(data)
+        expect(storage2.data.foo.value).toEqual(data)
+      })
+    })
   })
 
   describe('proto', () => {
