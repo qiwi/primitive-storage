@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/qiwi/primitive-storage/compare/v1.1.0...v1.2.0) (2018-06-21)
+
+
+### Features
+
+* add `getTtl` to obtain current value's rest of time ([9e54120](https://github.com/qiwi/primitive-storage/commit/9e54120))
+
 # [1.1.0](https://github.com/qiwi/primitive-storage/compare/v1.0.0...v1.1.0) (2018-06-21)
 
 
