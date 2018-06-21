@@ -1,19 +1,23 @@
 // @flow
 
+import type {IAny, IStorage, IStorageOpts} from '../interface'
 import AbstractStorage from './abstractStorage'
 import InMemoryStorage from './inMemoryStorage'
-import {processCycledRefs} from '../util'
-import type {IAny, IStorage, IStorageOpts} from '../interface'
+import {processCycledRefs, debounce} from '../util'
 
 export default class AbstractPersistentStorage extends AbstractStorage implements IStorage {
   opts: IStorageOpts
   cache: InMemoryStorage
 
-  constructor (opts: IAny) {
+  constructor (opts: IStorageOpts) {
     super(opts)
 
     this.cache = new InMemoryStorage(opts)
     this.syncFrom()
+
+    if (this.opts.debounce) {
+      (this: any).syncTo = debounce(this.syncTo.bind(this), this.opts.debounce)
+    }
   }
 
   get (key: string): IAny {

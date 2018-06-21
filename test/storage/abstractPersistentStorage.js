@@ -8,13 +8,21 @@ const {parse} = AbstractPersistentStorage
 
 describe('storage/abstractPersistent', () => {
   describe('constructor', () => {
-    it('returns proper instance', () => {
-      class Storage extends AbstractPersistentStorage {
-        syncFrom () {}
-      }
-      const storage = new Storage({})
+    class Storage extends AbstractPersistentStorage {
+      syncFrom () {}
+    }
 
+    it('returns proper instance', () => {
+      const storage = new Storage({})
       expect(storage.cache).toBeInstanceOf(InMemoryStorage)
+    })
+
+    it('supports `debounce` opts', () => {
+      const storage1 = new Storage({path: 'foo'})
+      const storage2 = new Storage({path: 'foo', debounce: {delay: 500, maxDelay: 1000}})
+
+      expect(storage1.syncTo).toBe(Storage.prototype.syncTo)
+      expect(storage2.syncTo).not.toBe(Storage.prototype.syncTo)
     })
   })
 

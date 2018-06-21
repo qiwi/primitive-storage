@@ -7,9 +7,16 @@ export type IEntry = {
   exp: number | null
 }
 
+export type IDebounceOpts = {
+  delay: number,
+  maxDelay?: number,
+  leading?: boolean,
+  trailing?: boolean
+}
+
 export type IStorageOpts = {
   defaultTtl?: number,
-  debounce?: number,
+  debounce?: IDebounceOpts,
   [key: string]: IAny
 }
 export interface IStorage {

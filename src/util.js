@@ -1,7 +1,7 @@
 // @flow
 
 import type {IObject} from './interface'
-export {repeat, debounce} from 'push-it-to-the-limit'
+export {debounce, repeat} from 'push-it-to-the-limit'
 
 export function processCycledRefs (obj: IObject, verified?: IObject[] = []): IObject | string {
   if (verified.includes(obj)) {
