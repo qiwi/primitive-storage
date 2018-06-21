@@ -3,6 +3,16 @@
 
 ### Features
 
+* add `setTtl` method to refresh expiration timepoint ([f6d2d9a](https://github.com/qiwi/primitive-storage/commit/f6d2d9a))
+* add debouncing for `syncTo` ([0f464b9](https://github.com/qiwi/primitive-storage/commit/0f464b9))
+* support `clone` opt ([18371c8](https://github.com/qiwi/primitive-storage/commit/18371c8))
+* support configurable `clone` impl ([e340010](https://github.com/qiwi/primitive-storage/commit/e340010))
+
+# [1.1.0](https://github.com/qiwi/primitive-storage/compare/v1.0.0...v1.1.0) (2018-06-21)
+
+
+### Features
+
 * add debouncing for `syncTo` ([0f464b9](https://github.com/qiwi/primitive-storage/commit/0f464b9))
 * support `clone` opt ([18371c8](https://github.com/qiwi/primitive-storage/commit/18371c8))
 * support configurable `clone` impl ([e340010](https://github.com/qiwi/primitive-storage/commit/e340010))
