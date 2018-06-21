@@ -1,5 +1,5 @@
 // @flow
-import {repeat, clone} from '../util'
+import {repeat, clone, echo} from '../util'
 import AbstractStorage from './abstractStorage'
 import type {IAny, IStorage, IStorageOpts, IEntry} from '../interface'
 
@@ -34,11 +34,9 @@ export default class InMemoryStorage extends AbstractStorage implements IStorage
   }
 
   set (key: string, value: IAny, ttl?: number): void {
+    const _value = this.constructor.processValue(value, this.opts)
     const _ttl = ttl || this.opts.defaultTtl
     const exp = this.constructor.getExpirationDate(_ttl)
-    const _value = this.opts.clone === true
-      ? value
-      : clone(value)
 
     this.data[key] = {value: _value, exp}
   }
@@ -74,5 +72,13 @@ export default class InMemoryStorage extends AbstractStorage implements IStorage
         this.resolve(this.data[key], key)
       }
     }
+  }
+
+  static processValue (value: IAny, opts: IStorageOpts): IAny {
+    return opts.clone === true
+      ? clone(value)
+      : typeof opts.clone === 'function'
+        ? opts.clone(value)
+        : echo(value)
   }
 }

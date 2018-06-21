@@ -33,8 +33,8 @@ describe('storage/in-memory', () => {
 
     describe('clone', () => {
       it('copies the value to data store', () => {
-        const storage1 = new InMemoryStorage({clone: true})
-        const storage2 = new InMemoryStorage({clone: false})
+        const storage1 = new InMemoryStorage({clone: false})
+        const storage2 = new InMemoryStorage({clone: true})
         const data = {foo: 'bar'}
 
         storage1.set('foo', data)
@@ -43,6 +43,13 @@ describe('storage/in-memory', () => {
         expect(storage1.data.foo.value).toBe(data)
         expect(storage2.data.foo.value).not.toBe(data)
         expect(storage2.data.foo.value).toEqual(data)
+      })
+
+      it('supports optional impl', () => {
+        const storage = new InMemoryStorage({clone: data => data.toUpperCase()})
+
+        storage.set('foo', 'bar')
+        expect(storage.data.foo.value).toBe('BAR')
       })
     })
   })

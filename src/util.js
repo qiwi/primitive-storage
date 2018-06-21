@@ -23,3 +23,7 @@ export function processCycledRefs (obj: IObject, verified?: IObject[] = []): IOb
 export function clone (data: IAny): IAny {
   return JSON.parse(JSON.stringify(data))
 }
+
+export function echo (data: IAny): IAny {
+  return data
+}

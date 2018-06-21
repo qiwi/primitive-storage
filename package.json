@@ -1,6 +1,6 @@
 {
   "name": "@qiwi/primitive-storage",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "Primitive storage for basic purposes",
   "main": "dist/bundle.es5.js",
   "scripts": {
@@ -63,7 +63,7 @@
     "flow-remove-types": "^1.2.3",
     "jest": "^23.1.0",
     "jest-localstorage-mock": "^2.2.0",
-    "rollup": "^0.61.0",
+    "rollup": "^0.61.1",
     "rollup-plugin-amd": "^3.0.0",
     "rollup-plugin-babel": "^4.0.0-beta.4",
     "rollup-plugin-commonjs": "^9.1.3",

@@ -17,7 +17,7 @@ export type IDebounceOpts = {
 export type IStorageOpts = {
   defaultTtl?: number,
   debounce?: IDebounceOpts,
-  clone?: boolean,
+  clone?: boolean | Function,
   [key: string]: IAny
 }
 export interface IStorage {
