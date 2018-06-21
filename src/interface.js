@@ -26,6 +26,7 @@ export interface IStorage {
   get(key: string): IAny,
   set(key: string, value: IAny, ttl?: number): void,
   setTtl(key: string, ttl: number): void,
+  getTtl(key: string): ?number,
   remove(key: string): void,
   reset(): void
 }

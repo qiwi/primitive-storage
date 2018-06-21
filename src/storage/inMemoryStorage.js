@@ -51,6 +51,16 @@ export default class InMemoryStorage extends AbstractStorage implements IStorage
     found.exp = this.constructor.getExpirationDate(ttl)
   }
 
+  getTtl (key: string): ?number {
+    const found: IEntry = this.data[key]
+
+    return found
+      ? found.exp === null
+        ? null
+        : found.exp - Date.now()
+      : undefined
+  }
+
   remove (key: string): void {
     delete this.data[key]
   }

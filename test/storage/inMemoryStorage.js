@@ -78,6 +78,17 @@ describe('storage/in-memory', () => {
       })
     })
 
+    describe('getTtl', () => {
+      it('gets current ttl', () => {
+        storage.set('foo', 'foo', 1000)
+        storage.set('bar', 'bar', null)
+
+        expect(storage.getTtl('foo')).toBeCloseTo(1000, -2)
+        expect(storage.getTtl('bar')).toBeNull()
+        expect(storage.getTtl('baz')).toBeUndefined()
+      })
+    })
+
     describe('setTtl', () => {
       it('sets a new ttl value', () => {
         storage.set('foo', 'bar', 10000000)
