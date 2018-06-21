@@ -18,12 +18,14 @@ export type IStorageOpts = {
   defaultTtl?: number,
   debounce?: IDebounceOpts,
   clone?: boolean | Function,
+  syncTimer?: number,
   [key: string]: IAny
 }
 export interface IStorage {
   opts: IStorageOpts,
   get(key: string): IAny,
   set(key: string, value: IAny, ttl?: number): void,
+  setTtl(key: string, ttl: number): void,
   remove(key: string): void,
   reset(): void
 }

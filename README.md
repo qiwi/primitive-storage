@@ -66,7 +66,6 @@ Also common aliases added for convenience:
 | defaultTtl    | number  | -       | If defined, the value would be applied as default ttl<br/>for every `set()` call |
 | debounce      | Object  | -       | Options for persistent storage sync debounce.<br/> If empty no delay processed. IDebounceOpts:<br/>{<br/>   delay: number,<br/>   maxDelay?: number,<br/>   leading?: boolean<br/>   trailing?: boolean<br/>}|
 | path          | string  | -       | Filepath (NodeJS) or localStorage scope (Browser)      |
-| syncTimer     | number  | 100     | Delay for target `path` sync to prevent I/O overheat   |
 | compactTimer  | number  | -       | Period (ms) of automated `compact` method invocation<br/>If undefined, no periodic task is running |
 | clone         | bool/fn | false   | `true` means that values are copied to storage on set.<br/>Default copier (JSON.parse(JSON.str(...))) may be replaced <br/>with custom.
 

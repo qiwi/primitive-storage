@@ -13,6 +13,7 @@ export default class AbstractStorage implements IStorage {
   }
   get (key: string): IAny { notImplemented() }
   set (key: string, value: IAny, ttl?: number): void { notImplemented() }
+  setTtl (key: string, ttl: number): void { notImplemented() }
   remove (key: string): void { notImplemented() }
   reset (): void { notImplemented() }
   size (): ?number { notImplemented() }

@@ -29,6 +29,11 @@ export default class AbstractPersistentStorage extends AbstractStorage implement
     this.syncTo()
   }
 
+  setTtl (key: string, ttl: number): void {
+    this.cache.setTtl(key, ttl)
+    this.syncTo()
+  }
+
   remove (key: string): void {
     this.cache.remove(key)
     this.syncTo()

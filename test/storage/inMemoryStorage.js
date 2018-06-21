@@ -78,6 +78,15 @@ describe('storage/in-memory', () => {
       })
     })
 
+    describe('setTtl', () => {
+      it('sets a new ttl value', () => {
+        storage.set('foo', 'bar', 10000000)
+        storage.setTtl('foo', 1000)
+
+        expect(storage.data.foo.exp).toBeCloseTo(Date.now() + 1000, -2)
+      })
+    })
+
     describe('get', () => {
       it('resolves value by key', () => {
         storage.set('foo', 'bar')
