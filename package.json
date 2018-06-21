@@ -47,6 +47,8 @@
     "@babel/preset-flow": "^7.0.0-beta.49",
     "@semantic-release/changelog": "^2.0.2",
     "@semantic-release/git": "^5.0.0",
+    "@semantic-release/github": "^4.2.17",
+    "@semantic-release/npm": "^3.3.1",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^8.2.3",
     "babel-plugin-external-helpers": "^6.22.0",
