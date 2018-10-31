@@ -1,10 +1,10 @@
 # Primitive storage
 
-[![buildStatus](https://img.shields.io/travis/qiwi/primitive-storage.svg?maxAge=3600&branch=master)](https://travis-ci.org/qiwi/primitive-storage)
+[![Build Status](https://travis-ci.org/qiwi/primitive-storage.svg?branch=master)](https://travis-ci.org/qiwi/primitive-storage)
 [![Coveralls](https://img.shields.io/coveralls/qiwi/primitive-storage.svg?maxAge=3600)](https://coveralls.io/github/qiwi/primitive-storage)
-[![dependencyStatus](https://img.shields.io/david/qiwi/primitive-storage.svg?maxAge=3600)](https://david-dm.org/qiwi/primitive-storage)
-[![devDependencyStatus](https://img.shields.io/david/dev/qiwi/primitive-storage.svg?maxAge=3600)](https://david-dm.org/qiwi/primitive-storage)
-[![Code Climate](https://codeclimate.com/github/codeclimate/codeclimate/badges/gpa.svg)](https://codeclimate.com/github/qiwi/primitive-storage)
+[![dependencies Status](https://david-dm.org/qiwi/primitive-storage/status.svg)](https://david-dm.org/qiwi/primitive-storage)
+[![devDependencies Status](https://david-dm.org/qiwi/primitive-storage/dev-status.svg)](https://david-dm.org/qiwi/primitive-storage?type=dev)
+[![Maintainability](https://api.codeclimate.com/v1/badges/b2f9b667caf025244af1/maintainability)](https://codeclimate.com/github/qiwi/primitive-storage/maintainability)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com)
 [![Greenkeeper badge](https://badges.greenkeeper.io/qiwi/primitive-storage.svg)](https://greenkeeper.io/)
 
