@@ -1,9 +1,9 @@
 // @flow
 
-import type {IAny, IStorage, IStorageOpts} from '../interface'
+import type { IAny, IStorage, IStorageOpts } from '../interface'
 import AbstractStorage from './abstractStorage'
 import InMemoryStorage from './inMemoryStorage'
-import {processCycledRefs, debounce} from '../util'
+import { processCycledRefs, debounce } from '../util'
 
 export default class AbstractPersistentStorage extends AbstractStorage implements IStorage {
   opts: IStorageOpts

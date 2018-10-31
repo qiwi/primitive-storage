@@ -15,16 +15,16 @@ describe('storage/in-memory', () => {
     describe('compactTimer', () => {
       it('wraps `compact` with repeater', done => {
         const compactTimer = 20
-        const storage = new InMemoryStorage({compactTimer})
+        const storage = new InMemoryStorage({ compactTimer })
 
         storage.data = {
-          foo: {value: 'bar', exp: Infinity},
-          baz: {value: 'qux', exp: Date.now() + 10}
+          foo: { value: 'bar', exp: Infinity },
+          baz: { value: 'qux', exp: Date.now() + 10 }
         }
 
         setTimeout(() => {
           expect(storage.data).toEqual({
-            foo: {value: 'bar', exp: Infinity}
+            foo: { value: 'bar', exp: Infinity }
           })
           done()
         }, 30)
@@ -33,9 +33,9 @@ describe('storage/in-memory', () => {
 
     describe('clone', () => {
       it('copies the value to data store', () => {
-        const storage1 = new InMemoryStorage({clone: false})
-        const storage2 = new InMemoryStorage({clone: true})
-        const data = {foo: 'bar'}
+        const storage1 = new InMemoryStorage({ clone: false })
+        const storage2 = new InMemoryStorage({ clone: true })
+        const data = { foo: 'bar' }
 
         storage1.set('foo', data)
         storage2.set('foo', data)
@@ -46,7 +46,7 @@ describe('storage/in-memory', () => {
       })
 
       it('supports optional impl', () => {
-        const storage = new InMemoryStorage({clone: data => data.toUpperCase()})
+        const storage = new InMemoryStorage({ clone: data => data.toUpperCase() })
 
         storage.set('foo', 'bar')
         expect(storage.data.foo.value).toBe('BAR')
@@ -130,14 +130,14 @@ describe('storage/in-memory', () => {
       it('returns actual entry value', () => {
         storage.set('foo', 'bar')
 
-        expect(storage.resolve({value: 'bar', exp: Infinity}, 'foo')).toBe('bar')
+        expect(storage.resolve({ value: 'bar', exp: Infinity }, 'foo')).toBe('bar')
         expect(storage.get('foo')).toBe('bar')
       })
 
       it('drops entry if ttl expired', () => {
         storage.set('foo', 'bar')
 
-        expect(storage.resolve({value: 'bar', exp: 0}, 'foo')).toBeUndefined()
+        expect(storage.resolve({ value: 'bar', exp: 0 }, 'foo')).toBeUndefined()
         expect(storage.get('foo')).toBeUndefined()
       })
     })
@@ -145,13 +145,13 @@ describe('storage/in-memory', () => {
     describe('compact', () => {
       it('drops all expired entries', () => {
         storage.data = {
-          foo: {value: 'bar', exp: Infinity},
-          baz: {value: 'qux', exp: 0}
+          foo: { value: 'bar', exp: Infinity },
+          baz: { value: 'qux', exp: 0 }
         }
         storage.compact()
 
         expect(storage.data).toEqual({
-          foo: {value: 'bar', exp: Infinity}
+          foo: { value: 'bar', exp: Infinity }
         })
       })
     })
@@ -159,8 +159,8 @@ describe('storage/in-memory', () => {
     describe('size', () => {
       it('counts non-expired entries in storage', () => {
         storage.data = {
-          foo: {value: 'bar', exp: Infinity},
-          baz: {value: 'qux', exp: 0}
+          foo: { value: 'bar', exp: Infinity },
+          baz: { value: 'qux', exp: 0 }
         }
 
         expect(storage.size()).toBe(1)

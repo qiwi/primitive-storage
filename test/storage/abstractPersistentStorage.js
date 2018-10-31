@@ -4,7 +4,7 @@ import InMemoryStorage from '../../src/storage/inMemoryStorage'
 const stringify = AbstractPersistentStorage.stringify.bind(AbstractPersistentStorage)
 const write = AbstractPersistentStorage.write.bind(AbstractPersistentStorage)
 const read = AbstractPersistentStorage.read.bind(AbstractPersistentStorage)
-const {parse} = AbstractPersistentStorage
+const { parse } = AbstractPersistentStorage
 
 describe('storage/abstractPersistent', () => {
   describe('constructor', () => {
@@ -18,8 +18,8 @@ describe('storage/abstractPersistent', () => {
     })
 
     it('supports `debounce` opts', () => {
-      const storage1 = new Storage({path: 'foo'})
-      const storage2 = new Storage({path: 'foo', debounce: {delay: 500, maxDelay: 1000}})
+      const storage1 = new Storage({ path: 'foo' })
+      const storage2 = new Storage({ path: 'foo', debounce: { delay: 500, maxDelay: 1000 } })
 
       expect(storage1.syncTo).toBe(Storage.prototype.syncTo)
       expect(storage2.syncTo).not.toBe(Storage.prototype.syncTo)
@@ -36,7 +36,7 @@ describe('storage/abstractPersistent', () => {
         static parse (data) { return 'parsed' + data }
       }
       const path = 'foo'
-      const storage = new Storage({path})
+      const storage = new Storage({ path })
 
       it('`syncFrom` composes `read` and `parse`', () => {
         storage.syncFrom()
@@ -56,7 +56,7 @@ describe('storage/abstractPersistent', () => {
         static write () {}
         static read () { return '{"foo": {"value": "bar"}}' }
       }
-      const storage = new Storage({path: 'qux'})
+      const storage = new Storage({ path: 'qux' })
       const syncTo = jest.spyOn(storage, 'syncTo')
       const syncFrom = jest.spyOn(storage, 'syncFrom')
 
@@ -87,8 +87,8 @@ describe('storage/abstractPersistent', () => {
 
       it('`size` returns the count of non-expired cached entries', () => {
         storage.cache.data = {
-          foo: {value: 'bar', exp: Infinity},
-          baz: {value: 'qux', exp: 0}
+          foo: { value: 'bar', exp: Infinity },
+          baz: { value: 'qux', exp: 0 }
         }
 
         expect(storage.size()).toBe(1)
@@ -104,11 +104,11 @@ describe('storage/abstractPersistent', () => {
   describe('static', () => {
     describe('stringify', () => {
       it('transforms object to JSON string', () => {
-        expect(stringify({foo: 'bar'})).toEqual('{"foo":"bar"}')
+        expect(stringify({ foo: 'bar' })).toEqual('{"foo":"bar"}')
       })
 
       it('catches cycled refs', () => {
-        const foo = {bar: 'baz'}
+        const foo = { bar: 'baz' }
         foo.foo = foo
 
         expect(stringify(foo)).toEqual('{"bar":"baz","foo":"<cycled>"}')
@@ -117,7 +117,7 @@ describe('storage/abstractPersistent', () => {
 
     describe('parse', () => {
       it('parses JSON string', () => {
-        expect(parse('{"foo":"bar"}')).toEqual({foo: 'bar'})
+        expect(parse('{"foo":"bar"}')).toEqual({ foo: 'bar' })
       })
     })
 

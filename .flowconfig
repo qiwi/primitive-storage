@@ -2,6 +2,7 @@
 ./src/
 
 [ignore]
+.*/node_modules/config-chain/.*
 
 [libs]
 

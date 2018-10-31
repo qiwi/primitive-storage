@@ -1,6 +1,6 @@
 // @flow
 
-import type {IAny, IStorage, IStorageOpts} from '../interface'
+import type { IAny, IStorage, IStorageOpts } from '../interface'
 import AbstractPersistentStorage from './abstractPersistentStorage'
 import InMemoryStorage from './inMemoryStorage'
 
@@ -14,7 +14,7 @@ export default class PersistentLocalStorage extends AbstractPersistentStorage im
 
   constructor (opts: IStorageOpts = {}) {
     const path = PREFIX + (opts.path || DEFAULT_PATH)
-    const _opts = Object.assign(opts, {path})
+    const _opts = Object.assign(opts, { path })
 
     super(_opts)
   }

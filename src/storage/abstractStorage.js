@@ -1,6 +1,6 @@
 // @flow
 
-import type {IStorage, IStorageOpts, IAny, IEntry} from '../interface'
+import type { IStorage, IStorageOpts, IAny, IEntry } from '../interface'
 
 function notImplemented (): void {
   throw new Error('Not implemented')

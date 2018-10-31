@@ -1,7 +1,7 @@
 // @flow
-import {repeat, clone, echo} from '../util'
+import { repeat, clone, echo } from '../util'
 import AbstractStorage from './abstractStorage'
-import type {IAny, IStorage, IStorageOpts, IEntry} from '../interface'
+import type { IAny, IStorage, IStorageOpts, IEntry } from '../interface'
 
 export type IData = {
   [key: string]: IEntry
@@ -13,7 +13,7 @@ export default class InMemoryStorage extends AbstractStorage implements IStorage
 
   constructor (opts: IStorageOpts = {}) {
     super(opts)
-    const {compactTimer} = opts
+    const { compactTimer } = opts
 
     this.reset()
 
@@ -38,7 +38,7 @@ export default class InMemoryStorage extends AbstractStorage implements IStorage
     const _ttl = ttl || this.opts.defaultTtl
     const exp = this.constructor.getExpirationDate(_ttl)
 
-    this.data[key] = {value: _value, exp}
+    this.data[key] = { value: _value, exp }
   }
 
   setTtl (key: string, ttl: number): void {

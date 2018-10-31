@@ -1,6 +1,6 @@
 // @flow
 
-import type {IAny, IStorage, IStorageOpts} from '../interface'
+import type { IAny, IStorage, IStorageOpts } from '../interface'
 import InMemoryStorage from './inMemoryStorage'
 import AbstractPersistentStorage from './abstractPersistentStorage'
 

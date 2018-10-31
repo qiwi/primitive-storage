@@ -1,4 +1,4 @@
-import PersistentLocalStorage, {PREFIX, DEFAULT_PATH} from '../../src/storage/persistentLocalStorage'
+import PersistentLocalStorage, { PREFIX, DEFAULT_PATH } from '../../src/storage/persistentLocalStorage'
 import InMemoryStorage from '../../src/storage/inMemoryStorage'
 
 const PATH = PREFIX + DEFAULT_PATH
@@ -17,7 +17,7 @@ describe('storage/local', () => {
 
   describe('proto', () => {
     ls.setItem(PATH, '{"foo": {"value": "bar"}}')
-    const opts = {path: DEFAULT_PATH}
+    const opts = { path: DEFAULT_PATH }
     const storage = new PersistentLocalStorage(opts)
 
     describe('get', () => {
