@@ -4,7 +4,6 @@ import type { IAny, IStorage, IStorageOpts } from '../interface'
 import AbstractPersistentStorage from './abstractPersistentStorage'
 import InMemoryStorage from './inMemoryStorage'
 
-const ls = localStorage
 export const PREFIX = '__@@ps__'
 export const DEFAULT_PATH = 'default.json'
 
@@ -20,10 +19,10 @@ export default class PersistentLocalStorage extends AbstractPersistentStorage im
   }
 
   static write (path: string, data: string): void {
-    ls.setItem(path, data)
+    localStorage.setItem(path, data)
   }
 
   static read (path: string): IAny {
-    return ls.getItem(path)
+    return localStorage.getItem(path)
   }
 }
