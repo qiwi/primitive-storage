@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/qiwi/primitive-storage/compare/v1.2.0...v1.2.1) (2018-12-19)
+
+
+### Bug Fixes
+
+* broken localStorage ref ([0087d0d](https://github.com/qiwi/primitive-storage/commit/0087d0d))
+
 # [1.2.0](https://github.com/qiwi/primitive-storage/compare/v1.1.0...v1.2.0) (2018-06-21)
 
 
