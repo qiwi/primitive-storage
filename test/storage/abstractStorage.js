@@ -52,7 +52,7 @@ describe('storage/abstract', () => {
   describe('static', () => {
     describe('getExpirationDate', () => {
       it('appends ttl to Date.now()', () => {
-        expect(getExpirationDate(100)).toBeGreaterThanOrEqual(100 + Date.now())
+        expect(getExpirationDate(100)).toBeLessThanOrEqual(100 + Date.now())
       })
 
       it('returns null otherwise', () => {
