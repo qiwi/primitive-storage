@@ -1,3 +1,10 @@
+## [1.2.2](https://github.com/qiwi/primitive-storage/compare/v1.2.1...v1.2.2) (2019-08-06)
+
+
+### Performance Improvements
+
+* minor improvements, up deps, linting ([a732591](https://github.com/qiwi/primitive-storage/commit/a732591))
+
 ## [1.2.1](https://github.com/qiwi/primitive-storage/compare/v1.2.0...v1.2.1) (2018-12-19)
 
 
