@@ -7,6 +7,7 @@ import { processCycledRefs, debounce } from '../util'
 
 export default class AbstractPersistentStorage extends AbstractStorage implements IStorage {
   opts: IStorageOpts
+
   cache: InMemoryStorage
 
   constructor (opts: IStorageOpts) {

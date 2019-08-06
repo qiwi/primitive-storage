@@ -31,8 +31,11 @@ describe('storage/abstractPersistent', () => {
       let persisted = 'qux'
       class Storage extends AbstractPersistentStorage {
         static read (path) { return 'read' + path + persisted }
+
         static write (path, data) { persisted = 'write' + path + data }
+
         static stringify (data) { return 'stringified' + data }
+
         static parse (data) { return 'parsed' + data }
       }
       const path = 'foo'
@@ -54,6 +57,7 @@ describe('storage/abstractPersistent', () => {
     describe('IStorage methods', () => {
       class Storage extends AbstractPersistentStorage {
         static write () {}
+
         static read () { return '{"foo": {"value": "bar"}}' }
       }
       const storage = new Storage({ path: 'qux' })

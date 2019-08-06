@@ -13,6 +13,7 @@ export type IFileStorageOpts = IStorageOpts & {
 
 export default class PersistentJsonStorage extends AbstractPersistentStorage implements IStorage {
   cache: InMemoryStorage
+
   opts: IFileStorageOpts
 
   static write (path: string, data: string) {

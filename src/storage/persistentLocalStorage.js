@@ -9,6 +9,7 @@ export const DEFAULT_PATH = 'default.json'
 
 export default class PersistentLocalStorage extends AbstractPersistentStorage implements IStorage {
   cache: InMemoryStorage
+
   opts: IStorageOpts
 
   constructor (opts: IStorageOpts = {}) {

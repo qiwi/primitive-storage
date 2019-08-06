@@ -9,6 +9,7 @@ export type IData = {
 
 export default class InMemoryStorage extends AbstractStorage implements IStorage {
   opts: IStorageOpts
+
   data: IData
 
   constructor (opts: IStorageOpts = {}) {
@@ -87,8 +88,9 @@ export default class InMemoryStorage extends AbstractStorage implements IStorage
   }
 
   compact = (): void => {
-    for (let key in this.data) {
-      if (this.data.hasOwnProperty(key)) {
+    for (const key in this.data) {
+      // this.data.hasOwnProperty(key))
+      if (Object.prototype.hasOwnProperty.call(this.data, key)) {
         this.resolve(this.data[key], key)
       }
     }
