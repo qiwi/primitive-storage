@@ -26,7 +26,7 @@ function getStorageConstructor (opts: IOpts): Function {
 
 function isBrowser () {
   try {
-    const w: IWindow = window || global && global.window || global
+    const w: IWindow = window || (global && global.window) || global
 
     return typeof w !== 'undefined' && typeof w.document !== 'undefined'
   } catch (e) {
