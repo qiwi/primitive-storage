@@ -1,4 +1,4 @@
-import {processCycledRefs, clone} from '../src/util'
+import { processCycledRefs, clone } from '../../main/js/util'
 
 describe('util', () => {
   describe('processCycledRefs', () => {
@@ -31,7 +31,7 @@ describe('util', () => {
 
   describe('clone', () => {
     it('clones data through JSON api', () => {
-      const data = {foo: 'bar'}
+      const data = { foo: 'bar' }
       const cloned = clone(data)
 
       expect(cloned).toEqual(data)

@@ -1,5 +1,5 @@
-import AbstractPersistentStorage from '../../src/storage/abstractPersistentStorage'
-import InMemoryStorage from '../../src/storage/inMemoryStorage'
+import AbstractPersistentStorage from '../../../main/js/storage/abstractPersistentStorage'
+import InMemoryStorage from '../../../main/js/storage/inMemoryStorage'
 
 const stringify = AbstractPersistentStorage.stringify.bind(AbstractPersistentStorage)
 const write = AbstractPersistentStorage.write.bind(AbstractPersistentStorage)

@@ -1,6 +1,6 @@
 // @flow
 
-import type {IStorage, IStorageOpts, IAny} from './interface'
+import type { IStorage, IStorageOpts, IAny } from './interface'
 import InMemoryStorage from './storage/inMemoryStorage'
 import PersistentLocalStorage from './storage/persistentLocalStorage'
 import PersistentJsonFileStorage from './storage/persistentJsonFileStorage'
@@ -16,7 +16,7 @@ export default (opts: IOpts = {}): IStorage => {
   return new Constructor(opts)
 }
 
-function getStorageConstructor(opts: IOpts): Function {
+function getStorageConstructor (opts: IOpts): Function {
   return !opts.path
     ? InMemoryStorage
     : isBrowser()
@@ -24,11 +24,11 @@ function getStorageConstructor(opts: IOpts): Function {
       : PersistentJsonFileStorage
 }
 
-function isBrowser() {
+function isBrowser () {
   try {
-    const w: IWindow = window
-    return typeof w !== 'undefined' && typeof w.document !== 'undefined'
+    const w: IWindow = window || global && global.window || global
 
+    return typeof w !== 'undefined' && typeof w.document !== 'undefined'
   } catch (e) {
     return false
   }

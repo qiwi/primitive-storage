@@ -1,8 +1,9 @@
 import path from 'path'
-import factory from '../dist/bundle.es5'
+import factory from '../../../target/es5/bundle.es5'
 
 describe('factory', () => {
   it('returns `PersistentJsonFileStorage` instance if `path` opt defined for Nodejs runtime', () => {
+    global.window = null
     expect(factory({path: path.resolve(__dirname, './storage/data.json')}).cache).toBeDefined()
   })
 

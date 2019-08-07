@@ -1,5 +1,5 @@
-import PersistentLocalStorage, { PREFIX, DEFAULT_PATH } from '../../src/storage/persistentLocalStorage'
-import InMemoryStorage from '../../src/storage/inMemoryStorage'
+import PersistentLocalStorage, { PREFIX, DEFAULT_PATH } from '../../../main/js/storage/persistentLocalStorage'
+import InMemoryStorage from '../../../main/js/storage/inMemoryStorage'
 
 const PATH = PREFIX + DEFAULT_PATH
 const ls = localStorage

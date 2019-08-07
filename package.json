@@ -2,22 +2,22 @@
   "name": "@qiwi/primitive-storage",
   "version": "1.2.2",
   "description": "Primitive storage for basic purposes",
-  "main": "dist/bundle.es5.js",
+  "main": "target/es5//bundle.es5.js",
   "scripts": {
     "flow": "flow",
-    "flow_coverage": "flow-coverage-report -i 'src/**/*.js' -t html -t json -t text --threshold 85",
-    "lint": "standard src/**/*.js test/**/*.js",
+    "flow_coverage": "flow-coverage-report -i 'src/main/**/*.js' -t html -t json -t text --threshold 85",
+    "lint": "standard src/**/*.js",
     "lint:fix": "yarn lint --fix",
-    "jest": "BABEL_ENV=test jest -w 1 --forceExit",
+    "jest": "BABEL_ENV=test jest -w 1 --forceExit --config=jest.config.json",
     "test": "yarn flow && yarn flow_coverage && yarn lint && yarn jest",
     "doc": "esdoc",
     "test_with_report": "npm test && yarn coveralls_push",
     "coveralls_push": "cat ./coverage/lcov.info | coveralls",
     "build": "yarn build_with_rollup",
-    "build_with_babel": "BABEL_ENV=production babel src --out-dir dist",
+    "build_with_babel": "BABEL_ENV=production babel src/main/js --out-dir target/es5",
     "build_with_rollup": "yarn rollup && yarn bundle_to_es5",
     "rollup": "rollup -c",
-    "bundle_to_es5": "BABEL_ENV=production babel dist/bundle.js --out-file dist/bundle.es5.js"
+    "bundle_to_es5": "BABEL_ENV=production babel target/es5/bundle.js --out-file target/es5/bundle.es5.js"
   },
   "repository": {
     "type": "git",
@@ -74,7 +74,7 @@
   "files": [
     "README.md",
     "CHANGELOG.md",
-    "dist/"
+    "target"
   ],
   "release": {
     "branch": "master",

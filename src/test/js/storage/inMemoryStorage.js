@@ -1,4 +1,4 @@
-import InMemoryStorage from '../../src/storage/inMemoryStorage'
+import InMemoryStorage from '../../../main/js/storage/inMemoryStorage'
 
 describe('storage/in-memory', () => {
   describe('constructor', () => {

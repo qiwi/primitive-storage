@@ -1,0 +1,32 @@
+{
+  "collectCoverage": true,
+  "browser": false,
+  "testEnvironment": "node",
+  "coveragePathIgnorePatterns": [
+    "<rootDir>/src/main/js/interface.js"
+  ],
+  "collectCoverageFrom": [
+    "<rootDir>/src/main/**/*.js"
+  ],
+  "testMatch": [
+    "<rootDir>/src/test/**/*.js"
+  ],
+  "testPathIgnorePatterns": [
+    "/node_modules/"
+  ],
+  "transformIgnorePatterns": [
+    "node_modules/(?!(lodash-es)/)"
+  ],
+  "transform": {
+    "^.+\\.jsx?$": "babel-jest"
+  },
+  "moduleFileExtensions": [
+    "ts",
+    "tsx",
+    "js",
+    "jsx",
+    "json",
+    "node"
+  ],
+  "setupFiles": ["jest-localstorage-mock"]
+}

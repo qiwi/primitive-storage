@@ -1,7 +1,7 @@
 // @flow
 
-import type {IAny, IObject} from './interface'
-export {debounce, repeat} from 'push-it-to-the-limit'
+import type { IAny, IObject } from './interface'
+export { debounce, repeat } from 'push-it-to-the-limit'
 
 export function processCycledRefs (obj: IObject, verified?: IObject[] = []): IObject | string {
   if (verified.includes(obj)) {
@@ -9,8 +9,9 @@ export function processCycledRefs (obj: IObject, verified?: IObject[] = []): IOb
   }
   verified.push(obj)
 
-  for (let key: string in obj) {
-    if (obj.hasOwnProperty(key)) {
+  for (const key: string in obj) {
+    // obj.hasOwnProperty(key)
+    if (Object.prototype.hasOwnProperty.call(obj, key)) {
       if (typeof obj[key] === 'object') {
         obj[key] = processCycledRefs(obj[key], verified)
       }

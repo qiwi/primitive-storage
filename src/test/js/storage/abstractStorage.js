@@ -1,4 +1,4 @@
-import AbstractStorage from '../../src/storage/abstractStorage'
+import AbstractStorage from '../../../main/js/storage/abstractStorage'
 
 const { getExpirationDate, isExpiredEntry } = AbstractStorage
 
