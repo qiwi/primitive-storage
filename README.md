@@ -1,10 +1,11 @@
 # Primitive storage
 
-[![Build Status](https://travis-ci.org/qiwi/primitive-storage.svg?branch=master)](https://travis-ci.org/qiwi/primitive-storage)
-[![Coveralls](https://img.shields.io/coveralls/qiwi/primitive-storage.svg?maxAge=3600)](https://coveralls.io/github/qiwi/primitive-storage)
+[![BuildStatus](https://img.shields.io/travis/com/qiwi/primitive-storage.svg?maxAge=3600&branch=master)](https://travis-ci.com/qiwi/primitive-storage)
+[![npm (tag)](https://img.shields.io/npm/v/@qiwi/primitive-storage/latest.svg)](https://www.npmjs.com/package/@qiwi/primitive-storage)
 [![dependencies Status](https://david-dm.org/qiwi/primitive-storage/status.svg)](https://david-dm.org/qiwi/primitive-storage)
 [![devDependencies Status](https://david-dm.org/qiwi/primitive-storage/dev-status.svg)](https://david-dm.org/qiwi/primitive-storage?type=dev)
 [![Maintainability](https://api.codeclimate.com/v1/badges/b2f9b667caf025244af1/maintainability)](https://codeclimate.com/github/qiwi/primitive-storage/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/b2f9b667caf025244af1/test_coverage)](https://codeclimate.com/github/qiwi/primitive-storage/test_coverage)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com)
 [![Greenkeeper badge](https://badges.greenkeeper.io/qiwi/primitive-storage.svg)](https://greenkeeper.io/)
 
