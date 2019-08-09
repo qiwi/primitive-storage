@@ -1,5 +1,6 @@
 {
   "plugins": [
+    "@babel/plugin-proposal-export-default-from",
     "@babel/plugin-proposal-object-rest-spread",
     "transform-class-properties"
   ],
@@ -15,6 +16,7 @@
         "@babel/preset-env"
       ],
       "plugins": [
+        "@babel/plugin-proposal-export-default-from",
         "@babel/plugin-proposal-object-rest-spread",
         "transform-class-properties"
       ]
@@ -30,6 +32,7 @@
         "minify"
       ],
       "plugins": [
+        "@babel/plugin-proposal-export-default-from",
         "@babel/plugin-proposal-object-rest-spread",
         "transform-class-properties"
       ]
