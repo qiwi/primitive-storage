@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/qiwi/primitive-storage/compare/v1.2.2...v1.3.0) (2019-08-09)
+
+
+### Features
+
+* expose storage constructors ([251adff](https://github.com/qiwi/primitive-storage/commit/251adff)), closes [#36](https://github.com/qiwi/primitive-storage/issues/36)
+
 ## [1.2.2](https://github.com/qiwi/primitive-storage/compare/v1.2.1...v1.2.2) (2019-08-06)
 
 
