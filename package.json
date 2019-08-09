@@ -57,7 +57,7 @@
     "babel-preset-es2015-rollup": "^3.0.0",
     "babel-preset-minify": "^0.5.0",
     "coveralls": "^3.0.6",
-    "eslint-plugin-flowtype": "^3.13.0",
+    "eslint-plugin-flowtype": "^4.1.0",
     "flow-bin": "^0.104.0",
     "flow-coverage-report": "^0.6.1",
     "flow-remove-types": "^2.104.0",
