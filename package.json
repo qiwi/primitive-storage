@@ -58,7 +58,7 @@
     "babel-preset-minify": "^0.5.0",
     "coveralls": "^3.0.6",
     "eslint-plugin-flowtype": "^4.1.0",
-    "flow-bin": "^0.104.0",
+    "flow-bin": "^0.105.0",
     "flow-coverage-report": "^0.6.1",
     "flow-remove-types": "^2.104.0",
     "jest": "^24.8.0",
