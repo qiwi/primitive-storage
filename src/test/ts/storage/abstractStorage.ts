@@ -1,6 +1,6 @@
-import AbstractStorage from '../../../main/js/storage/abstractStorage'
+import AbstractStorage from '../../../main/ts/storage/abstractStorage'
 
-const { getExpirationDate, isExpiredEntry } = AbstractStorage
+const {getExpirationDate, isExpiredEntry} = AbstractStorage
 
 describe('storage/abstract', () => {
   describe('proto', () => {
@@ -62,11 +62,11 @@ describe('storage/abstract', () => {
 
     describe('isExpiredEntry', () => {
       it('returns true if ttl is expired', () => {
-        expect(isExpiredEntry({ exp: 0 })).toBeTruthy()
+        expect(isExpiredEntry({exp: 0})).toBeTruthy()
       })
 
       it('returns false if ttl is greater than Date.now()', () => {
-        expect(isExpiredEntry({ exp: Infinity })).toBeFalsy()
+        expect(isExpiredEntry({exp: Infinity})).toBeFalsy()
       })
 
       it('returns false if no ttl found', () => {

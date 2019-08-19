@@ -1,9 +1,10 @@
-import { processCycledRefs, clone } from '../../main/js/util'
+import {processCycledRefs, clone} from '../../main/ts/util'
 
 describe('util', () => {
   describe('processCycledRefs', () => {
     it('replaces found cycled refs with "<cycled>"', () => {
       class Foo {}
+      //@ts-ignore
       Foo.prototype.quux = 'quux'
       const foo = new Foo()
 
@@ -13,8 +14,9 @@ describe('util', () => {
         },
         qux: 1
       })
-
+      //@ts-ignore
       foo.bar.baz.qux = foo
+      //@ts-ignore
       foo.baz = foo.bar.baz
 
       expect(processCycledRefs(foo)).toEqual({
@@ -31,7 +33,7 @@ describe('util', () => {
 
   describe('clone', () => {
     it('clones data through JSON api', () => {
-      const data = { foo: 'bar' }
+      const data = {foo: 'bar'}
       const cloned = clone(data)
 
       expect(cloned).toEqual(data)

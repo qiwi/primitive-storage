@@ -1,11 +1,14 @@
-import path from 'path'
-import fs from 'fs'
-import PersistentJsonFileStorage, { ENCODING } from '../../../main/js/storage/persistentJsonFileStorage'
-import InMemoryStorage from '../../../main/js/storage/inMemoryStorage'
+import * as path from 'path'
+import * as fs from 'fs'
+import PersistentJsonFileStorage, {
+  ENCODING
+} from '../../../main/ts/storage/persistentJsonFileStorage'
+import InMemoryStorage from '../../../main/ts/storage/inMemoryStorage'
 
 const PATH = path.resolve(__dirname, './data.json')
-const INITIAL_DATA = { foo: { value: 'bar', exp: null } }
-const reset = () => fs.writeFileSync(PATH, JSON.stringify(INITIAL_DATA), ENCODING)
+const INITIAL_DATA = {foo: {value: 'bar', exp: null}}
+const reset = () =>
+  fs.writeFileSync(PATH, JSON.stringify(INITIAL_DATA), ENCODING)
 
 describe('storage/json-file', () => {
   beforeAll(reset)
@@ -13,7 +16,7 @@ describe('storage/json-file', () => {
 
   describe('constructor', () => {
     it('returns proper instance', () => {
-      const opts = { path: PATH }
+      const opts = {path: PATH}
       const storage = new PersistentJsonFileStorage(opts)
 
       expect(storage.opts).toBe(opts)
@@ -24,7 +27,7 @@ describe('storage/json-file', () => {
   })
 
   describe('proto', () => {
-    const opts = { path: PATH }
+    const opts = {path: PATH}
     const storage = new PersistentJsonFileStorage(opts)
 
     describe('get', () => {
@@ -42,7 +45,8 @@ describe('storage/json-file', () => {
         storage.set('baz', 'qux')
 
         expect(storage.cache.data.baz.value).toBe('qux')
-        expect(JSON.parse(fs.readFileSync(PATH)).baz.value).toBe('qux')
+
+        expect(JSON.parse(fs.readFileSync(PATH).toString()).baz.value).toBe('qux')
       })
     })
 
@@ -50,7 +54,8 @@ describe('storage/json-file', () => {
       it('drops entry', () => {
         storage.remove('foo')
         expect(storage.get('foo')).toBeUndefined()
-        expect(JSON.parse(fs.readFileSync(PATH)).foo).toBeUndefined()
+
+        expect(JSON.parse(fs.readFileSync(PATH).toString()).foo).toBeUndefined()
       })
     })
 
@@ -59,7 +64,8 @@ describe('storage/json-file', () => {
         storage.reset()
         expect(storage.get('baz')).toBeUndefined()
         expect(storage.cache.data).toEqual({})
-        expect(JSON.parse(fs.readFileSync(PATH))).toEqual({})
+
+        expect(JSON.parse(fs.readFileSync(PATH).toString())).toEqual({})
       })
     })
   })
@@ -67,7 +73,7 @@ describe('storage/json-file', () => {
   describe('static', () => {
     describe('write', () => {
       it('persists data to file', () => {
-        const data = { baz: 'qux' }
+        const data = {baz: 'qux'}
 
         PersistentJsonFileStorage.write(PATH, JSON.stringify(data))
         expect(fs.readFileSync(PATH, ENCODING)).toBe('{"baz":"qux"}')
@@ -78,7 +84,9 @@ describe('storage/json-file', () => {
       it('reads and parses file data', () => {
         reset()
 
-        expect(PersistentJsonFileStorage.read(PATH)).toEqual(JSON.stringify({ foo: { value: 'bar', exp: null } }))
+        expect(PersistentJsonFileStorage.read(PATH)).toEqual(
+          JSON.stringify({foo: {value: 'bar', exp: null}})
+        )
       })
     })
   })
