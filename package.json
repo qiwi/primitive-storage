@@ -70,7 +70,7 @@
     "rollup-plugin-flow": "^1.1.1",
     "rollup-plugin-node-resolve": "^5.2.0",
     "semantic-release": "^15.13.19",
-    "standard": "^13.1.0"
+    "standard": "^14.0.0"
   },
   "files": [
     "README.md",
