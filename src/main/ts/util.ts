@@ -11,14 +11,11 @@ export function processCycledRefs(
   }
   verified.push(obj)
 
-  for (const key in obj) {
-    // obj.hasOwnProperty(key)
-    if (Object.prototype.hasOwnProperty.call(obj, key)) {
-      if (typeof obj[key] === 'object') {
-        obj[key] = processCycledRefs(obj[key], verified)
-      }
+  Object.keys(obj).forEach((key => {
+    if (typeof obj[key] === 'object') {
+      obj[key] = processCycledRefs(obj[key], verified)
     }
-  }
+  }))
 
   return obj
 }
