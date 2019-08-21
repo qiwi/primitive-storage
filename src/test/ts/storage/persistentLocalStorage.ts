@@ -56,7 +56,6 @@ describe('storage/local', () => {
         storage.reset()
         expect(storage.get('baz')).toBeUndefined()
         expect(storage.cache.data).toEqual({})
-
         expect(JSON.parse(ls.getItem(PATH) || '')).toEqual({})
       })
     })

@@ -4,10 +4,10 @@
   "browser": false,
   "testEnvironment": "node",
   "coveragePathIgnorePatterns": [
-    "<rootDir>/src/main/js/interface.js"
+    "<rootDir>/src/main/js/interface.ts"
   ],
   "collectCoverageFrom": [
-    "<rootDir>/src/main/**/*.js"
+    "<rootDir>/src/**/*.ts"
   ],
   "testMatch": [
     "<rootDir>/src/test/ts/**/*.ts",
