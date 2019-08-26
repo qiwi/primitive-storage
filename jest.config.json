@@ -7,7 +7,7 @@
     "<rootDir>/src/main/js/interface.ts"
   ],
   "collectCoverageFrom": [
-    "<rootDir>/src/**/*.ts"
+    "<rootDir>/src/main/**/*.ts"
   ],
   "testMatch": [
     "<rootDir>/src/test/ts/**/*.ts",

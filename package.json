@@ -29,9 +29,9 @@
   "author": "Anton Golub <mailbox@antongolub.ru>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/antongolub/primitive-storage/issues"
+    "url": "https://github.com/qiwi/primitive-storage/issues"
   },
-  "homepage": "https://github.com/antongolub/primitive-storage#readme",
+  "homepage": "https://github.com/qiwi/primitive-storage#readme",
   "devDependencies": {
     "@semantic-release/changelog": "^3.0.4",
     "@semantic-release/git": "^7.0.16",
