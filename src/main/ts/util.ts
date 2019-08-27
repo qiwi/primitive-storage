@@ -11,11 +11,11 @@ export function processCycledRefs(
   }
   verified.push(obj)
 
-  Object.keys(obj).forEach((key => {
+  Object.keys(obj).forEach(key => {
     if (typeof obj[key] === 'object') {
       obj[key] = processCycledRefs(obj[key], verified)
     }
-  }))
+  })
 
   return obj
 }

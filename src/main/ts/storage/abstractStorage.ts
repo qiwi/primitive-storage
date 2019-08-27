@@ -1,8 +1,8 @@
 import {IStorage, IStorageOpts, IAny, IEntry} from '../interface'
 import InMemoryStorage from './inMemoryStorage'
 
-function notImplemented(): void {
-  throw new Error('Not implemented')
+function notImplemented(method: string): void {
+  throw new Error(`${method} not implemented`)
 }
 
 export default class AbstractStorage implements IStorage {
@@ -14,31 +14,31 @@ export default class AbstractStorage implements IStorage {
   }
 
   get(key: string): IAny {
-    notImplemented()
+    notImplemented('get')
   }
 
   set(key: string, value: IAny, ttl?: number): void {
-    notImplemented()
+    notImplemented('set')
   }
 
   setTtl(key: string, ttl: number): void {
-    notImplemented()
+    notImplemented('setTtl')
   }
 
   getTtl(key: string): void {
-    notImplemented()
+    notImplemented('getTtl')
   }
 
   remove(key: string): void {
-    notImplemented()
+    notImplemented('remove')
   }
 
   reset(): void {
-    notImplemented()
+    notImplemented('reset')
   }
 
   size(): void {
-    notImplemented()
+    notImplemented('size')
   }
 
   // aliases

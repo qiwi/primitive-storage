@@ -1,13 +1,12 @@
 import * as path from 'path'
-import factory from '../../../target/es5/factory'
+import factory from '../../main/ts/factory'
 
 describe('factory', () => {
   it('returns `PersistentJsonFileStorage` instance if `path` opt defined for Nodejs runtime', () => {
     //@ts-ignore
     global.window = null
     expect(
-
-      factory({path: path.resolve(__dirname, './storage/data.json')}).cache
+      factory({path: path.resolve(__dirname, './storage/data.json')}).cache,
     ).toBeDefined()
   })
 

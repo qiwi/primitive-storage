@@ -2,7 +2,7 @@ import AbstractPersistentStorage from '../../../main/ts/storage/abstractPersiste
 import InMemoryStorage from '../../../main/ts/storage/inMemoryStorage'
 
 const stringify = AbstractPersistentStorage.stringify.bind(
-  AbstractPersistentStorage
+  AbstractPersistentStorage,
 )
 const write = AbstractPersistentStorage.write.bind(AbstractPersistentStorage)
 const read = AbstractPersistentStorage.read.bind(AbstractPersistentStorage)
@@ -23,7 +23,7 @@ describe('storage/abstractPersistent', () => {
       const storage1 = new Storage({path: 'foo'})
       const storage2 = new Storage({
         path: 'foo',
-        debounce: {delay: 500, maxDelay: 1000}
+        debounce: {delay: 500, maxDelay: 1000},
       })
 
       expect(storage1.syncTo).toBe(Storage.prototype.syncTo)
@@ -60,7 +60,7 @@ describe('storage/abstractPersistent', () => {
       })
 
       it('`syncTo` composes `stringify` and `write`', () => {
-        //@ts-ignore
+        // @ts-ignore
         storage.cache.data = 'bar'
         storage.syncTo()
 
@@ -108,7 +108,7 @@ describe('storage/abstractPersistent', () => {
       it('`size` returns the count of non-expired cached entries', () => {
         storage.cache.data = {
           foo: {value: 'bar', exp: Infinity},
-          baz: {value: 'qux', exp: 0}
+          baz: {value: 'qux', exp: 0},
         }
 
         expect(storage.size()).toBe(1)
@@ -129,7 +129,7 @@ describe('storage/abstractPersistent', () => {
 
       it('catches cycled refs', () => {
         const foo = {bar: 'baz'}
-        //@ts-ignore
+        // @ts-ignore
         foo.foo = foo
 
         expect(stringify(foo)).toEqual('{"bar":"baz","foo":"<cycled>"}')
@@ -144,13 +144,13 @@ describe('storage/abstractPersistent', () => {
 
     describe('read', () => {
       it('is not implemented', () => {
-        expect(read).toThrow('Not implemented')
+        expect(read).toThrow('read not implemented')
       })
     })
 
     describe('write', () => {
       it('is not implemented', () => {
-        expect(write).toThrow('Not implemented')
+        expect(write).toThrow('write not implemented')
       })
     })
   })

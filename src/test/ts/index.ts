@@ -3,8 +3,8 @@ import factory, {
   AbstractPersistentStorage,
   InMemoryStorage,
   PersistentLocalStorage,
-  PersistentJsonFileStorage
-} from '../../../target/es5'
+  PersistentJsonFileStorage,
+} from '../../main/ts'
 
 describe('index', () => {
   it('exposes factory ', () => {
@@ -17,11 +17,11 @@ describe('index', () => {
       AbstractPersistentStorage,
       InMemoryStorage,
       PersistentLocalStorage,
-      PersistentJsonFileStorage
+      PersistentJsonFileStorage,
     ]
 
     constructors.forEach(Constructor =>
-      expect(Constructor).toEqual(expect.any(Function))
+      expect(Constructor).toEqual(expect.any(Function)),
     )
   })
 })

@@ -51,6 +51,7 @@ export default class InMemoryStorage extends AbstractStorage
     if (!found) {
       return undefined
     }
+
     found.exp = (this.constructor as typeof InMemoryStorage).getExpirationDate(
       ttl,
     )
@@ -58,7 +59,6 @@ export default class InMemoryStorage extends AbstractStorage
 
   getTtl(key: string): number | null | undefined {
     const found: IEntry = this.data[key]
-    // return found && found.exp ? found.exp - Date.now() : null
 
     if (!found) {
       return undefined
@@ -69,14 +69,6 @@ export default class InMemoryStorage extends AbstractStorage
     }
 
     return found && found.exp && found.exp - Date.now()
-    //
-    // return found
-    //   ? found.exp === null
-    //     ? null
-    //     : found && found.exp
-    //       ?  found.exp - Date.now()
-    //       : undefined
-    //   : undefined
   }
 
   remove(key: string): void {
@@ -105,7 +97,6 @@ export default class InMemoryStorage extends AbstractStorage
 
   compact = (): void => {
     for (const key in this.data) {
-      // this.data.hasOwnProperty(key))
       if (Object.prototype.hasOwnProperty.call(this.data, key)) {
         this.resolve(this.data[key], key)
       }

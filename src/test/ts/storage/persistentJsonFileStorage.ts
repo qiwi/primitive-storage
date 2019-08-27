@@ -1,7 +1,7 @@
 import * as path from 'path'
 import * as fs from 'fs'
 import PersistentJsonFileStorage, {
-  ENCODING
+  ENCODING,
 } from '../../../main/ts/storage/persistentJsonFileStorage'
 import InMemoryStorage from '../../../main/ts/storage/inMemoryStorage'
 
@@ -46,7 +46,9 @@ describe('storage/json-file', () => {
 
         expect(storage.cache.data.baz.value).toBe('qux')
 
-        expect(JSON.parse(fs.readFileSync(PATH).toString()).baz.value).toBe('qux')
+        expect(JSON.parse(fs.readFileSync(PATH).toString()).baz.value).toBe(
+          'qux',
+        )
       })
     })
 
@@ -85,7 +87,7 @@ describe('storage/json-file', () => {
         reset()
 
         expect(PersistentJsonFileStorage.read(PATH)).toEqual(
-          JSON.stringify({foo: {value: 'bar', exp: null}})
+          JSON.stringify({foo: {value: 'bar', exp: null}}),
         )
       })
     })

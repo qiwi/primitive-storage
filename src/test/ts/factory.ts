@@ -1,10 +1,10 @@
 import * as path from 'path'
-import factory from '../../../target/es5/factory'
+import factory from '../../main/ts'
 import {
   InMemoryStorage,
   PersistentJsonFileStorage,
-  PersistentLocalStorage
-} from '../../../target/es5'
+  PersistentLocalStorage,
+} from '../../main/ts'
 
 describe('factory', () => {
   it('returns `PersistentJsonFileStorage` instance if `path` opt defined for Nodejs runtime', () => {
@@ -12,7 +12,7 @@ describe('factory', () => {
     global.window = null
     expect(
       factory({path: path.resolve(__dirname, './storage/data.json')})
-        .constructor.name
+        .constructor.name,
     ).toBe(PersistentJsonFileStorage.name)
   })
 
@@ -20,7 +20,7 @@ describe('factory', () => {
     //@ts-ignore
     global.window = {document: {}}
     expect(factory({path: 'foo'}).constructor.name).toBe(
-      PersistentLocalStorage.name
+      PersistentLocalStorage.name,
     )
   })
 

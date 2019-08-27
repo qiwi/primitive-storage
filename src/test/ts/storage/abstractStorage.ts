@@ -8,19 +8,19 @@ describe('storage/abstract', () => {
     const storage = new Storage()
 
     it('`get` is not implemented', () => {
-      expect(() => storage.get('foo')).toThrow('Not implemented')
+      expect(() => storage.get('foo')).toThrow('get not implemented')
     })
 
     it('`set` is not implemented', () => {
-      expect(() => storage.set('foo', 'bar')).toThrow('Not implemented')
+      expect(() => storage.set('foo', 'bar')).toThrow('set not implemented')
     })
 
     it('`remove` is not implemented', () => {
-      expect(() => storage.remove('foo')).toThrow('Not implemented')
+      expect(() => storage.remove('foo')).toThrow('remove not implemented')
     })
 
     it('`reset` is not implemented', () => {
-      expect(() => storage.reset()).toThrow('Not implemented')
+      expect(() => storage.reset()).toThrow('reset not implemented')
     })
 
     it('`put` does same as `set`', () => {
@@ -45,7 +45,7 @@ describe('storage/abstract', () => {
     })
 
     it('`size` is not implemented', () => {
-      expect(() => storage.size()).toThrow('Not implemented')
+      expect(() => storage.size()).toThrow('size not implemented')
     })
   })
 

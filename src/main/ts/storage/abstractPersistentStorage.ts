@@ -74,11 +74,11 @@ export default class AbstractPersistentStorage extends AbstractStorage
   }
 
   static write(path: string, data: string) {
-    this.notImplemented()
+    this.notImplemented('write')
   }
 
   static read(path: string): IAny {
-    this.notImplemented()
+    this.notImplemented('read')
   }
 
   static stringify(value: IAny): string {
@@ -93,5 +93,4 @@ export default class AbstractPersistentStorage extends AbstractStorage
   static parse(value: string): IAny {
     return JSON.parse(value)
   }
-
 }
