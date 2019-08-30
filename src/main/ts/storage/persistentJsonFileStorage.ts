@@ -11,12 +11,18 @@ export type IFileStorageOpts = IStorageOpts & {
 export default class PersistentJsonStorage extends AbstractPersistentStorage
   implements IStorage {
 
-  static write(path: string, data: string) {
+  constructor(opts: any) {
+    super(opts)
+  }
+
+}
+
+PersistentJsonStorage.prototype.io = {
+  write: (path: string, data: string): void => {
     require('fs').writeFileSync(path, data, ENCODING)
-  }
+  },
 
-  static read(path: string): IAny {
+  read: (path: string): IAny => {
     return require('fs').readFileSync(path, ENCODING)
-  }
-
+  },
 }

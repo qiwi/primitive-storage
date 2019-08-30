@@ -1,11 +1,6 @@
 import {IStorage, IStorageOpts, IAny, IEntry} from '../interface'
-import InMemoryStorage from './inMemoryStorage'
 
-function notImplemented(method: string): void {
-  throw new Error(`${method} not implemented`)
-}
-
-export default class AbstractStorage implements IStorage {
+export default abstract class AbstractStorage implements IStorage {
 
   opts: IStorageOpts
 
@@ -13,33 +8,19 @@ export default class AbstractStorage implements IStorage {
     this.opts = opts
   }
 
-  get(key: string): IAny {
-    notImplemented('get')
-  }
+  abstract get(key: string): IAny
 
-  set(key: string, value: IAny, ttl?: number): void {
-    notImplemented('set')
-  }
+  abstract set(key: string, value: IAny, ttl?: number): void
 
-  setTtl(key: string, ttl: number): void {
-    notImplemented('setTtl')
-  }
+  abstract setTtl(key: string, ttl: number): void
 
-  getTtl(key: string): void {
-    notImplemented('getTtl')
-  }
+  abstract getTtl(key: string): void
 
-  remove(key: string): void {
-    notImplemented('remove')
-  }
+  abstract remove(key: string): void
 
-  reset(): void {
-    notImplemented('reset')
-  }
+  abstract reset(): void
 
-  size(): void {
-    notImplemented('size')
-  }
+  abstract size(): void
 
   // aliases
   put(...args: [string, IAny, number?]): void {
@@ -65,7 +46,5 @@ export default class AbstractStorage implements IStorage {
   static isExpiredEntry(entry: IEntry): boolean {
     return typeof entry.exp === 'number' && entry.exp <= Date.now()
   }
-
-  static notImplemented = notImplemented
 
 }

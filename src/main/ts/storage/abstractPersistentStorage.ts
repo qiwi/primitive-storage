@@ -1,17 +1,20 @@
-import {IAny, IStorage, IStorageOpts} from '../interface'
+import {IAny, IStorage, IStorageOpts, IIO} from '../interface'
 import AbstractStorage from './abstractStorage'
 import InMemoryStorage from './inMemoryStorage'
 import {processCycledRefs, debounce} from '../util'
 
-export default class AbstractPersistentStorage extends AbstractStorage
+export default abstract class AbstractPersistentStorage extends AbstractStorage
   implements IStorage {
 
+  // @ts-ignore
+  io: IIO
   cache: InMemoryStorage
 
   constructor(opts: IStorageOpts) {
     super(opts)
 
     this.cache = new InMemoryStorage(opts)
+
     this.syncFrom()
     if (this.opts.debounce) {
       this.syncTo = debounce(this.syncTo.bind(this), this.opts.debounce)
@@ -58,27 +61,17 @@ export default class AbstractPersistentStorage extends AbstractStorage
   syncFrom(): void {
     this.cache.data =
       (this.constructor as typeof AbstractPersistentStorage).parse(
-        (this.constructor as typeof AbstractPersistentStorage).read(
-          this.opts.path,
-        ),
+        this.io.read(this.opts.path),
       ) || {}
   }
 
   syncTo(): void {
-    (this.constructor as typeof AbstractPersistentStorage).write(
+    this.io.write(
       this.opts.path,
       (this.constructor as typeof AbstractPersistentStorage).stringify(
         this.cache.data,
       ),
     )
-  }
-
-  static write(path: string, data: string) {
-    this.notImplemented('write')
-  }
-
-  static read(path: string): IAny {
-    this.notImplemented('read')
   }
 
   static stringify(value: IAny): string {
@@ -92,5 +85,15 @@ export default class AbstractPersistentStorage extends AbstractStorage
 
   static parse(value: string): IAny {
     return JSON.parse(value)
+  }
+}
+
+AbstractPersistentStorage.prototype.io = {
+  write: (path: string, data: string): void => {
+    throw new Error('Not implemented write')
+  },
+
+  read: (path: string): IAny => {
+    throw new Error('Not implemented read')
   }
 }

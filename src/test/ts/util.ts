@@ -10,9 +10,9 @@ describe('util', () => {
 
       Object.assign(foo, {
         bar: {
-          baz: {},
+          baz: {}
         },
-        qux: 1,
+        qux: 1
       })
       //@ts-ignore
       foo.bar.baz.qux = foo
@@ -22,11 +22,11 @@ describe('util', () => {
       expect(processCycledRefs(foo)).toEqual({
         bar: {
           baz: {
-            qux: '<cycled>',
-          },
+            qux: '<cycled>'
+          }
         },
         baz: '<cycled>',
-        qux: 1,
+        qux: 1
       })
     })
   })

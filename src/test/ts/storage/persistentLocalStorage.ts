@@ -1,6 +1,6 @@
 import PersistentLocalStorage, {
   PREFIX,
-  DEFAULT_PATH,
+  DEFAULT_PATH
 } from '../../../main/ts/storage/persistentLocalStorage'
 import InMemoryStorage from '../../../main/ts/storage/inMemoryStorage'
 

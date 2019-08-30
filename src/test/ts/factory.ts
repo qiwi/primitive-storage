@@ -1,26 +1,25 @@
 import * as path from 'path'
-import factory from '../../main/ts'
-import {
+import factory, {
   InMemoryStorage,
   PersistentJsonFileStorage,
-  PersistentLocalStorage,
+  PersistentLocalStorage
 } from '../../main/ts'
 
 describe('factory', () => {
   it('returns `PersistentJsonFileStorage` instance if `path` opt defined for Nodejs runtime', () => {
-    //@ts-ignore
+    // @ts-ignore
     global.window = null
     expect(
       factory({path: path.resolve(__dirname, './storage/data.json')})
-        .constructor.name,
+        .constructor.name
     ).toBe(PersistentJsonFileStorage.name)
   })
 
   it('returns `PersistentLocalStorage` instance if `path` opt defined for browser', () => {
-    //@ts-ignore
+    // @ts-ignore
     global.window = {document: {}}
     expect(factory({path: 'foo'}).constructor.name).toBe(
-      PersistentLocalStorage.name,
+      PersistentLocalStorage.name
     )
   })
 

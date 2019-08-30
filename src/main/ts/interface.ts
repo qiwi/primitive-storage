@@ -34,3 +34,8 @@ export type IObject = {
   hasOwnProperty: (key: string) => boolean
   [key: string]: IAny
 }
+
+export interface IIO {
+  write(path: string, data: string): void
+  read(path: string): any
+}

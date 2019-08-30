@@ -4,23 +4,52 @@ const {getExpirationDate, isExpiredEntry} = AbstractStorage
 
 describe('storage/abstract', () => {
   describe('proto', () => {
-    class Storage extends AbstractStorage {}
+    class Storage extends AbstractStorage {
+      get(key: string): any {
+        throw new Error('Not implemented')
+      }
+
+      set(key: string, value: any, ttl?: number): void {
+        throw new Error('Not implemented')
+      }
+
+      remove(key: string): void {
+        throw new Error('Not implemented')
+      }
+
+      reset(): void {
+        throw new Error('Not implemented')
+      }
+
+      getTtl(key: string): void {
+        throw new Error('Not implemented')
+      }
+
+      setTtl(key: string, ttl: number): void {
+        throw new Error('Not implemented')
+      }
+
+      size(): void {
+        throw new Error('Not implemented')
+      }
+    }
+
     const storage = new Storage()
 
     it('`get` is not implemented', () => {
-      expect(() => storage.get('foo')).toThrow('get not implemented')
+      expect(() => storage.get('foo')).toThrow('Not implemented')
     })
 
     it('`set` is not implemented', () => {
-      expect(() => storage.set('foo', 'bar')).toThrow('set not implemented')
+      expect(() => storage.set('foo', 'bar')).toThrow('Not implemented')
     })
 
     it('`remove` is not implemented', () => {
-      expect(() => storage.remove('foo')).toThrow('remove not implemented')
+      expect(() => storage.remove('foo')).toThrow('Not implemented')
     })
 
     it('`reset` is not implemented', () => {
-      expect(() => storage.reset()).toThrow('reset not implemented')
+      expect(() => storage.reset()).toThrow('Not implemented')
     })
 
     it('`put` does same as `set`', () => {
@@ -45,7 +74,7 @@ describe('storage/abstract', () => {
     })
 
     it('`size` is not implemented', () => {
-      expect(() => storage.size()).toThrow('size not implemented')
+      expect(() => storage.size()).toThrow('Not implemented')
     })
   })
 

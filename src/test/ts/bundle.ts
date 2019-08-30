@@ -3,15 +3,15 @@ import factory from '../../main/ts/factory'
 
 describe('factory', () => {
   it('returns `PersistentJsonFileStorage` instance if `path` opt defined for Nodejs runtime', () => {
-    //@ts-ignore
+    // @ts-ignore
     global.window = null
     expect(
-      factory({path: path.resolve(__dirname, './storage/data.json')}).cache,
+      factory({path: path.resolve(__dirname, './storage/data.json')}).cache
     ).toBeDefined()
   })
 
   it('returns `PersistentLocalStorage` instance if `path` opt defined for browser', () => {
-    //@ts-ignore
+    // @ts-ignore
     global.window = {document: {}}
     expect(factory({path: 'foo'}).cache).toBeDefined()
   })
