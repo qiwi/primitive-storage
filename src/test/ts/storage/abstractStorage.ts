@@ -1,10 +1,39 @@
-import AbstractStorage from '../../../main/js/storage/abstractStorage'
+import AbstractStorage from '../../../main/ts/storage/abstractStorage'
 
-const { getExpirationDate, isExpiredEntry } = AbstractStorage
+const {getExpirationDate, isExpiredEntry} = AbstractStorage
 
 describe('storage/abstract', () => {
   describe('proto', () => {
-    class Storage extends AbstractStorage {}
+    class Storage extends AbstractStorage {
+      get(key: string): any {
+        throw new Error('Not implemented')
+      }
+
+      set(key: string, value: any, ttl?: number): void {
+        throw new Error('Not implemented')
+      }
+
+      remove(key: string): void {
+        throw new Error('Not implemented')
+      }
+
+      reset(): void {
+        throw new Error('Not implemented')
+      }
+
+      getTtl(key: string): void {
+        throw new Error('Not implemented')
+      }
+
+      setTtl(key: string, ttl: number): void {
+        throw new Error('Not implemented')
+      }
+
+      size(): void {
+        throw new Error('Not implemented')
+      }
+    }
+
     const storage = new Storage()
 
     it('`get` is not implemented', () => {
@@ -62,11 +91,11 @@ describe('storage/abstract', () => {
 
     describe('isExpiredEntry', () => {
       it('returns true if ttl is expired', () => {
-        expect(isExpiredEntry({ exp: 0 })).toBeTruthy()
+        expect(isExpiredEntry({exp: 0})).toBeTruthy()
       })
 
       it('returns false if ttl is greater than Date.now()', () => {
-        expect(isExpiredEntry({ exp: Infinity })).toBeFalsy()
+        expect(isExpiredEntry({exp: Infinity})).toBeFalsy()
       })
 
       it('returns false if no ttl found', () => {

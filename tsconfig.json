@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "CommonJS",
+    "baseUrl": "./src/main/ts",
+    "outDir": "./target/es5",
+    "lib": ["es6", "esnext", "dom"],
+    "strict": true,
+    "experimentalDecorators": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": false,
+    "declaration": true,
+    "moduleResolution": "node"
+  },
+  "include": ["src/main/**/*.ts"],
+  "exclude": ["node_modules"]
+}

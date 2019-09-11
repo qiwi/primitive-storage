@@ -1,15 +1,33 @@
-import AbstractPersistentStorage from '../../../main/js/storage/abstractPersistentStorage'
-import InMemoryStorage from '../../../main/js/storage/inMemoryStorage'
+import AbstractPersistentStorage from '../../../main/ts/storage/abstractPersistentStorage'
+import InMemoryStorage from '../../../main/ts/storage/inMemoryStorage'
 
-const stringify = AbstractPersistentStorage.stringify.bind(AbstractPersistentStorage)
-const write = AbstractPersistentStorage.write.bind(AbstractPersistentStorage)
-const read = AbstractPersistentStorage.read.bind(AbstractPersistentStorage)
-const { parse } = AbstractPersistentStorage
+const stringify = AbstractPersistentStorage.stringify.bind(
+  AbstractPersistentStorage
+)
+
+class TestAbstractPersistentStorage extends AbstractPersistentStorage {
+  constructor(opts: any) {
+    super(opts)
+  }
+}
+
+TestAbstractPersistentStorage.prototype.io = {
+  write(path: string, data: string): void {
+    throw new Error('write not implemented')
+  },
+
+  read(path: string): any {
+    throw new Error('read not implemented')
+  }
+}
 
 describe('storage/abstractPersistent', () => {
+  it('should 1', function() {
+    expect(1).toBe(1)
+  })
   describe('constructor', () => {
     class Storage extends AbstractPersistentStorage {
-      syncFrom () {}
+      syncFrom() {}
     }
 
     it('returns proper instance', () => {
@@ -18,8 +36,11 @@ describe('storage/abstractPersistent', () => {
     })
 
     it('supports `debounce` opts', () => {
-      const storage1 = new Storage({ path: 'foo' })
-      const storage2 = new Storage({ path: 'foo', debounce: { delay: 500, maxDelay: 1000 } })
+      const storage1 = new Storage({path: 'foo'})
+      const storage2 = new Storage({
+        path: 'foo',
+        debounce: {delay: 500, maxDelay: 1000}
+      })
 
       expect(storage1.syncTo).toBe(Storage.prototype.syncTo)
       expect(storage2.syncTo).not.toBe(Storage.prototype.syncTo)
@@ -30,16 +51,31 @@ describe('storage/abstractPersistent', () => {
     describe('sync', () => {
       let persisted = 'qux'
       class Storage extends AbstractPersistentStorage {
-        static read (path) { return 'read' + path + persisted }
+        constructor(opts: any) {
+          super(opts)
+        }
 
-        static write (path, data) { persisted = 'write' + path + data }
+        static stringify(data: string) {
+          return 'stringified' + data
+        }
 
-        static stringify (data) { return 'stringified' + data }
-
-        static parse (data) { return 'parsed' + data }
+        static parse(data: string) {
+          return 'parsed' + data
+        }
       }
+
+      Storage.prototype.io = {
+        read(path: string) {
+          return 'read' + path + persisted
+        },
+
+        write(path: string, data: string) {
+          persisted = 'write' + path + data
+        }
+      }
+
       const path = 'foo'
-      const storage = new Storage({ path })
+      const storage = new Storage({path})
 
       it('`syncFrom` composes `read` and `parse`', () => {
         storage.syncFrom()
@@ -47,6 +83,7 @@ describe('storage/abstractPersistent', () => {
       })
 
       it('`syncTo` composes `stringify` and `write`', () => {
+        // @ts-ignore
         storage.cache.data = 'bar'
         storage.syncTo()
 
@@ -56,11 +93,19 @@ describe('storage/abstractPersistent', () => {
 
     describe('IStorage methods', () => {
       class Storage extends AbstractPersistentStorage {
-        static write () {}
-
-        static read () { return '{"foo": {"value": "bar"}}' }
+        constructor(opts: any) {
+          super(opts)
+        }
       }
-      const storage = new Storage({ path: 'qux' })
+
+      Storage.prototype.io = {
+        write() {},
+        read() {
+          return '{"foo": {"value": "bar"}}'
+        }
+      }
+
+      const storage = new Storage({path: 'qux'})
       const syncTo = jest.spyOn(storage, 'syncTo')
       const syncFrom = jest.spyOn(storage, 'syncFrom')
 
@@ -91,8 +136,8 @@ describe('storage/abstractPersistent', () => {
 
       it('`size` returns the count of non-expired cached entries', () => {
         storage.cache.data = {
-          foo: { value: 'bar', exp: Infinity },
-          baz: { value: 'qux', exp: 0 }
+          foo: {value: 'bar', exp: Infinity},
+          baz: {value: 'qux', exp: 0}
         }
 
         expect(storage.size()).toBe(1)
@@ -108,11 +153,12 @@ describe('storage/abstractPersistent', () => {
   describe('static', () => {
     describe('stringify', () => {
       it('transforms object to JSON string', () => {
-        expect(stringify({ foo: 'bar' })).toEqual('{"foo":"bar"}')
+        expect(stringify({foo: 'bar'})).toEqual('{"foo":"bar"}')
       })
 
       it('catches cycled refs', () => {
-        const foo = { bar: 'baz' }
+        const foo = {bar: 'baz'}
+        // @ts-ignore
         foo.foo = foo
 
         expect(stringify(foo)).toEqual('{"bar":"baz","foo":"<cycled>"}')
@@ -121,19 +167,25 @@ describe('storage/abstractPersistent', () => {
 
     describe('parse', () => {
       it('parses JSON string', () => {
-        expect(parse('{"foo":"bar"}')).toEqual({ foo: 'bar' })
+        expect(AbstractPersistentStorage.parse('{"foo":"bar"}')).toEqual({
+          foo: 'bar'
+        })
       })
     })
 
     describe('read', () => {
       it('is not implemented', () => {
-        expect(read).toThrow('Not implemented')
+        expect(TestAbstractPersistentStorage.prototype.io.read).toThrow(
+          'read not implemented'
+        )
       })
     })
 
     describe('write', () => {
       it('is not implemented', () => {
-        expect(write).toThrow('Not implemented')
+        expect(TestAbstractPersistentStorage.prototype.io.write).toThrow(
+          'write not implemented'
+        )
       })
     })
   })

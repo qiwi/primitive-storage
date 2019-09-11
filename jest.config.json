@@ -1,15 +1,17 @@
 {
+  "preset": "ts-jest",
   "collectCoverage": true,
   "browser": false,
   "testEnvironment": "node",
   "coveragePathIgnorePatterns": [
-    "<rootDir>/src/main/js/interface.js"
+    "<rootDir>/src/main/js/interface.ts"
   ],
   "collectCoverageFrom": [
-    "<rootDir>/src/main/**/*.js"
+    "<rootDir>/src/main/**/*.ts"
   ],
   "testMatch": [
-    "<rootDir>/src/test/**/*.js"
+    "<rootDir>/src/test/ts/**/*.ts",
+    "<rootDir>/src/test/js/**/*.js"
   ],
   "testPathIgnorePatterns": [
     "/node_modules/"
@@ -18,7 +20,7 @@
     "node_modules/(?!(lodash-es)/)"
   ],
   "transform": {
-    "^.+\\.jsx?$": "babel-jest"
+    "^.+\\.ts$": "ts-jest"
   },
   "moduleFileExtensions": [
     "ts",
@@ -28,5 +30,10 @@
     "json",
     "node"
   ],
-  "setupFiles": ["jest-localstorage-mock"]
+  "setupFiles": ["jest-localstorage-mock"],
+  "globals": {
+    "ts-jest": {
+      "tsConfig": "tsconfig.json"
+    }
+  }
 }

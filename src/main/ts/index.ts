@@ -1,12 +1,10 @@
-// @flow
-
 import factory from './factory'
 import {
   AbstractStorage,
   AbstractPersistentStorage,
   InMemoryStorage,
   PersistentLocalStorage,
-  PersistentJsonFileStorage
+  PersistentJsonFileStorage,
 } from './storage'
 
 export {
@@ -14,7 +12,7 @@ export {
   AbstractPersistentStorage,
   InMemoryStorage,
   PersistentLocalStorage,
-  PersistentJsonFileStorage
+  PersistentJsonFileStorage,
 }
 
 export default factory

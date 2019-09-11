@@ -1,5 +1,3 @@
-// @flow
-
 import AbstractStorage from './abstractStorage'
 import AbstractPersistentStorage from './abstractPersistentStorage'
 import InMemoryStorage from './inMemoryStorage'
@@ -11,5 +9,5 @@ export {
   AbstractPersistentStorage,
   InMemoryStorage,
   PersistentLocalStorage,
-  PersistentJsonFileStorage
+  PersistentJsonFileStorage,
 }

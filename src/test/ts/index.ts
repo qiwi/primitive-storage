@@ -4,7 +4,7 @@ import factory, {
   InMemoryStorage,
   PersistentLocalStorage,
   PersistentJsonFileStorage
-} from '../../main/js'
+} from '../../main/ts'
 
 describe('index', () => {
   it('exposes factory ', () => {
@@ -20,6 +20,8 @@ describe('index', () => {
       PersistentJsonFileStorage
     ]
 
-    constructors.forEach(Constructor => expect(Constructor).toEqual(expect.any(Function)))
+    constructors.forEach(Constructor =>
+      expect(Constructor).toEqual(expect.any(Function))
+    )
   })
 })

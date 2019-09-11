@@ -2,22 +2,19 @@
   "name": "@qiwi/primitive-storage",
   "version": "1.3.0",
   "description": "Primitive storage for basic purposes",
-  "main": "target/es5//bundle.es5.js",
+  "main": "target/es5/index.js",
+  "types": "target/es5/index.d.ts",
   "scripts": {
-    "flow": "flow",
-    "flow:coverage": "flow-coverage-report -i 'src/main/**/*.js' -t html -t json -t text --threshold 85",
-    "lint": "standard src/**/*.js",
+    "lint": "tslint -p tsconfig.json -c tslint.json",
     "lint:fix": "yarn lint --fix",
-    "jest": "BABEL_ENV=test jest -w 1 --forceExit --config=jest.config.json",
-    "test": "yarn flow && yarn flow:coverage && yarn lint && yarn jest",
-    "doc": "esdoc",
-    "test:report": "npm test && yarn coveralls:push",
+    "clean": "rimraf target",
+    "build": "yarn clean && yarn build:es5 && yarn docs",
+    "build:es5": "tsc -p tsconfig.json --skipLibCheck",
+    "jest": "jest -w 2 --config=jest.config.json",
+    "test": "yarn lint && yarn jest",
+    "test:report": "yarn test && yarn coveralls:push",
     "coveralls:push": "cat ./coverage/lcov.info | coveralls",
-    "build": "yarn build:rollup",
-    "build:babel": "BABEL_ENV=production babel src/main/js --out-dir target/es5",
-    "build:rollup": "yarn rollup && yarn bundle:es5",
-    "rollup": "rollup -c",
-    "bundle:es5": "BABEL_ENV=production babel target/es5/bundle.js --out-file target/es5/bundle.es5.js"
+    "docs": "typedoc --readme README.md --tsconfig tsconfig.json src/main --ignoreCompilerErrors || exit 0"
   },
   "repository": {
     "type": "git",
@@ -32,45 +29,29 @@
   "author": "Anton Golub <mailbox@antongolub.ru>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/antongolub/primitive-storage/issues"
+    "url": "https://github.com/qiwi/primitive-storage/issues"
   },
-  "homepage": "https://github.com/antongolub/primitive-storage#readme",
+  "homepage": "https://github.com/qiwi/primitive-storage#readme",
   "devDependencies": {
-    "@babel/cli": "^7.5.5",
-    "@babel/core": "^7.5.5",
-    "@babel/plugin-external-helpers": "^7.2.0",
-    "@babel/plugin-proposal-export-default-from": "^7.5.2",
-    "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
-    "@babel/plugin-transform-flow-strip-types": "^7.4.4",
-    "@babel/plugin-transform-runtime": "^7.5.5",
-    "@babel/polyfill": "^7.4.4",
-    "@babel/preset-env": "^7.5.5",
-    "@babel/preset-flow": "^7.0.0",
     "@semantic-release/changelog": "^3.0.4",
     "@semantic-release/git": "^7.0.16",
     "@semantic-release/github": "^5.4.2",
     "@semantic-release/npm": "^5.1.13",
-    "babel-core": "^7.0.0-bridge.0",
-    "babel-eslint": "^10.0.2",
-    "babel-plugin-external-helpers": "^6.22.0",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-preset-es2015-rollup": "^3.0.0",
-    "babel-preset-minify": "^0.5.0",
+    "@types/jest": "^24.0.17",
+    "@types/node": "^12.7.1",
     "coveralls": "^3.0.6",
-    "eslint-plugin-flowtype": "^4.1.0",
-    "flow-bin": "^0.104.0",
-    "flow-coverage-report": "^0.6.1",
-    "flow-remove-types": "^2.104.0",
     "jest": "^24.8.0",
     "jest-localstorage-mock": "^2.4.0",
-    "rollup": "^1.19.4",
-    "rollup-plugin-amd": "^4.0.0",
-    "rollup-plugin-babel": "^4.3.3",
-    "rollup-plugin-commonjs": "^10.0.2",
-    "rollup-plugin-flow": "^1.1.1",
-    "rollup-plugin-node-resolve": "^5.2.0",
+    "prettier": "^1.18.2",
+    "push-it-to-the-limit": "^1.11.0",
+    "rimraf": "^2.6.3",
     "semantic-release": "^15.13.19",
-    "standard": "^13.1.0"
+    "ts-jest": "^24.0.2",
+    "tslint": "^5.19.0",
+    "tslint-config-qiwi": "^1.1.1",
+    "typedoc": "^0.15.0",
+    "typedoc-plugin-external-module-name": "^2.1.0",
+    "typescript": "^3.5.3"
   },
   "files": [
     "README.md",
@@ -93,51 +74,6 @@
       "@semantic-release/npm",
       "@semantic-release/github"
     ]
-  },
-  "jest": {
-    "setupFiles": [
-      "jest-localstorage-mock"
-    ],
-    "testEnvironment": "node",
-    "collectCoverage": true,
-    "coveragePathIgnorePatterns": [
-      "<rootDir>/src/interface.js"
-    ],
-    "collectCoverageFrom": [
-      "<rootDir>/src/**/*.js"
-    ],
-    "testMatch": [
-      "<rootDir>/test/**/*.js"
-    ]
-  },
-  "standard": {
-    "parser": "babel-eslint",
-    "plugins": [
-      "flowtype"
-    ],
-    "globals": [
-      "jest",
-      "localStorage",
-      "it",
-      "expect",
-      "describe",
-      "before",
-      "beforeAll",
-      "afterAll",
-      "after",
-      "afterEach",
-      "beforeEach",
-      "TimeoutID"
-    ],
-    "rules": {
-      "use-flow-type": 1
-    },
-    "ignore": [],
-    "settings": {
-      "flowtype": {
-        "onlyFilesWithFlowAnnotation": true
-      }
-    }
   },
   "dependencies": {
     "push-it-to-the-limit": "^1.11.0"
