@@ -1,5 +1,5 @@
 {
-  "name": "protopipe",
+  "name": "@qiwi/primitive-storage",
   "mode": "modules",
   "out": "./docs",
   "target": "ES6",
