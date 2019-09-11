@@ -44,7 +44,6 @@
     "jest": "^24.9.0",
     "jest-localstorage-mock": "^2.4.0",
     "prettier": "^1.18.2",
-    "push-it-to-the-limit": "^1.11.0",
     "rimraf": "^3.0.0",
     "semantic-release": "^15.13.24",
     "ts-jest": "^24.0.2",
@@ -77,6 +76,7 @@
     ]
   },
   "dependencies": {
-    "push-it-to-the-limit": "^1.12.1"
+    "push-it-to-the-limit": "^1.12.1",
+    "tslib": "^1.10.0"
   }
 }
