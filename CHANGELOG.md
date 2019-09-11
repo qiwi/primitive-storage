@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/qiwi/primitive-storage/compare/v1.3.0...v1.4.0) (2019-09-11)
+
+
+### Features
+
+* migrate to typescript ([c94fb26](https://github.com/qiwi/primitive-storage/commit/c94fb26)), closes [#24](https://github.com/qiwi/primitive-storage/issues/24) [#35](https://github.com/qiwi/primitive-storage/issues/35)
+
 # [1.3.0](https://github.com/qiwi/primitive-storage/compare/v1.2.2...v1.3.0) (2019-08-09)
 
 
