@@ -1,3 +1,11 @@
+## [1.4.1](https://github.com/qiwi/primitive-storage/compare/v1.4.0...v1.4.1) (2019-09-11)
+
+
+### Bug Fixes
+
+* **facade:** export ifaces and types ([7a34890](https://github.com/qiwi/primitive-storage/commit/7a34890))
+* **package:** fix deps clash ([186e3b7](https://github.com/qiwi/primitive-storage/commit/186e3b7))
+
 # [1.4.0](https://github.com/qiwi/primitive-storage/compare/v1.3.0...v1.4.0) (2019-09-11)
 
 
