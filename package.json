@@ -14,7 +14,8 @@
     "test": "yarn lint && yarn jest",
     "test:report": "yarn test && yarn coveralls:push",
     "coveralls:push": "cat ./coverage/lcov.info | coveralls",
-    "docs": "typedoc --readme README.md --tsconfig tsconfig.json src/main --ignoreCompilerErrors || exit 0"
+    "docs": "typedoc --readme README.md --tsconfig tsconfig.json src/main --ignoreCompilerErrors || exit 0",
+    "postupdate": "yarn && yarn build && yarn test"
   },
   "repository": {
     "type": "git",
@@ -35,23 +36,23 @@
   "devDependencies": {
     "@semantic-release/changelog": "^3.0.4",
     "@semantic-release/git": "^7.0.16",
-    "@semantic-release/github": "^5.4.2",
-    "@semantic-release/npm": "^5.1.13",
-    "@types/jest": "^24.0.17",
-    "@types/node": "^12.7.1",
+    "@semantic-release/github": "^5.4.3",
+    "@semantic-release/npm": "^5.1.15",
+    "@types/jest": "^24.0.18",
+    "@types/node": "^12.7.5",
     "coveralls": "^3.0.6",
-    "jest": "^24.8.0",
+    "jest": "^24.9.0",
     "jest-localstorage-mock": "^2.4.0",
     "prettier": "^1.18.2",
     "push-it-to-the-limit": "^1.11.0",
-    "rimraf": "^2.6.3",
-    "semantic-release": "^15.13.19",
+    "rimraf": "^3.0.0",
+    "semantic-release": "^15.13.24",
     "ts-jest": "^24.0.2",
-    "tslint": "^5.19.0",
+    "tslint": "^5.20.0",
     "tslint-config-qiwi": "^1.1.1",
     "typedoc": "^0.15.0",
     "typedoc-plugin-external-module-name": "^2.1.0",
-    "typescript": "^3.5.3"
+    "typescript": "^3.6.3"
   },
   "files": [
     "README.md",
@@ -76,6 +77,6 @@
     ]
   },
   "dependencies": {
-    "push-it-to-the-limit": "^1.11.0"
+    "push-it-to-the-limit": "^1.12.1"
   }
 }
