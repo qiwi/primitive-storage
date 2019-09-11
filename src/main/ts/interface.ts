@@ -20,6 +20,7 @@ export type IStorageOpts = {
   [key: string]: IAny
 }
 export interface IStorage {
+  data?: any,
   opts: IStorageOpts
   get(key: string): IAny
   set(key: string, value: IAny, ttl?: number): void
