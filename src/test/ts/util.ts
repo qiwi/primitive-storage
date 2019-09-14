@@ -19,7 +19,10 @@ describe('util', () => {
       //@ts-ignore
       foo.baz = foo.bar.baz
 
-      expect(processCycledRefs(foo)).toEqual({
+      const result = processCycledRefs(foo)
+
+      expect(result).not.toBe(foo)
+      expect(result).toEqual({
         bar: {
           baz: {
             qux: '<cycled>'

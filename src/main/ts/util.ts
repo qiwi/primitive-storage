@@ -5,6 +5,7 @@ export {debounce, repeat} from 'push-it-to-the-limit'
 export const processCycledRefs = (
   obj: IObject,
   verified: IObject[] = [],
+  target: IObject = {},
 ): IObject | string => {
 
   if (verified.includes(obj)) {
@@ -14,12 +15,12 @@ export const processCycledRefs = (
   verified.push(obj)
 
   Object.keys(obj).forEach(key => {
-    if (typeof obj[key] === 'object') {
-      obj[key] = processCycledRefs(obj[key], verified)
-    }
+    target[key] = typeof obj[key] === 'object'
+      ? processCycledRefs(obj[key], verified)
+      : obj[key]
   })
 
-  return obj
+  return target
 }
 
 export const clone = (data: IAny): IAny => JSON.parse(JSON.stringify(data))
