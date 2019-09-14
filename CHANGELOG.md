@@ -1,3 +1,10 @@
+## [1.4.2](https://github.com/qiwi/primitive-storage/compare/v1.4.1...v1.4.2) (2019-09-14)
+
+
+### Bug Fixes
+
+* **util:** processCycledRefs should not mutate src object ([19f8f75](https://github.com/qiwi/primitive-storage/commit/19f8f75))
+
 ## [1.4.1](https://github.com/qiwi/primitive-storage/compare/v1.4.0...v1.4.1) (2019-09-11)
 
 
