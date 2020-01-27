@@ -34,7 +34,7 @@
   },
   "homepage": "https://github.com/qiwi/primitive-storage#readme",
   "devDependencies": {
-    "@semantic-release/changelog": "^3.0.4",
+    "@semantic-release/changelog": "^5.0.0",
     "@semantic-release/git": "^7.0.16",
     "@semantic-release/github": "^5.4.3",
     "@semantic-release/npm": "^5.1.15",
