@@ -1,3 +1,10 @@
+## [1.4.3](https://github.com/qiwi/primitive-storage/compare/v1.4.2...v1.4.3) (2020-04-07)
+
+
+### Bug Fixes
+
+* up deps & make *Storage be compatible with IStorage ([4f2f6a2](https://github.com/qiwi/primitive-storage/commit/4f2f6a21eb7b9a70c72155de48b8f40cb4d2505d))
+
 ## [1.4.2](https://github.com/qiwi/primitive-storage/compare/v1.4.1...v1.4.2) (2019-09-14)
 
 
