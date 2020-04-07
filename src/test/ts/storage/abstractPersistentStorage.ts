@@ -2,13 +2,15 @@ import AbstractPersistentStorage from '../../../main/ts/storage/abstractPersiste
 import InMemoryStorage from '../../../main/ts/storage/inMemoryStorage'
 
 const stringify = AbstractPersistentStorage.stringify.bind(
-  AbstractPersistentStorage
+  AbstractPersistentStorage,
 )
 
 class TestAbstractPersistentStorage extends AbstractPersistentStorage {
+
   constructor(opts: any) {
     super(opts)
   }
+
 }
 
 TestAbstractPersistentStorage.prototype.io = {
@@ -18,7 +20,7 @@ TestAbstractPersistentStorage.prototype.io = {
 
   read(path: string): any {
     throw new Error('read not implemented')
-  }
+  },
 }
 
 describe('storage/abstractPersistent', () => {
@@ -27,7 +29,9 @@ describe('storage/abstractPersistent', () => {
   })
   describe('constructor', () => {
     class Storage extends AbstractPersistentStorage {
-      syncFrom() {}
+
+      syncFrom() { /* noop */ }
+
     }
 
     it('returns proper instance', () => {
@@ -39,7 +43,7 @@ describe('storage/abstractPersistent', () => {
       const storage1 = new Storage({path: 'foo'})
       const storage2 = new Storage({
         path: 'foo',
-        debounce: {delay: 500, maxDelay: 1000}
+        debounce: {delay: 500, maxDelay: 1000},
       })
 
       expect(storage1.syncTo).toBe(Storage.prototype.syncTo)
@@ -51,6 +55,7 @@ describe('storage/abstractPersistent', () => {
     describe('sync', () => {
       let persisted = 'qux'
       class Storage extends AbstractPersistentStorage {
+
         constructor(opts: any) {
           super(opts)
         }
@@ -62,6 +67,7 @@ describe('storage/abstractPersistent', () => {
         static parse(data: string) {
           return 'parsed' + data
         }
+
       }
 
       Storage.prototype.io = {
@@ -71,7 +77,7 @@ describe('storage/abstractPersistent', () => {
 
         write(path: string, data: string) {
           persisted = 'write' + path + data
-        }
+        },
       }
 
       const path = 'foo'
@@ -93,16 +99,18 @@ describe('storage/abstractPersistent', () => {
 
     describe('IStorage methods', () => {
       class Storage extends AbstractPersistentStorage {
+
         constructor(opts: any) {
           super(opts)
         }
+
       }
 
       Storage.prototype.io = {
-        write() {},
+        write() { /* noop */ },
         read() {
           return '{"foo": {"value": "bar"}}'
-        }
+        },
       }
 
       const storage = new Storage({path: 'qux'})
@@ -137,7 +145,7 @@ describe('storage/abstractPersistent', () => {
       it('`size` returns the count of non-expired cached entries', () => {
         storage.cache.data = {
           foo: {value: 'bar', exp: Infinity},
-          baz: {value: 'qux', exp: 0}
+          baz: {value: 'qux', exp: 0},
         }
 
         expect(storage.size()).toBe(1)
@@ -168,7 +176,7 @@ describe('storage/abstractPersistent', () => {
     describe('parse', () => {
       it('parses JSON string', () => {
         expect(AbstractPersistentStorage.parse('{"foo":"bar"}')).toEqual({
-          foo: 'bar'
+          foo: 'bar',
         })
       })
     })
@@ -176,7 +184,7 @@ describe('storage/abstractPersistent', () => {
     describe('read', () => {
       it('is not implemented', () => {
         expect(TestAbstractPersistentStorage.prototype.io.read).toThrow(
-          'read not implemented'
+          'read not implemented',
         )
       })
     })
@@ -184,7 +192,7 @@ describe('storage/abstractPersistent', () => {
     describe('write', () => {
       it('is not implemented', () => {
         expect(TestAbstractPersistentStorage.prototype.io.write).toThrow(
-          'write not implemented'
+          'write not implemented',
         )
       })
     })

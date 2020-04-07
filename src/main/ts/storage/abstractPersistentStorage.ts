@@ -1,10 +1,10 @@
-import {IAny, IStorage, IStorageOpts, IIO} from '../interface'
+import {IAny, ICachedStorage, IStorageOpts, IIO} from '../interface'
 import AbstractStorage from './abstractStorage'
 import InMemoryStorage from './inMemoryStorage'
 import {processCycledRefs, debounce} from '../util'
 
 export default abstract class AbstractPersistentStorage extends AbstractStorage
-  implements IStorage {
+  implements ICachedStorage {
 
   // @ts-ignore
   io: IIO
@@ -19,6 +19,10 @@ export default abstract class AbstractPersistentStorage extends AbstractStorage
     if (this.opts.debounce) {
       this.syncTo = debounce(this.syncTo.bind(this), this.opts.debounce)
     }
+  }
+
+  has(key: string) {
+    return this.cache.hasOwnProperty(key)
   }
 
   get(key: string): IAny {

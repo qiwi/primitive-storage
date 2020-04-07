@@ -19,12 +19,12 @@ describe('storage/in-memory', () => {
 
         storage.data = {
           foo: {value: 'bar', exp: Infinity},
-          baz: {value: 'qux', exp: Date.now() + 10}
+          baz: {value: 'qux', exp: Date.now() + 10},
         }
 
         setTimeout(() => {
           expect(storage.data).toEqual({
-            foo: {value: 'bar', exp: Infinity}
+            foo: {value: 'bar', exp: Infinity},
           })
           done()
         }, 30)
@@ -47,7 +47,7 @@ describe('storage/in-memory', () => {
 
       it('supports optional impl', () => {
         const storage = new InMemoryStorage({
-          clone: (data: string) => data.toUpperCase()
+          clone: (data: string) => data.toUpperCase(),
         })
 
         storage.set('foo', 'bar')
@@ -66,8 +66,8 @@ describe('storage/in-memory', () => {
         expect(storage.data).toEqual({
           foo: {
             value: 'bar',
-            exp: null
-          }
+            exp: null,
+          },
         })
       })
 
@@ -133,7 +133,7 @@ describe('storage/in-memory', () => {
         storage.set('foo', 'bar')
 
         expect(storage.resolve({value: 'bar', exp: Infinity}, 'foo')).toBe(
-          'bar'
+          'bar',
         )
         expect(storage.get('foo')).toBe('bar')
       })
@@ -150,12 +150,12 @@ describe('storage/in-memory', () => {
       it('drops all expired entries', () => {
         storage.data = {
           foo: {value: 'bar', exp: Infinity},
-          baz: {value: 'qux', exp: 0}
+          baz: {value: 'qux', exp: 0},
         }
         storage.compact()
 
         expect(storage.data).toEqual({
-          foo: {value: 'bar', exp: Infinity}
+          foo: {value: 'bar', exp: Infinity},
         })
       })
     })
@@ -164,7 +164,7 @@ describe('storage/in-memory', () => {
       it('counts non-expired entries in storage', () => {
         storage.data = {
           foo: {value: 'bar', exp: Infinity},
-          baz: {value: 'qux', exp: 0}
+          baz: {value: 'qux', exp: 0},
         }
 
         expect(storage.size()).toBe(1)

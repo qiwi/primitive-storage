@@ -1,4 +1,4 @@
-import {IStorage, IStorageOpts, IAny} from './interface'
+import {ICachedStorage, IStorageOpts, IAny} from './interface'
 
 import {
   InMemoryStorage,
@@ -11,7 +11,7 @@ type IOpts = IStorageOpts & {
 }
 type IWindow = {document: IAny} | void
 
-export default (opts: IOpts = {}): IStorage => {
+export default (opts: IOpts = {}): ICachedStorage => {
   const Constructor = getStorageConstructor(opts)
   // @ts-ignore
   return new Constructor(opts)

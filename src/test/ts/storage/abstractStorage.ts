@@ -5,6 +5,11 @@ const {getExpirationDate, isExpiredEntry} = AbstractStorage
 describe('storage/abstract', () => {
   describe('proto', () => {
     class Storage extends AbstractStorage {
+
+      has(key: string): boolean {
+        throw new Error('Not implemented')
+      }
+
       get(key: string): any {
         throw new Error('Not implemented')
       }
@@ -29,9 +34,10 @@ describe('storage/abstract', () => {
         throw new Error('Not implemented')
       }
 
-      size(): void {
+      size(): number {
         throw new Error('Not implemented')
       }
+
     }
 
     const storage = new Storage()

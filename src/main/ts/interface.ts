@@ -1,3 +1,5 @@
+import {IStorage} from '@qiwi/substrate'
+
 export type IAny = any
 
 export type IEntry = {
@@ -19,7 +21,7 @@ export type IStorageOpts = {
   syncTimer?: number
   [key: string]: IAny
 }
-export interface IStorage {
+export interface ICachedStorage extends IStorage {
   data?: any,
   opts: IStorageOpts
   get(key: string): IAny
@@ -28,7 +30,7 @@ export interface IStorage {
   getTtl(key: string): void
   remove(key: string): void
   reset(): void
-  cache?: IStorage
+  cache?: ICachedStorage
 }
 
 export type IObject = {

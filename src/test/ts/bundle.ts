@@ -6,7 +6,7 @@ describe('factory', () => {
     // @ts-ignore
     global.window = null
     expect(
-      factory({path: path.resolve(__dirname, './storage/data.json')}).cache
+      factory({path: path.resolve(__dirname, './storage/data.json')}).cache,
     ).toBeDefined()
   })
 

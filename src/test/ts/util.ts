@@ -4,19 +4,19 @@ describe('util', () => {
   describe('processCycledRefs', () => {
     it('replaces found cycled refs with "<cycled>"', () => {
       class Foo {}
-      //@ts-ignore
+      // @ts-ignore
       Foo.prototype.quux = 'quux'
       const foo = new Foo()
 
       Object.assign(foo, {
         bar: {
-          baz: {}
+          baz: {},
         },
-        qux: 1
+        qux: 1,
       })
-      //@ts-ignore
+      // @ts-ignore
       foo.bar.baz.qux = foo
-      //@ts-ignore
+      // @ts-ignore
       foo.baz = foo.bar.baz
 
       const result = processCycledRefs(foo)
@@ -25,11 +25,11 @@ describe('util', () => {
       expect(result).toEqual({
         bar: {
           baz: {
-            qux: '<cycled>'
-          }
+            qux: '<cycled>',
+          },
         },
         baz: '<cycled>',
-        qux: 1
+        qux: 1,
       })
     })
   })

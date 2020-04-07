@@ -1,10 +1,10 @@
-import {IAny, IStorage, IStorageOpts} from '../interface'
+import {IAny, ICachedStorage, IStorageOpts} from '../interface'
 import AbstractPersistentStorage from './abstractPersistentStorage'
 export const PREFIX = '__@@ps__'
 export const DEFAULT_PATH = 'default.json'
 
 export default class PersistentLocalStorage extends AbstractPersistentStorage
-  implements IStorage {
+  implements ICachedStorage {
 
   constructor(opts: IStorageOpts = {}) {
     const path = PREFIX + (opts.path || DEFAULT_PATH)

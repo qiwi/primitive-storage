@@ -1,12 +1,14 @@
-import {IStorage, IStorageOpts, IAny, IEntry} from '../interface'
+import {ICachedStorage, IStorageOpts, IAny, IEntry} from '../interface'
 
-export default abstract class AbstractStorage implements IStorage {
+export default abstract class AbstractStorage implements ICachedStorage {
 
   opts: IStorageOpts
 
   constructor(opts: IStorageOpts = {}) {
     this.opts = opts
   }
+
+  abstract has(key: string): boolean
 
   abstract get(key: string): IAny
 
@@ -20,7 +22,7 @@ export default abstract class AbstractStorage implements IStorage {
 
   abstract reset(): void
 
-  abstract size(): void
+  abstract size(): number
 
   // aliases
   put(...args: [string, IAny, number?]): void {

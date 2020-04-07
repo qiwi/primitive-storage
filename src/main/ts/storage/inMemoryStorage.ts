@@ -1,13 +1,13 @@
 import {repeat, clone, echo} from '../util'
 import AbstractStorage from './abstractStorage'
-import {IAny, IStorage, IStorageOpts, IEntry} from '../interface'
+import {IAny, ICachedStorage, IStorageOpts, IEntry} from '../interface'
 
 export type IData = {
   [key: string]: IEntry
 }
 
 export default class InMemoryStorage extends AbstractStorage
-  implements IStorage {
+  implements ICachedStorage {
 
   data: IData
 
@@ -20,6 +20,10 @@ export default class InMemoryStorage extends AbstractStorage
       this.compact = repeat(this.compact.bind(this), compactTimer)
       setTimeout(this.compact, compactTimer)
     }
+  }
+
+  has(key: string) {
+    return this.data.hasOwnProperty(key)
   }
 
   get(key: string): IAny {

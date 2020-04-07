@@ -1,4 +1,4 @@
-import {IAny, IStorage, IStorageOpts} from '../interface'
+import {IAny, ICachedStorage, IStorageOpts} from '../interface'
 import AbstractPersistentStorage from './abstractPersistentStorage'
 
 export const ENCODING = 'utf-8'
@@ -9,7 +9,7 @@ export type IFileStorageOpts = IStorageOpts & {
 }
 
 export default class PersistentJsonStorage extends AbstractPersistentStorage
-  implements IStorage {
+  implements ICachedStorage {
 
   constructor(opts: any) {
     super(opts)

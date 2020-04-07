@@ -2,7 +2,7 @@ import * as path from 'path'
 import factory, {
   InMemoryStorage,
   PersistentJsonFileStorage,
-  PersistentLocalStorage
+  PersistentLocalStorage,
 } from '../../main/ts'
 
 describe('factory', () => {
@@ -11,7 +11,7 @@ describe('factory', () => {
     global.window = null
     expect(
       factory({path: path.resolve(__dirname, './storage/data.json')})
-        .constructor.name
+        .constructor.name,
     ).toBe(PersistentJsonFileStorage.name)
   })
 
@@ -19,7 +19,7 @@ describe('factory', () => {
     // @ts-ignore
     global.window = {document: {}}
     expect(factory({path: 'foo'}).constructor.name).toBe(
-      PersistentLocalStorage.name
+      PersistentLocalStorage.name,
     )
   })
 
