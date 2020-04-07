@@ -1,3 +1,10 @@
+## [1.4.4](https://github.com/qiwi/primitive-storage/compare/v1.4.3...v1.4.4) (2020-04-07)
+
+
+### Bug Fixes
+
+* **package:** fix bundle dir layout ([54ae949](https://github.com/qiwi/primitive-storage/commit/54ae949e51b2fb02a648fbfc57a3cd9025b891e6))
+
 ## [1.4.3](https://github.com/qiwi/primitive-storage/compare/v1.4.2...v1.4.3) (2020-04-07)
 
 
