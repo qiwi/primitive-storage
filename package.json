@@ -76,7 +76,7 @@
     ]
   },
   "dependencies": {
-    "@qiwi/substrate": "^1.18.25",
+    "@qiwi/substrate": "^1.18.29",
     "push-it-to-the-limit": "^1.12.1",
     "tslib": "^1.11.1"
   }
