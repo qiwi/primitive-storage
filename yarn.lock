@@ -519,33 +519,33 @@
   dependencies:
     "@types/node" ">= 8"
 
-"@qiwi/substrate-abstract@^1.17.35":
-  version "1.17.38"
-  resolved "https://registry.yarnpkg.com/@qiwi/substrate-abstract/-/substrate-abstract-1.17.38.tgz#eac32daf79274172c7cf2398e4d64745214c8693"
-  integrity sha512-qfy1WagKgg2QsUMJ9nsQxMic2pZo8/BUNuQc4ylJjpRIhJYjPJDdrRXCE/xp4TycX7/+X8+2WU/DpZ90FLleAA==
+"@qiwi/substrate-abstract@1.17.42":
+  version "1.17.42"
+  resolved "https://registry.yarnpkg.com/@qiwi/substrate-abstract/-/substrate-abstract-1.17.42.tgz#8448a1d424238bb6cc6caf4b8a602a823f3352d3"
+  integrity sha512-wpXprGvsGkdl32IUJTy+oWNwLYveAeBGFdwYFUsdbZebzFhgekBUb0QDjZjhMoXRodDTHc9K6DaIrGvdgX7+RA==
   dependencies:
-    "@qiwi/substrate-types" "^1.34.0"
+    "@qiwi/substrate-types" "1.40.1"
 
-"@qiwi/substrate-std@*":
-  version "1.0.26"
-  resolved "https://registry.yarnpkg.com/@qiwi/substrate-std/-/substrate-std-1.0.26.tgz#652850c67a7dd9a7b8864f6b17395993a3255731"
-  integrity sha512-GJ6ZZ7Jv+BslSgpFPXhGi43Z5m25VfGEHr1Sxk2qIHg0/RIRCuyWy4cd0UjHo9r9ZNrIlBYO37PmUO6abXFcVg==
+"@qiwi/substrate-std@1.0.30":
+  version "1.0.30"
+  resolved "https://registry.yarnpkg.com/@qiwi/substrate-std/-/substrate-std-1.0.30.tgz#e2e3d9b40ee7add575e40d182395de811c753538"
+  integrity sha512-1GDcJ9as6tAmaEe8oljYlTwndnps6MRqaRE4MvNVTKKZB6rMz1Oj9MKL7Iu82TSkS2vwrO6CgRsxpxuJelWZ3A==
   dependencies:
-    "@qiwi/substrate-types" "^1.34.0"
+    "@qiwi/substrate-types" "1.40.1"
 
-"@qiwi/substrate-types@^1.34.0":
-  version "1.37.0"
-  resolved "https://registry.yarnpkg.com/@qiwi/substrate-types/-/substrate-types-1.37.0.tgz#eef9481c95897c81e4c6330b9a39f0eea9aba30c"
-  integrity sha512-6tvJkt1JxMHh0RQSz6P3frWAkV5C6K0aRIY3Yov2wUzdfuebW4vtyU0YMAgKiTJRu8xbOo6CJhas/oCEkDzISQ==
+"@qiwi/substrate-types@1.40.1":
+  version "1.40.1"
+  resolved "https://registry.yarnpkg.com/@qiwi/substrate-types/-/substrate-types-1.40.1.tgz#5764b39e5b8fd57c13bda17ae98eb894e21c2a89"
+  integrity sha512-mcJKv6kPTcDdAUwvs5xTOUKo2IvKoShiYPf4PHCWRQVgt4cLQzxyGVlT5+umO/3fbFj3ivmuXnHAfhGmuI9gdw==
 
-"@qiwi/substrate@^1.18.25":
-  version "1.18.25"
-  resolved "https://registry.yarnpkg.com/@qiwi/substrate/-/substrate-1.18.25.tgz#1dd90975d31a114f2d8ab60dccbdd06702707589"
-  integrity sha512-HU1mnanQCMcapg3Ibi0fakG68IT++MNo25DwgDa1WdCLqz+XP10QTIverWqmHVq7ceETGB1Q3ecxEGc3DjWj+A==
+"@qiwi/substrate@^1.18.29":
+  version "1.18.29"
+  resolved "https://registry.yarnpkg.com/@qiwi/substrate/-/substrate-1.18.29.tgz#993b017f18dc23f06fc37c99ea569e67755a8e39"
+  integrity sha512-/aYGkNE6N2lUmHIah3mNckKcdA2Xu4pVlxdg0A4F6GO8NwIkb+ZlM0z7WKx/AA0Rli5igBw3H+pq+YdvYsdv8A==
   dependencies:
-    "@qiwi/substrate-abstract" "^1.17.35"
-    "@qiwi/substrate-std" "*"
-    "@qiwi/substrate-types" "^1.34.0"
+    "@qiwi/substrate-abstract" "1.17.42"
+    "@qiwi/substrate-std" "1.0.30"
+    "@qiwi/substrate-types" "1.40.1"
 
 "@semantic-release/changelog@^5.0.1":
   version "5.0.1"
@@ -1811,7 +1811,7 @@ debug@^3.1.0:
   dependencies:
     ms "^2.1.1"
 
-debuglog@*, debuglog@^1.0.1:
+debuglog@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/debuglog/-/debuglog-1.0.1.tgz#aa24ffb9ac3df9a2351837cfb2d279360cd78492"
   integrity sha1-qiT/uaw9+aI1GDfPstJ5NgzXhJI=
@@ -2889,7 +2889,7 @@ import-local@^3.0.2:
     pkg-dir "^4.2.0"
     resolve-cwd "^3.0.0"
 
-imurmurhash@*, imurmurhash@^0.1.4:
+imurmurhash@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/imurmurhash/-/imurmurhash-0.1.4.tgz#9218b9b2b928a238b13dc4fb6b6d576f231453ea"
   integrity sha1-khi5srkoojixPcT7a21XbyMUU+o=
@@ -4057,11 +4057,6 @@ lockfile@^1.0.4:
   dependencies:
     signal-exit "^3.0.2"
 
-lodash._baseindexof@*:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/lodash._baseindexof/-/lodash._baseindexof-3.1.0.tgz#fe52b53a1c6761e42618d654e4a25789ed61822c"
-  integrity sha1-/lK1OhxnYeQmGNZU5KJXie1hgiw=
-
 lodash._baseuniq@~4.6.0:
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/lodash._baseuniq/-/lodash._baseuniq-4.6.0.tgz#0ebb44e456814af7905c6212fa2c9b2d51b841e8"
@@ -4070,32 +4065,10 @@ lodash._baseuniq@~4.6.0:
     lodash._createset "~4.0.0"
     lodash._root "~3.0.0"
 
-lodash._bindcallback@*:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/lodash._bindcallback/-/lodash._bindcallback-3.0.1.tgz#e531c27644cf8b57a99e17ed95b35c748789392e"
-  integrity sha1-5THCdkTPi1epnhftlbNcdIeJOS4=
-
-lodash._cacheindexof@*:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/lodash._cacheindexof/-/lodash._cacheindexof-3.0.2.tgz#3dc69ac82498d2ee5e3ce56091bafd2adc7bde92"
-  integrity sha1-PcaayCSY0u5ePOVgkbr9Ktx73pI=
-
-lodash._createcache@*:
-  version "3.1.2"
-  resolved "https://registry.yarnpkg.com/lodash._createcache/-/lodash._createcache-3.1.2.tgz#56d6a064017625e79ebca6b8018e17440bdcf093"
-  integrity sha1-VtagZAF2JeeevKa4AY4XRAvc8JM=
-  dependencies:
-    lodash._getnative "^3.0.0"
-
 lodash._createset@~4.0.0:
   version "4.0.3"
   resolved "https://registry.yarnpkg.com/lodash._createset/-/lodash._createset-4.0.3.tgz#0f4659fbb09d75194fa9e2b88a6644d363c9fe26"
   integrity sha1-D0ZZ+7CddRlPqeK4imZE02PJ/iY=
-
-lodash._getnative@*, lodash._getnative@^3.0.0:
-  version "3.9.1"
-  resolved "https://registry.yarnpkg.com/lodash._getnative/-/lodash._getnative-3.9.1.tgz#570bc7dede46d61cdcde687d65d3eecbaa3aaff5"
-  integrity sha1-VwvH3t5G1hzc3mh9ZdPuy6o6r/U=
 
 lodash._root@~3.0.0:
   version "3.0.1"
@@ -4136,11 +4109,6 @@ lodash.memoize@4.x:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/lodash.memoize/-/lodash.memoize-4.1.2.tgz#bcc6c49a42a2840ed997f323eada5ecd182e0bfe"
   integrity sha1-vMbEmkKihA7Zl/Mj6tpezRguC/4=
-
-lodash.restparam@*:
-  version "3.6.1"
-  resolved "https://registry.yarnpkg.com/lodash.restparam/-/lodash.restparam-3.6.1.tgz#936a4e309ef330a7645ed4145986c85ae5b20805"
-  integrity sha1-k2pOMJ7zMKdkXtQUWYbIWuWyCAU=
 
 lodash.sortby@^4.7.0:
   version "4.7.0"
