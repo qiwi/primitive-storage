@@ -1,7 +1,6 @@
 {
   "preset": "ts-jest",
   "collectCoverage": true,
-  "browser": false,
   "testEnvironment": "node",
   "coveragePathIgnorePatterns": [
     "<rootDir>/src/main/js/interface.ts"
@@ -33,7 +32,7 @@
   "setupFiles": ["jest-localstorage-mock"],
   "globals": {
     "ts-jest": {
-      "tsConfig": "tsconfig.test.json"
+      "tsconfig": "tsconfig.test.json"
     }
   }
 }
