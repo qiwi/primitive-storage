@@ -1,3 +1,10 @@
+## [1.4.5](https://github.com/qiwi/primitive-storage/compare/v1.4.4...v1.4.5) (2021-06-21)
+
+
+### Bug Fixes
+
+* **pkg:** update deps, fix vuls ([567adfa](https://github.com/qiwi/primitive-storage/commit/567adfa64b7d010bf078250df28096e205bb765d))
+
 ## [1.4.4](https://github.com/qiwi/primitive-storage/compare/v1.4.3...v1.4.4) (2020-04-07)
 
 
