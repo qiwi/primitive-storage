@@ -1,6 +1,6 @@
 {
   "name": "@qiwi/primitive-storage",
-  "version": "1.4.5",
+  "version": "1.4.6",
   "description": "Primitive storage for basic purposes",
   "main": "target/es5/index.js",
   "types": "target/es5/index.d.ts",
