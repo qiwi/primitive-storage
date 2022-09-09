@@ -41,7 +41,7 @@
     "jest-localstorage-mock": "^2.4.16",
     "prettier": "^2.3.2",
     "rimraf": "^3.0.2",
-    "ts-jest": "^28.0.0",
+    "ts-jest": "^29.0.0",
     "tslint": "^6.1.3",
     "tslint-config-qiwi": "^1.8.1",
     "typedoc": "^0.23.0",
