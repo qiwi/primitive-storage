@@ -1,4 +1,4 @@
-import {processCycledRefs, clone} from '../../main/ts/util'
+import {clone,processCycledRefs} from '../../main/ts/util'
 
 describe('util', () => {
   describe('processCycledRefs', () => {

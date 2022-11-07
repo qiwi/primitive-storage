@@ -38,3 +38,15 @@ flow-typed/npm/
 
 .idea
 *.iml
+
+# Creds
+*.asc
+*.pem
+*.key
+
+# Codeclimate
+codeclimate
+codeclimate.*
+cc-reporter
+cc-reporter.*
+coverage.*

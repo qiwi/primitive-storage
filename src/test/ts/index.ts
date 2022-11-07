@@ -1,9 +1,9 @@
 import factory, {
-  AbstractStorage,
   AbstractPersistentStorage,
+  AbstractStorage,
   InMemoryStorage,
-  PersistentLocalStorage,
   PersistentJsonFileStorage,
+  PersistentLocalStorage,
 } from '../../main/ts'
 
 describe('index', () => {

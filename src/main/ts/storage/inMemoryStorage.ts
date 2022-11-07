@@ -1,6 +1,6 @@
-import {repeat, clone, echo} from '../util'
+import {IAny, ICachedStorage, IEntry,IStorageOpts} from '../interface'
+import {clone, echo,repeat} from '../util'
 import AbstractStorage from './abstractStorage'
-import {IAny, ICachedStorage, IStorageOpts, IEntry} from '../interface'
 
 export type IData = {
   [key: string]: IEntry

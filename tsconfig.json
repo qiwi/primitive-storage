@@ -1,19 +1,30 @@
 {
   "compilerOptions": {
+    "rootDir": "./src/main/ts/",
+    "baseUrl": "./src/main/ts/",
+    "moduleResolution": "node",
     "target": "es5",
-    "module": "CommonJS",
-    "baseUrl": "./src/main/ts",
+    "module": "ES2015",
+    "lib": [
+      "es6",
+      "esnext",
+      "dom"
+    ],
     "outDir": "./target/es5",
-    "lib": ["es6", "esnext", "dom"],
+    "sourceMap": true,
     "strict": true,
     "experimentalDecorators": true,
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": false,
-    "declaration": true,
-    "moduleResolution": "node"
+    "declaration": false,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+
+    "incremental": true,
+    "tsBuildInfoFile": "./buildcache/.tsbuildinfo"
   },
-  "include": ["src/main/**/*.ts"],
+  "include": ["src/**/*.ts"],
   "exclude": ["node_modules"]
 }

@@ -1,9 +1,10 @@
-import * as path from 'path'
 import * as fs from 'fs'
+import * as path from 'path'
+
+import InMemoryStorage from '../../../main/ts/storage/inMemoryStorage'
 import PersistentJsonFileStorage, {
   ENCODING,
 } from '../../../main/ts/storage/persistentJsonFileStorage'
-import InMemoryStorage from '../../../main/ts/storage/inMemoryStorage'
 
 const PATH = path.resolve(__dirname, './data.json')
 const INITIAL_DATA = {foo: {value: 'bar', exp: null}}
