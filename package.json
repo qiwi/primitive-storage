@@ -70,6 +70,7 @@
     "microbundle": "^0.15.1",
     "prettier-config-qiwi": "^1.7.3",
     "rimraf": "^3.0.2",
+    "terser": "^5.15.1",
     "ts-jest": "^29.0.3",
     "tsc-esm-fix": "^2.20.5",
     "typedoc": "^0.23.20",
