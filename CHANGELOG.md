@@ -1,3 +1,8 @@
+## [1.4.8](https://github.com/qiwi/primitive-storage/compare/v1.4.7...v1.4.8) (2022-11-18)
+
+### Fixes & improvements
+* fix: add `exports` pkg entry ([fe821b1](https://github.com/qiwi/primitive-storage/commit/fe821b129bc15a1634bca588aa009264bc7199f1))
+
 ## [1.4.7](https://github.com/qiwi/primitive-storage/compare/v1.4.6...v1.4.7) (2022-11-18)
 
 ### Fixes & improvements

@@ -3,8 +3,8 @@
     "branch": "master",
     "build_identifier": "",
     "build_url": "",
-    "commit_sha": "6b680dedfebb54c95ee8b3943f80352b865fe9f9",
-    "committed_at": 1668774149,
+    "commit_sha": "fe821b129bc15a1634bca588aa009264bc7199f1",
+    "committed_at": 1668775614,
     "name": "true"
   },
   "environment": {
@@ -18,8 +18,8 @@
   },
   "git": {
     "branch": "master",
-    "head": "6b680dedfebb54c95ee8b3943f80352b865fe9f9",
-    "committed_at": 1668774149
+    "head": "fe821b129bc15a1634bca588aa009264bc7199f1",
+    "committed_at": 1668775614
   },
   "covered_percent": 94.73684210526315,
   "covered_strength": 0,
@@ -29,30 +29,6 @@
     "total": 171
   },
   "source_files": [
-    {
-      "blob_id": "effb7668e5e8d99ba248082153c51398e77a1f64",
-      "coverage": "[null,null,8,null,null,null,40,39,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,8,1,null,null,8,1,null,null,8,1,null,null,8,19,14,null,null,5,null,null,8,23,null,null,8]",
-      "covered_percent": 100,
-      "covered_strength": 12.4375,
-      "line_counts": {
-        "missed": 0,
-        "covered": 16,
-        "total": 16
-      },
-      "name": "src/main/ts/storage/abstractStorage.ts"
-    },
-    {
-      "blob_id": "f33d2dc44e5dc2d75fbccf6cb678ee32f3334c52",
-      "coverage": "[null,4,4,4,null,4,null,null,5,4,4,4,null,null,4,null,4,null,3,null,null,null,4]",
-      "covered_percent": 100,
-      "covered_strength": 4,
-      "line_counts": {
-        "missed": 0,
-        "covered": 12,
-        "total": 12
-      },
-      "name": "src/main/ts/storage/persistentLocalStorage.ts"
-    },
     {
       "blob_id": "bc9d256c8d955a973081aed06c2072642b4d74ba",
       "coverage": "[3,3,3,3,3,null,null,3,3,3,3,3]",
@@ -66,64 +42,16 @@
       "name": "src/main/ts/storage/storage.ts"
     },
     {
-      "blob_id": "c3b8eab11408e37d7ee1919f53405349984025e0",
-      "coverage": "[null,3,null,null,null,null,null,null,null,null,null,null,8,6,null,6,null,null,null,6,null,null,null,null,null,null,null,4,null,4,null,4,null,0]",
-      "covered_percent": 88.88888888888889,
-      "covered_strength": 4.555555555555555,
-      "line_counts": {
-        "missed": 1,
-        "covered": 8,
-        "total": 9
-      },
-      "name": "src/main/ts/factory.ts"
-    },
-    {
-      "blob_id": "82173f82eaeb5e527cd358395626937e6693763d",
-      "coverage": "[null,null,9,null,8,null,9,14,null,null,7,3,null,null,4,null,4,7,null,null,null,null,4,null,null,8,null,14]",
+      "blob_id": "effb7668e5e8d99ba248082153c51398e77a1f64",
+      "coverage": "[null,null,8,null,null,null,40,39,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,8,1,null,null,8,1,null,null,8,1,null,null,8,19,14,null,null,5,null,null,8,23,null,null,8]",
       "covered_percent": 100,
-      "covered_strength": 7.583333333333333,
+      "covered_strength": 12.4375,
       "line_counts": {
         "missed": 0,
-        "covered": 12,
-        "total": 12
+        "covered": 16,
+        "total": 16
       },
-      "name": "src/main/ts/util.ts"
-    },
-    {
-      "blob_id": "08a226478e531d211f9d87439e4ac9aeca675857",
-      "coverage": "[null,6,6,6,null,6,null,null,null,null,null,null,null,15,null,15,null,15,15,1,null,null,null,6,0,null,null,6,9,null,null,6,3,3,null,null,6,0,0,null,null,6,0,null,null,6,3,3,null,null,6,3,3,null,null,6,1,null,null,6,1,1,null,null,6,13,null,null,null,null,null,6,11,null,null,null,null,null,null,null,6,12,12,null,null,1,null,null,null,6,12,null,6,null,6,null,0,null,null,null,0]",
-      "covered_percent": 86.95652173913044,
-      "covered_strength": 5.782608695652174,
-      "line_counts": {
-        "missed": 6,
-        "covered": 40,
-        "total": 46
-      },
-      "name": "src/main/ts/storage/abstractPersistentStorage.ts"
-    },
-    {
-      "blob_id": "417f3ce39dbe793c23bbbef555db07d17c788d38",
-      "coverage": "[null,4,null,4,null,null,null,null,null,null,4,null,null,null,6,null,null,4,null,4,null,4,null,null,null,7]",
-      "covered_percent": 100,
-      "covered_strength": 4.625,
-      "line_counts": {
-        "missed": 0,
-        "covered": 8,
-        "total": 8
-      },
-      "name": "src/main/ts/storage/persistentJsonFileStorage.ts"
-    },
-    {
-      "blob_id": "8e4ab83b38579c51cef4f53a2ca6b7160a859002",
-      "coverage": "[2,null,2,2,2]",
-      "covered_percent": 100,
-      "covered_strength": 2,
-      "line_counts": {
-        "missed": 0,
-        "covered": 4,
-        "total": 4
-      },
-      "name": "src/main/ts/index.ts"
+      "name": "src/main/ts/storage/abstractStorage.ts"
     },
     {
       "blob_id": "cbb6a3e5676ee58170d4fc6d894cf304489016eb",
@@ -138,6 +66,30 @@
       "name": "src/main/ts/storage/inMemoryStorage.ts"
     },
     {
+      "blob_id": "417f3ce39dbe793c23bbbef555db07d17c788d38",
+      "coverage": "[null,4,null,4,null,null,null,null,null,null,4,null,null,null,6,null,null,4,null,4,null,4,null,null,null,7]",
+      "covered_percent": 100,
+      "covered_strength": 4.625,
+      "line_counts": {
+        "missed": 0,
+        "covered": 8,
+        "total": 8
+      },
+      "name": "src/main/ts/storage/persistentJsonFileStorage.ts"
+    },
+    {
+      "blob_id": "82173f82eaeb5e527cd358395626937e6693763d",
+      "coverage": "[null,null,9,null,8,null,9,14,null,null,7,3,null,null,4,null,4,7,null,null,null,null,4,null,null,8,null,14]",
+      "covered_percent": 100,
+      "covered_strength": 7.583333333333333,
+      "line_counts": {
+        "missed": 0,
+        "covered": 12,
+        "total": 12
+      },
+      "name": "src/main/ts/util.ts"
+    },
+    {
       "blob_id": "69b61ecc471a09eed90c576bd6354037bb032dbb",
       "coverage": "[3]",
       "covered_percent": 100,
@@ -148,6 +100,54 @@
         "total": 1
       },
       "name": "src/main/ts/storage/index.ts"
+    },
+    {
+      "blob_id": "f33d2dc44e5dc2d75fbccf6cb678ee32f3334c52",
+      "coverage": "[null,4,4,4,null,4,null,null,5,4,4,4,null,null,4,null,4,null,3,null,null,null,4]",
+      "covered_percent": 100,
+      "covered_strength": 4,
+      "line_counts": {
+        "missed": 0,
+        "covered": 12,
+        "total": 12
+      },
+      "name": "src/main/ts/storage/persistentLocalStorage.ts"
+    },
+    {
+      "blob_id": "8e4ab83b38579c51cef4f53a2ca6b7160a859002",
+      "coverage": "[2,null,2,2,2]",
+      "covered_percent": 100,
+      "covered_strength": 2,
+      "line_counts": {
+        "missed": 0,
+        "covered": 4,
+        "total": 4
+      },
+      "name": "src/main/ts/index.ts"
+    },
+    {
+      "blob_id": "c3b8eab11408e37d7ee1919f53405349984025e0",
+      "coverage": "[null,3,null,null,null,null,null,null,null,null,null,null,8,6,null,6,null,null,null,6,null,null,null,null,null,null,null,4,null,4,null,4,null,0]",
+      "covered_percent": 88.88888888888889,
+      "covered_strength": 4.555555555555555,
+      "line_counts": {
+        "missed": 1,
+        "covered": 8,
+        "total": 9
+      },
+      "name": "src/main/ts/factory.ts"
+    },
+    {
+      "blob_id": "08a226478e531d211f9d87439e4ac9aeca675857",
+      "coverage": "[null,6,6,6,null,6,null,null,null,null,null,null,null,15,null,15,null,15,15,1,null,null,null,6,0,null,null,6,9,null,null,6,3,3,null,null,6,0,0,null,null,6,0,null,null,6,3,3,null,null,6,3,3,null,null,6,1,null,null,6,1,1,null,null,6,13,null,null,null,null,null,6,11,null,null,null,null,null,null,null,6,12,12,null,null,1,null,null,null,6,12,null,6,null,6,null,0,null,null,null,0]",
+      "covered_percent": 86.95652173913044,
+      "covered_strength": 5.782608695652174,
+      "line_counts": {
+        "missed": 6,
+        "covered": 40,
+        "total": 46
+      },
+      "name": "src/main/ts/storage/abstractPersistentStorage.ts"
     }
   ],
   "repo_token": "ea711cb9cb42170b4df219b65f8ad077ffeb415e5a24f575b3a7d7c7d672af4b"
