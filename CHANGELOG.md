@@ -1,3 +1,8 @@
+## [1.4.7](https://github.com/qiwi/primitive-storage/compare/v1.4.6...v1.4.7) (2022-11-18)
+
+### Fixes & improvements
+* perf: migrate to gh actions (#98) ([6b680de](https://github.com/qiwi/primitive-storage/commit/6b680dedfebb54c95ee8b3943f80352b865fe9f9))
+
 ## [1.4.6](https://github.com/qiwi/primitive-storage/compare/v1.4.5...v1.4.6) (2021-08-20)
 
 

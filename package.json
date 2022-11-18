@@ -1,6 +1,6 @@
 {
   "name": "@qiwi/primitive-storage",
-  "version": "1.4.6",
+  "version": "1.4.7",
   "description": "Primitive storage for basic purposes",
   "source": "src/main/ts/index.ts",
   "main": "target/bundle/primitive-storage.js",
