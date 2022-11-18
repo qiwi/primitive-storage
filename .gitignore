@@ -19,10 +19,12 @@ pids
 flow-coverage
 lib-cov
 coverage
+coverage.*
 .nyc_output
 *.lcov
 
 # Codeclimate
+codeclimate.*
 cc-reporter
 cc-reporter.*
 
