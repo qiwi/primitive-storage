@@ -1,10 +1,10 @@
 # Primitive storage
 
-[![BuildStatus](https://img.shields.io/travis/com/qiwi/primitive-storage.svg?maxAge=3600&branch=master)](https://travis-ci.com/qiwi/primitive-storage)
-[![dependencies Status](https://david-dm.org/qiwi/primitive-storage/status.svg)](https://david-dm.org/qiwi/primitive-storage)
+[![CI](https://github.com/qiwi/primitive-storage/actions/workflows/ci.yaml/badge.svg?branch=master)](https://github.com/qiwi/primitive-storage/actions/workflows/ci.yaml)
 [![Maintainability](https://api.codeclimate.com/v1/badges/b2f9b667caf025244af1/maintainability)](https://codeclimate.com/github/qiwi/primitive-storage/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/b2f9b667caf025244af1/test_coverage)](https://codeclimate.com/github/qiwi/primitive-storage/test_coverage)
 [![npm (tag)](https://img.shields.io/npm/v/@qiwi/primitive-storage/latest.svg)](https://www.npmjs.com/package/@qiwi/primitive-storage)
+[![CodeStyle](https://img.shields.io/badge/code%20style-lint--config--qiwi-brightgreen.svg)](https://github.com/qiwi/lint-config-qiwi)
 
 Storage for basic purposes.  
 

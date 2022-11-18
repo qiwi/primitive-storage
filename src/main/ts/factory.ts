@@ -1,9 +1,8 @@
-import {ICachedStorage, IStorageOpts, IAny} from './interface'
-
+import {IAny,ICachedStorage, IStorageOpts} from './interface'
 import {
   InMemoryStorage,
-  PersistentLocalStorage,
   PersistentJsonFileStorage,
+  PersistentLocalStorage,
 } from './storage/index'
 
 type IOpts = IStorageOpts & {

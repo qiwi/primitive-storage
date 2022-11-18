@@ -1,12 +1,11 @@
 {
   "name": "@qiwi/primitive-storage",
   "out": "./docs",
-  "entryPoints": ["src/main/ts"],
   "exclude": ["src/test", "**/node_modules/**"],
   "externalPattern": ["**/node_modules/**"],
   "excludePrivate": false,
   "hideGenerator": true,
   "readme": "README.md",
-  "theme": "minimal",
-  "tsconfig": "./tsconfig.json"
+  "theme": "default",
+  "tsconfig": "./tsconfig.es5.json"
 }

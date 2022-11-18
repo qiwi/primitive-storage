@@ -1,7 +1,7 @@
-import {IAny, ICachedStorage, IStorageOpts, IIO} from '../interface'
+import {IAny, ICachedStorage, IIO,IStorageOpts} from '../interface'
+import {debounce,processCycledRefs} from '../util'
 import AbstractStorage from './abstractStorage'
 import InMemoryStorage from './inMemoryStorage'
-import {processCycledRefs, debounce} from '../util'
 
 export default abstract class AbstractPersistentStorage extends AbstractStorage
   implements ICachedStorage {

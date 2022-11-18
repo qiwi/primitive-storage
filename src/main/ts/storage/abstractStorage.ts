@@ -1,4 +1,4 @@
-import {ICachedStorage, IStorageOpts, IAny, IEntry} from '../interface'
+import {IAny, ICachedStorage, IEntry,IStorageOpts} from '../interface'
 
 export default abstract class AbstractStorage implements ICachedStorage {
 
