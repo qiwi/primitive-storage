@@ -2,10 +2,16 @@
   "name": "@qiwi/primitive-storage",
   "version": "1.4.7",
   "description": "Primitive storage for basic purposes",
-  "source": "src/main/ts/index.ts",
   "main": "target/bundle/primitive-storage.js",
-  "module": "target/bundle/primitive-storage.js",
+  "module": "target/bundle/primitive-storage.mjs",
   "unpkg": "target/bundle/primitive-storage.umd.js",
+  "exports": {
+    ".": {
+      "import": "./target/bundle/primitive-storage.mjs",
+      "require": "./target/bundle/primitive-storage.js",
+      "module": "./target/bundle/primitive-storage.mjs"
+    }
+  },
   "types": "typings/index.d.ts",
   "typescript": {
     "definition": "typings/index.d.ts"

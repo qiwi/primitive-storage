@@ -79,3 +79,6 @@ It's very simple: if `path` property declared in opts, the data is being persist
 #### Compaction
 Current impl is dumb: every `n` milliseconds the job filters out expired entries from the storage.
 You're able to set `compactTimer` in storage opts, or just trigger `compact` method by hand.
+
+## License
+[MIT](./LICENSE)

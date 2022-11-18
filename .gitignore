@@ -22,6 +22,10 @@ coverage
 .nyc_output
 *.lcov
 
+# Codeclimate
+cc-reporter
+cc-reporter.*
+
 # Bundles
 bundle/
 build/
@@ -63,3 +67,9 @@ buildcache
 .rts2_cache_cjs/
 .rts2_cache_es/
 .rts2_cache_umd/
+
+# Creds
+*.asc
+*.key
+*.pem
+*.cert
