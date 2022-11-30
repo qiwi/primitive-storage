@@ -1,3 +1,5 @@
+import {fileURLToPath} from 'node:url'
+
 import * as fs from 'fs'
 import * as path from 'path'
 
@@ -5,7 +7,6 @@ import InMemoryStorage from '../../../main/ts/storage/inMemoryStorage'
 import PersistentJsonFileStorage, {
   ENCODING,
 } from '../../../main/ts/storage/persistentJsonFileStorage'
-import {fileURLToPath} from 'node:url'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const PATH = path.resolve(__dirname, './data.json')
