@@ -1,3 +1,8 @@
+## [1.4.9](https://github.com/qiwi/primitive-storage/compare/v1.4.8...v1.4.9) (2022-11-30)
+
+### Fixes & improvements
+* perf: update deps ([b6bee97](https://github.com/qiwi/primitive-storage/commit/b6bee97c818e4da588af6890d6f6181fe65fabb1))
+
 ## [1.4.8](https://github.com/qiwi/primitive-storage/compare/v1.4.7...v1.4.8) (2022-11-18)
 
 ### Fixes & improvements
