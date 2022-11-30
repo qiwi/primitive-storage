@@ -1,6 +1,9 @@
-import * as path from 'path'
+import * as path from 'node:path'
+import {fileURLToPath} from 'node:url'
 
 import factory from '../../main/ts/factory'
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 describe('factory', () => {
   it('returns `PersistentJsonFileStorage` instance if `path` opt defined for Nodejs runtime', () => {

@@ -17,14 +17,12 @@ export default class PersistentJsonStorage extends AbstractPersistentStorage
 
 }
 
+// https://stackoverflow.com/questions/72432973/ts-jest-cannot-use-top-level-await-even-with-correct-tsconfig
 let fs: any
 try {
   // @ts-ignore
   fs = global.require ? global.require('fs') : await import('node:fs')
-} catch {
-
-}
-
+} catch {}
 
 PersistentJsonStorage.prototype.io = {
   write: (path: string, data: string): void => {

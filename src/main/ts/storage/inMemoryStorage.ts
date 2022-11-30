@@ -1,5 +1,5 @@
 import {IAny, ICachedStorage, IEntry,IStorageOpts} from '../interface'
-import {clone, echo,repeat} from '../util'
+import {clone, echo, repeat} from '../util'
 import AbstractStorage from './abstractStorage'
 
 export type IData = {

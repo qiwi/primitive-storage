@@ -1,3 +1,5 @@
+import {jest} from '@jest/globals'
+
 import AbstractPersistentStorage from '../../../main/ts/storage/abstractPersistentStorage'
 import InMemoryStorage from '../../../main/ts/storage/inMemoryStorage'
 

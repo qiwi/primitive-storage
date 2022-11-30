@@ -19,8 +19,11 @@
     "node_modules/(?!(lodash-es)/)"
   ],
   "transform": {
-    "^.+\\.ts$": ["ts-jest", { "tsconfig": "tsconfig.test.json" }]
+    "^.+\\.tsx?$": ["@swc/jest", {"jsc": {
+      "target": "es2022"
+    }}]
   },
+  "extensionsToTreatAsEsm": [".ts"],
   "moduleFileExtensions": [
     "ts",
     "tsx",

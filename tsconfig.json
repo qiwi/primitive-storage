@@ -3,7 +3,8 @@
     "rootDir": "./src/main/ts/",
     "baseUrl": "./src/main/ts/",
     "moduleResolution": "node",
-    "target": "es5",
+    "module": "esnext",
+    "target": "esnext",
     "lib": [
       "es6",
       "esnext",
@@ -18,8 +19,8 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": false,
     "declaration": false,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": false,
+    "allowSyntheticDefaultImports": false,
 
     "incremental": true,
     "tsBuildInfoFile": "./buildcache/.tsbuildinfo"

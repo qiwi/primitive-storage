@@ -1,3 +1,5 @@
+import {jest} from '@jest/globals'
+
 import AbstractStorage from '../../../main/ts/storage/abstractStorage'
 
 const {getExpirationDate, isExpiredEntry} = AbstractStorage

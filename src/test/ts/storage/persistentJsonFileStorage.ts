@@ -5,7 +5,9 @@ import InMemoryStorage from '../../../main/ts/storage/inMemoryStorage'
 import PersistentJsonFileStorage, {
   ENCODING,
 } from '../../../main/ts/storage/persistentJsonFileStorage'
+import {fileURLToPath} from 'node:url'
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const PATH = path.resolve(__dirname, './data.json')
 const INITIAL_DATA = {foo: {value: 'bar', exp: null}}
 const reset = () =>
