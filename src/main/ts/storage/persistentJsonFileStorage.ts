@@ -17,12 +17,21 @@ export default class PersistentJsonStorage extends AbstractPersistentStorage
 
 }
 
+let fs: any
+try {
+  // @ts-ignore
+  fs = global.require ? global.require('fs') : await import('node:fs')
+} catch {
+
+}
+
+
 PersistentJsonStorage.prototype.io = {
   write: (path: string, data: string): void => {
-    require('fs').writeFileSync(path, data, ENCODING)
+    fs.writeFileSync(path, data, ENCODING)
   },
 
   read: (path: string): IAny => {
-    return require('fs').readFileSync(path, ENCODING)
+    return fs.readFileSync(path, ENCODING)
   },
 }
