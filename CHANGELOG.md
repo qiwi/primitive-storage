@@ -1,3 +1,8 @@
+## [1.4.10](https://github.com/qiwi/primitive-storage/compare/v1.4.9...v1.4.10) (2022-11-30)
+
+### Fixes & improvements
+* fix: fix es6 pkg entry point ([5c44c20](https://github.com/qiwi/primitive-storage/commit/5c44c205637a690278e1b5a18739fc8fd72fc455))
+
 ## [1.4.9](https://github.com/qiwi/primitive-storage/compare/v1.4.8...v1.4.9) (2022-11-30)
 
 ### Fixes & improvements
