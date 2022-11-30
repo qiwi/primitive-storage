@@ -10,7 +10,7 @@
   ],
   "testMatch": [
     "<rootDir>/src/test/ts/**/*.ts",
-    "<rootDir>/src/test/js/**/*.js"
+    "<rootDir>/src/test/js/**/*.m?js"
   ],
   "testPathIgnorePatterns": [
     "/node_modules/"
@@ -19,7 +19,7 @@
     "node_modules/(?!(lodash-es)/)"
   ],
   "transform": {
-    "^.+\\.ts$": "ts-jest"
+    "^.+\\.ts$": ["ts-jest", { "tsconfig": "tsconfig.test.json" }]
   },
   "moduleFileExtensions": [
     "ts",
@@ -29,10 +29,5 @@
     "json",
     "node"
   ],
-  "setupFiles": ["jest-localstorage-mock"],
-  "globals": {
-    "ts-jest": {
-      "tsconfig": "tsconfig.test.json"
-    }
-  }
+  "setupFiles": ["jest-localstorage-mock"]
 }
