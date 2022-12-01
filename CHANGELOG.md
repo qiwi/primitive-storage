@@ -1,3 +1,9 @@
+## [1.4.11](https://github.com/qiwi/primitive-storage/compare/v1.4.10...v1.4.11) (2022-12-01)
+
+### Fixes & improvements
+* fix: esm related fixes ([a69b22c](https://github.com/qiwi/primitive-storage/commit/a69b22cb630891f649e8fdaa94046a41cfa34a0b))
+* fix: provide esm compatibility ([197fa69](https://github.com/qiwi/primitive-storage/commit/197fa699fb09b716041e6a45ecc084385561da38))
+
 ## [1.4.10](https://github.com/qiwi/primitive-storage/compare/v1.4.9...v1.4.10) (2022-11-30)
 
 ### Fixes & improvements
