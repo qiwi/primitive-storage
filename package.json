@@ -5,9 +5,9 @@
   "main": "./target/es5/index.js",
   "exports": {
     ".": {
-      "import": "./target/es6/index.js",
+      "import": "./target/es6/index.mjs",
       "require": "./target/es5/index.js",
-      "module": "./target/es6/index.js"
+      "module": "./target/es6/index.mjs"
     }
   },
   "types": "typings/index.d.ts",
