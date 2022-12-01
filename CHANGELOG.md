@@ -1,3 +1,8 @@
+## [1.4.12](https://github.com/qiwi/primitive-storage/compare/v1.4.11...v1.4.12) (2022-12-01)
+
+### Fixes & improvements
+* fix: set mjs ext for esm ([069dde5](https://github.com/qiwi/primitive-storage/commit/069dde5347b1d1f744210faeb5e6a12a328623ae))
+
 ## [1.4.11](https://github.com/qiwi/primitive-storage/compare/v1.4.10...v1.4.11) (2022-12-01)
 
 ### Fixes & improvements
