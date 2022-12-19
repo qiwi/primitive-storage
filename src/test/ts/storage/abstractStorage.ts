@@ -103,7 +103,7 @@ describe('storage/abstract', () => {
       })
 
       it('returns false if ttl is greater than Date.now()', () => {
-        expect(isExpiredEntry({exp: Infinity})).toBeFalsy()
+        expect(isExpiredEntry({exp: Number.POSITIVE_INFINITY})).toBeFalsy()
       })
 
       it('returns false if no ttl found', () => {

@@ -146,7 +146,7 @@ describe('storage/abstractPersistent', () => {
 
       it('`size` returns the count of non-expired cached entries', () => {
         storage.cache.data = {
-          foo: {value: 'bar', exp: Infinity},
+          foo: {value: 'bar', exp: Number.POSITIVE_INFINITY},
           baz: {value: 'qux', exp: 0},
         }
 
