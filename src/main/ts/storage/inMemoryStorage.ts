@@ -82,6 +82,7 @@ export default class InMemoryStorage extends AbstractStorage
   size(): number {
     // $FlowFixMe Object.values() returns mixed[] https://github.com/facebook/flow/issues/2221
     const entries: IEntry[] = Object.values(this.data)
+
     // @ts-ignore
     return entries.filter(this.constructor.isExpiredEntry).length
   }

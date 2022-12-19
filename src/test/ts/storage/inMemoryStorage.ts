@@ -18,13 +18,13 @@ describe('storage/in-memory', () => {
         const storage = new InMemoryStorage({compactTimer})
 
         storage.data = {
-          foo: {value: 'bar', exp: Infinity},
+          foo: {value: 'bar', exp: Number.POSITIVE_INFINITY},
           baz: {value: 'qux', exp: Date.now() + 10},
         }
 
         setTimeout(() => {
           expect(storage.data).toEqual({
-            foo: {value: 'bar', exp: Infinity},
+            foo: {value: 'bar', exp: Number.POSITIVE_INFINITY},
           })
           done()
         }, 30)
@@ -93,7 +93,7 @@ describe('storage/in-memory', () => {
 
     describe('setTtl', () => {
       it('sets a new ttl value', () => {
-        storage.set('foo', 'bar', 10000000)
+        storage.set('foo', 'bar', 10_000_000)
         storage.setTtl('foo', 1000)
 
         expect(storage.data.foo.exp).toBeCloseTo(Date.now() + 1000, -2)
@@ -132,7 +132,7 @@ describe('storage/in-memory', () => {
       it('returns actual entry value', () => {
         storage.set('foo', 'bar')
 
-        expect(storage.resolve({value: 'bar', exp: Infinity}, 'foo')).toBe(
+        expect(storage.resolve({value: 'bar', exp: Number.POSITIVE_INFINITY}, 'foo')).toBe(
           'bar',
         )
         expect(storage.get('foo')).toBe('bar')
@@ -149,13 +149,13 @@ describe('storage/in-memory', () => {
     describe('compact', () => {
       it('drops all expired entries', () => {
         storage.data = {
-          foo: {value: 'bar', exp: Infinity},
+          foo: {value: 'bar', exp: Number.POSITIVE_INFINITY},
           baz: {value: 'qux', exp: 0},
         }
         storage.compact()
 
         expect(storage.data).toEqual({
-          foo: {value: 'bar', exp: Infinity},
+          foo: {value: 'bar', exp: Number.POSITIVE_INFINITY},
         })
       })
     })
@@ -163,7 +163,7 @@ describe('storage/in-memory', () => {
     describe('size', () => {
       it('counts non-expired entries in storage', () => {
         storage.data = {
-          foo: {value: 'bar', exp: Infinity},
+          foo: {value: 'bar', exp: Number.POSITIVE_INFINITY},
           baz: {value: 'qux', exp: 0},
         }
 

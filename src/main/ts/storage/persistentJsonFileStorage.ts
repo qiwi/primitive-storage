@@ -22,7 +22,7 @@ let fs: any
 try {
   // @ts-ignore
   fs = global.require ? global.require('fs') : await import('node:fs')
-} catch {}
+} catch { /** noop */ }
 
 PersistentJsonStorage.prototype.io = {
   write: (path: string, data: string): void => {

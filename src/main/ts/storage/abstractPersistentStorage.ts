@@ -1,13 +1,11 @@
-import {IAny, ICachedStorage, IIO,IStorageOpts} from '../interface'
+import {IAny, ICachedStorage, IIO, IStorageOpts} from '../interface'
 import {debounce,processCycledRefs} from '../util'
 import AbstractStorage from './abstractStorage'
 import InMemoryStorage from './inMemoryStorage'
 
-export default abstract class AbstractPersistentStorage extends AbstractStorage
+export abstract class AbstractPersistentStorage extends AbstractStorage
   implements ICachedStorage {
 
-  // @ts-ignore
-  io: IIO
   cache: InMemoryStorage
 
   constructor(opts: IStorageOpts) {
@@ -82,7 +80,7 @@ export default abstract class AbstractPersistentStorage extends AbstractStorage
     try {
       return JSON.stringify(value)
       /* tslint:disable */
-    } catch (err) {
+    } catch {
       return JSON.stringify(processCycledRefs(value))
     }
   }
@@ -101,3 +99,9 @@ AbstractPersistentStorage.prototype.io = {
     throw new Error('Not implemented read')
   }
 }
+
+export interface AbstractPersistentStorage {
+  io: IIO
+}
+
+export default AbstractPersistentStorage
