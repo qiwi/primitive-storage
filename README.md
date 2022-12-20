@@ -4,9 +4,8 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/b2f9b667caf025244af1/maintainability)](https://codeclimate.com/github/qiwi/primitive-storage/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/b2f9b667caf025244af1/test_coverage)](https://codeclimate.com/github/qiwi/primitive-storage/test_coverage)
 [![npm (tag)](https://img.shields.io/npm/v/@qiwi/primitive-storage/latest.svg)](https://www.npmjs.com/package/@qiwi/primitive-storage)
-[![CodeStyle](https://img.shields.io/badge/code%20style-lint--config--qiwi-brightgreen.svg)](https://github.com/qiwi/lint-config-qiwi)
 
-Storage for basic purposes.  
+kv storage for basic purposes.  
 
 #### Motivation
 In 2018 it's easier to write own storage implementation than to find a suitable one.
@@ -17,11 +16,10 @@ In 2018 it's easier to write own storage implementation than to find a suitable 
 
 #### What's needed
 * Key-Value scheme
-* Optional TTL
+* Optional TTL with scheduled compaction
 * Optional value cloning
 * Cycled refs handling (JSON.stringify, you know)
 * Sync throttling
-* Periodic compaction
 * Both browser and server runtime support
 
 #### Install
