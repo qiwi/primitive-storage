@@ -9,7 +9,7 @@
   ],
   "testMatch": [
     "<rootDir>/src/test/ts/**/*.ts",
-    "<rootDir>/src/test/js/**/*.m?js"
+    "<rootDir>/src/test/js/**/*.mjs"
   ],
   "testPathIgnorePatterns": [
     "/node_modules/"
@@ -29,7 +29,8 @@
     "js",
     "jsx",
     "json",
-    "node"
+    "node",
+    "mjs"
   ],
   "setupFiles": ["jest-localstorage-mock"]
 }
