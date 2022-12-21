@@ -1,3 +1,8 @@
+## [1.4.13](https://github.com/qiwi/primitive-storage/compare/v1.4.12...v1.4.13) (2022-12-21)
+
+### Fixes & improvements
+* docs: formatting ([a373f04](https://github.com/qiwi/primitive-storage/commit/a373f04e256654c9aaf147f0a7278bbe4dd32755))
+
 ## [1.4.12](https://github.com/qiwi/primitive-storage/compare/v1.4.11...v1.4.12) (2022-12-01)
 
 ### Fixes & improvements
