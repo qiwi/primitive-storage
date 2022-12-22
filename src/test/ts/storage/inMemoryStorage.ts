@@ -1,4 +1,8 @@
+import {jest} from '@jest/globals'
+
 import InMemoryStorage from '../../../main/ts/storage/inMemoryStorage'
+
+jest.useFakeTimers()
 
 describe('storage/in-memory', () => {
   describe('constructor', () => {
@@ -28,6 +32,8 @@ describe('storage/in-memory', () => {
           })
           done()
         }, 30)
+
+        jest.runOnlyPendingTimers()
       })
     })
 
@@ -77,6 +83,8 @@ describe('storage/in-memory', () => {
           expect(storage.get('baz')).toBeUndefined()
           done()
         }, 5)
+
+        jest.runOnlyPendingTimers()
       })
     })
 
