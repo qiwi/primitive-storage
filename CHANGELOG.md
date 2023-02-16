@@ -1,3 +1,8 @@
+## [1.4.14](https://github.com/qiwi/primitive-storage/compare/v1.4.13...v1.4.14) (2023-02-16)
+
+### Fixes & improvements
+* fix(deps): update dependency @qiwi/substrate to v2 ([62c663b](https://github.com/qiwi/primitive-storage/commit/62c663b022ee2392635ae7fb77bc2a07b1f61514))
+
 ## [1.4.13](https://github.com/qiwi/primitive-storage/compare/v1.4.12...v1.4.13) (2022-12-21)
 
 ### Fixes & improvements
