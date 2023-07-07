@@ -10,11 +10,6 @@
     "@jridgewell/gen-mapping" "^0.1.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
-"@antongolub/repeater@^1.5.1":
-  version "1.5.1"
-  resolved "https://registry.yarnpkg.com/@antongolub/repeater/-/repeater-1.5.1.tgz#892549d050f9a978b20e9c1309017ac7e7185414"
-  integrity sha512-OrHspu/EVAs4SQkfAdYn3Axn3kUSvqvXIABI9pAwNdvR1rKbYlB+e7wMv1CkvzES3OFNx5O5SNDjWLioOiaPjg==
-
 "@babel/code-frame@^7.0.0":
   version "7.12.11"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.12.11.tgz#f4ad435aa263db935b8f10f2c552d23fb716a63f"
@@ -4405,12 +4400,10 @@ punycode@^2.1.0, punycode@^2.1.1:
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-2.1.1.tgz#b58b010ac40c22c5657616c8d2c2c02c7bf479ec"
   integrity sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==
 
-push-it-to-the-limit@^1.18.5:
-  version "1.18.5"
-  resolved "https://registry.yarnpkg.com/push-it-to-the-limit/-/push-it-to-the-limit-1.18.5.tgz#ddb2773995c94ecc41223d8dcfe20f49b2492c3d"
-  integrity sha512-GOzpJKrSjFWTa3pOS19NPuswjWAupOSPG60oRzxeXVmjPAAffmpV4o6vWFEnT7YVSgaSE/dUpTiNKI2PNxyLRQ==
-  dependencies:
-    "@antongolub/repeater" "^1.5.1"
+push-it-to-the-limit@^2.0.0:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/push-it-to-the-limit/-/push-it-to-the-limit-2.0.1.tgz#188d3ca84cae2a5f6e9f113bdbeab3a43574b91e"
+  integrity sha512-gvZkfwfpbWlfrFbY8KipQW8rn7DNvSJCQn1N+ChQGA/LCQSHiQlT0S5vJdofv+NogoJNTLhHVYEKpPgw153S7A==
 
 qs@~6.5.2:
   version "6.5.3"

@@ -91,7 +91,7 @@
   ],
   "dependencies": {
     "@qiwi/substrate": "^2.0.0",
-    "push-it-to-the-limit": "^1.18.5",
+    "push-it-to-the-limit": "^2.0.0",
     "tslib": "^2.4.1"
   },
   "prettier": "prettier-config-qiwi"
