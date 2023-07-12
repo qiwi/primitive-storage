@@ -1,5 +1,5 @@
 import '@jest/globals'
-import { factory } from '../../../target/es6/index.mjs'
+import { factory } from '../../../target/esm/'
 
 describe('index', () => {
   it('exposes factory', () => {

@@ -1,4 +1,4 @@
-import {IConstructor} from '@qiwi/substrate'
+import type {IConstructor} from '@qiwi/substrate'
 
 import {IAny,ICachedStorage, IStorageOpts} from './interface'
 import {
