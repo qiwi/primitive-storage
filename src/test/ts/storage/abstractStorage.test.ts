@@ -1,4 +1,4 @@
-import {jest} from '@jest/globals'
+import {mock, describe, it, expect} from 'abstractest'
 
 import AbstractStorage from '../../../main/ts/storage/abstractStorage'
 
@@ -61,21 +61,21 @@ describe('storage/abstract', () => {
     })
 
     it('`put` does same as `set`', () => {
-      const set = jest.spyOn(storage, 'set')
+      const set = mock.spyOn(storage, 'set')
 
       expect(() => storage.put('foo', 'bar')).toThrow()
       expect(set).toHaveBeenCalledWith('foo', 'bar')
     })
 
     it('`del` works as like `remove`', () => {
-      const remove = jest.spyOn(storage, 'remove')
+      const remove = mock.spyOn(storage, 'remove')
 
       expect(() => storage.del('foo')).toThrow()
       expect(remove).toHaveBeenCalledWith('foo')
     })
 
     it('`clear` as `reset` alias', () => {
-      const reset = jest.spyOn(storage, 'reset')
+      const reset = mock.spyOn(storage, 'reset')
 
       expect(() => storage.clear()).toThrow()
       expect(reset).toHaveBeenCalled()

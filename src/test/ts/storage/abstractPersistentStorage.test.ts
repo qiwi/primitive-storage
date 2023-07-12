@@ -1,4 +1,4 @@
-import {jest} from '@jest/globals'
+import {mock, describe, it, expect, beforeEach} from 'abstractest'
 
 import AbstractPersistentStorage from '../../../main/ts/storage/abstractPersistentStorage'
 import InMemoryStorage from '../../../main/ts/storage/inMemoryStorage'
@@ -116,8 +116,8 @@ describe('storage/abstractPersistent', () => {
       }
 
       const storage = new Storage({path: 'qux'})
-      const syncTo = jest.spyOn(storage, 'syncTo')
-      const syncFrom = jest.spyOn(storage, 'syncFrom')
+      const syncTo = mock.spyOn(storage, 'syncTo')
+      const syncFrom = mock.spyOn(storage, 'syncFrom')
 
       beforeEach(() => {
         syncFrom.mockClear()

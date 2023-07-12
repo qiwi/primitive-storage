@@ -11,15 +11,16 @@ export default class PersistentLocalStorage extends AbstractPersistentStorage
     const _opts = {...opts, path}
     super(_opts)
   }
-
 }
+
+const g = global || window
 
 PersistentLocalStorage.prototype.io = {
   write: (path: string, data: string): void => {
-    localStorage.setItem(path, data)
+    g.localStorage.setItem(path, data)
   },
 
   read: (path: string): IAny => {
-    return localStorage.getItem(path)
+    return g.localStorage.getItem(path)
   },
 }

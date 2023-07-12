@@ -12,7 +12,7 @@ In 2018 it's easier to write own storage implementation than to find a suitable 
 * [memory-cache](https://www.npmjs.com/package/memory-cache) is good enough, but `setTimeout` for each entry set looks redundant (0.2.0)
 * [data-store](https://www.npmjs.com/package/data-store) — very nice, but only synchronous saving is supported, no debouncing, no ttl (2.0.1)
 * [node-cache](https://www.npmjs.com/package/node-cache) — pretty OK. Callbacks and events are supported. But no JSON.stringify handling, no persistency out of box (4.2.0)
-* [CacheFactory](https://github.com/jmdobry/CacheFactory) — brilliant. localStorage, api, docs — everything is ok, but no file saving mechanism.
+* [CacheFactory](https://github.com/jmdobry/CacheFactory) — brilliant. localStorage, api, docs — everything is ok, but there's no file saving mechanism.
 
 #### What's needed
 * Key-Value scheme
@@ -63,7 +63,7 @@ Also common aliases added for convenience:
 | debounce      | Object  | -       | Options for persistent storage sync debounce.<br/> If empty no delay processed. IDebounceOpts:<br/>{<br/>   delay: number,<br/>   maxDelay?: number,<br/>   leading?: boolean<br/>   trailing?: boolean<br/>}|
 | path          | string  | -       | Filepath (NodeJS) or localStorage scope (Browser)      |
 | compactTimer  | number  | -       | Period (ms) of automated `compact` method invocation<br/>If undefined, no periodic task is running |
-| clone         | bool/fn | false   | `true` means that values are copied to storage on set.<br/>Default copier (JSON.parse(JSON.str(...))) may be replaced <br/>with custom.
+| clone         | bool/fn | false   | `true` means that values are copied to storage on set.<br/>Default copier (JSON.parse(JSON.str(...))) may be replaced <br/>with custom. |
 
 
 #### Persistent data

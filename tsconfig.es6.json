@@ -1,9 +1,0 @@
-{
-  "extends": "./tsconfig.json",
-  "compilerOptions": {
-    "target": "es2017",
-    "module": "es2020",
-    "outDir": "target/es6"
-  },
-  "include": ["src/main/**/*.ts"]
-}

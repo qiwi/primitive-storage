@@ -1,3 +1,8 @@
+import {describe, it, expect, mock} from 'abstractest'
+import {init} from '@abstractest/localstorage'
+
+init(mock)
+
 import InMemoryStorage from '../../../main/ts/storage/inMemoryStorage'
 import PersistentLocalStorage, {
   DEFAULT_PATH,

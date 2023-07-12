@@ -1,3 +1,4 @@
+import {mock, describe, it, expect} from 'abstractest'
 import factory, {
   AbstractPersistentStorage,
   AbstractStorage,

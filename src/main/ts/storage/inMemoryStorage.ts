@@ -18,7 +18,7 @@ export default class InMemoryStorage extends AbstractStorage
     this.data = {}
     if (compactTimer) {
       this.compact = repeat(this.compact.bind(this), compactTimer)
-      setTimeout(this.compact, compactTimer)
+      this.compact()
     }
   }
 
@@ -94,8 +94,12 @@ export default class InMemoryStorage extends AbstractStorage
   resolve(entry: IEntry, key: string): IAny {
     // @ts-ignore
     if (this.constructor.isExpiredEntry(entry)) {
+      if (key === 'baz1')
+        console.log('!!!', entry, key)
       return this.remove(key)
     }
+    if (key === 'baz2')
+      console.log('!!!', entry, key)
 
     return entry.value
   }
@@ -115,5 +119,4 @@ export default class InMemoryStorage extends AbstractStorage
       ? opts.clone(value)
       : echo(value)
   }
-
 }

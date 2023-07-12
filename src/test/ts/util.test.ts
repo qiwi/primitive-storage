@@ -1,3 +1,4 @@
+import {describe, it, expect} from 'abstractest'
 import {clone,processCycledRefs} from '../../main/ts/util'
 
 describe('util', () => {
