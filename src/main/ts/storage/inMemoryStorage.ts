@@ -1,10 +1,6 @@
-import {IAny, ICachedStorage, IEntry,IStorageOpts} from '../interface'
+import {IAny, ICachedStorage, IEntry,IStorageOpts, IData} from '../interface'
 import {clone, echo, repeat} from '../util'
 import AbstractStorage from './abstractStorage'
-
-export type IData = {
-  [key: string]: IEntry
-}
 
 export default class InMemoryStorage extends AbstractStorage
   implements ICachedStorage {

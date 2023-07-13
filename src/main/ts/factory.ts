@@ -1,24 +1,22 @@
 import type {IConstructor} from '@qiwi/substrate'
 
-import {IAny,ICachedStorage, IStorageOpts} from './interface'
+import { IAny,ICachedStorage, IFactoryOpts } from './interface'
 import {
   InMemoryStorage,
   PersistentJsonFileStorage,
   PersistentLocalStorage,
 } from './storage/index'
 
-type IOpts = IStorageOpts & {
-  path?: string
-}
+
 type IWindow = {document: IAny} | void
 
-export default (opts: IOpts = {}): ICachedStorage => {
+export default (opts: IFactoryOpts = {}): ICachedStorage => {
   const Constructor = getStorageConstructor(opts)
 
   return new Constructor(opts)
 }
 
-function getStorageConstructor(opts: IOpts): IConstructor<ICachedStorage> {
+function getStorageConstructor(opts: IFactoryOpts): IConstructor<ICachedStorage> {
   return opts.path
     ? isBrowser()
     ? PersistentLocalStorage
