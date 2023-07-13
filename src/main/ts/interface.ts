@@ -1,4 +1,4 @@
-import {IStorage} from '@qiwi/substrate'
+import type {IStorage, ICallable} from '@qiwi/substrate'
 
 export type IAny = any
 
@@ -17,10 +17,15 @@ export type IDebounceOpts = {
 export type IStorageOpts = {
   defaultTtl?: number
   debounce?: IDebounceOpts
-  clone?: boolean | Function
+  clone?: boolean | ICallable
   syncTimer?: number
   [key: string]: IAny
 }
+
+export type IFactoryOpts = IStorageOpts & {
+  path?: string
+}
+
 export interface ICachedStorage extends IStorage {
   data?: any,
   opts: IStorageOpts
@@ -42,3 +47,5 @@ export interface IIO {
   write(path: string, data: string): void
   read(path: string): any
 }
+
+export type IData = Record<string, IEntry>

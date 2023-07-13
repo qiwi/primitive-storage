@@ -1,4 +1,4 @@
-import {mock, describe, it, expect, before as beforeAll, after as afterAll} from 'abstractest'
+import {describe, it, expect, before as beforeAll, after as afterAll} from 'abstractest'
 
 import {fileURLToPath} from 'node:url'
 import * as fs from 'node:fs'
