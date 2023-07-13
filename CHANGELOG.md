@@ -1,3 +1,8 @@
+## [2.0.1](https://github.com/qiwi/primitive-storage/compare/v2.0.0...v2.0.1) (2023-07-13)
+
+### Fixes & improvements
+* fix: mark pkg as public ([b9f2c47](https://github.com/qiwi/primitive-storage/commit/b9f2c4728b732fac56aa8815c3fedfb88be64dda))
+
 ## [2.0.0](https://github.com/qiwi/primitive-storage/compare/v1.4.14...v2.0.0) (2023-07-13)
 
 ### Fixes & improvements
