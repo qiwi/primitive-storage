@@ -1,3 +1,13 @@
+## [2.0.0](https://github.com/qiwi/primitive-storage/compare/v1.4.14...v2.0.0) (2023-07-13)
+
+### Fixes & improvements
+* docs: copyedits ([97a6a9e](https://github.com/qiwi/primitive-storage/commit/97a6a9e2d4276cf2e30d8730f08e6b12d7dbaa0e))
+* refactor: move to esm and esbuild ([794bacd](https://github.com/qiwi/primitive-storage/commit/794bacd090ac0f9fd27e37cf5135bea494d939d1))
+* fix(deps): update dependency push-it-to-the-limit to v2 ([82b6523](https://github.com/qiwi/primitive-storage/commit/82b6523a3c1bb13b0228a8fad81f09b8c4b5d3c0))
+
+### BREAKING CHANGES
+* CJS → ESM ([794bacd](https://github.com/qiwi/primitive-storage/commit/794bacd090ac0f9fd27e37cf5135bea494d939d1))
+
 ## [1.4.14](https://github.com/qiwi/primitive-storage/compare/v1.4.13...v1.4.14) (2023-02-16)
 
 ### Fixes & improvements
