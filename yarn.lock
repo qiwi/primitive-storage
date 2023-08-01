@@ -23,12 +23,12 @@
     expect "^29.6.1"
     jest-snapshot "^29.6.1"
 
-"@abstractest/localstorage@^0.0.0":
-  version "0.0.0"
-  resolved "https://registry.yarnpkg.com/@abstractest/localstorage/-/localstorage-0.0.0.tgz#65535986447b180e5be5c8506db8b1137ba31460"
-  integrity sha512-E7iO84ik1zSo7LjlK1d7JlMEb7Wp/dDqLnXkLuZU91W6NC4u2/6nxpJavQaJEduQbGHf2NiqnyzfotYzR6r6AA==
+"@abstractest/localstorage@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@abstractest/localstorage/-/localstorage-0.0.1.tgz#451f976190e01066384a8af71cf424294b596a64"
+  integrity sha512-NA0GwkNOS3VglGb6bw5rCSIwQudsU8H4r13fIK7e1hXqA6cMJGStgVYaNp+1beq9Y6lpyvYsFaMfj475lh1w0g==
   dependencies:
-    "@abstractest/types" "0.5.0"
+    "@abstractest/types" "0.5.1"
 
 "@abstractest/mock@0.0.2":
   version "0.0.2"
@@ -53,6 +53,11 @@
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/@abstractest/types/-/types-0.5.0.tgz#ee9ae63faf984e0306d0cf76c10e42428bd1dc8e"
   integrity sha512-i9/bvCBi9SxHR+7VssJqp4tKxIYdAYz2y4Z5QkfHwg6AYstVg234FMY/bBF1TUk23dftliCS2tv0YePSAae3Vw==
+
+"@abstractest/types@0.5.1":
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@abstractest/types/-/types-0.5.1.tgz#c9f3d6fc0416a69cb32c92780b3a248ec4852d68"
+  integrity sha512-Yly4MRT+z5/OaulpP6fyeMWH4shr1XtiMX50bFPfERhV4zb/s3YqHvvBHvbrsEeD612Aehx1WCWy7HUELXbJZg==
 
 "@ampproject/remapping@^2.2.0":
   version "2.2.1"
